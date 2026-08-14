@@ -1,0 +1,6 @@
+# Configuración de la aplicación (YAML).
+# Ampliar según necesidades del dominio.
+
+app:
+  name: arbol-genealogico
+  locale: es
