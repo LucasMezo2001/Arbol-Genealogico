@@ -1,0 +1,2190 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>SIGA-AKIS .:. AHEB-BEHA</title>
+<link href="../../stilos.css" rel="stylesheet" type="text/css" />
+<link href="../../stilos-form.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript" src="../../includes/js_extranet_ca.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://www.centroicaro.net/fileadmin/icaro/flaccess.js"></script>
+</head>
+
+<body>
+<div id="cabecera">
+<div id="logotipo"><img src="../../imagenes/logo_cabecera.gif" alt="siga" width="600" height="24" longdesc="siga aheb sistema inet de gestion de archivos artxibpen kudeaketarako inet sistema" ></div>
+<div id="varios_menus">
+	<div id="menu1">
+		<ul class="menu_idiomas"><li>&nbsp;</li></ul>
+	</div>
+
+</div>
+<div id="adorno_cabecera"><div id="menu2">
+		<ul class="menu_idiomas">
+		<li><a href="../../index.php?idioma_cook=eu">eu</a></li>
+		<li><a href="../../index.php?idioma_cook=ca">es</a></li>
+		<li><a href="../../index.php?idioma_cook=en">en</a></li>
+		</ul>
+</div></div>
+
+<div id="menu_principal">
+	<div id="menu_prin_izda">
+	<div id="pestana_inicio"><a href="../portada/n_portada.php"> Inicio :: SIGA-AKIS </a></div>
+	<div id="registro"><a href="../indexacion/n_indexacion.php">Registros Sacramentales</a></div>
+	<div id="fondos"><a href="../catalogacion/n_catalogo.php">Catálogo General</a></div>
+	<div id="pestana_inicio"><a href="http://www.aheb-beha.org/" target="_blank">Web del Archivo</a></div>
+	<div id="facebook"><a href="http://www.facebook.com/aheb-beha/"><img src="../../imagenes/facebook.gif" width="90" height="26" alt="facebook" /></a></div>
+    <div id="pestana_botonicaro" >
+        <div id="out1">
+        <div id="in1"><a style="color:#990000;" target="_blank" href="http://www.centroicaro.net/">Centro Icaro</a></div>
+        </div>
+        <script  type="text/javascript">
+        // addFlash(postpone,minversion,path,width,height,node);
+        addFlash(0,8,"../../imagenes/boton-icaro.swf",150,26,"fl1,in1,out1");
+        </script>
+    </div>
+</div>
+
+<div id="menu_prin_dcha">
+  </div></div>
+
+
+</div>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-9661238-7']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script><div id="contendor_central">
+<div class="contenedorform">
+<div class="tituloform" style="width:97%; margin-bottom:0px;">CONSULTA DE REGISTROS SACRAMENTALES (1501-1900 inclusive)</div>
+
+<form action=""  method="post" name="form">
+<input type="hidden" name="accion"/>
+<input type="hidden" name="auxiliar" />
+<div id="pestanas2" >
+		<ul>
+			<li ><a href="n_indexacion.php">búsqueda simple</a></li>
+			<li><a href="n_indexacion_completa.php?sacramento=bautismo">búsqueda avanzada</a></li>
+            <li id="current"><a href="n_indexacion_especial.php?sacramento=bautismo">búsquedas especiales</a></li>
+		</ul>
+</div>
+<div id="contenido" > <a href="#" onclick="abrir_pop_up('../ayudas/ca_ayuda_indexacion.html')" class="stilobotonayuda">AYUDA</a>
+  <div class="left">
+    <ul>
+      <li><a href="#"onclick="abrir_pop_up('../ayudas/ca_ayuda_indexacion.html')">Ayuda a la consulta</a></li>
+
+		  <li class="nivel5"><a href="#" class="nivel4" onclick="window.open('../../localidades_indexadas/bautismos_indexados.html','PopUp','width=500,height=500,screenX=500,screenY=700,top=100,left=400,scrollbars=YES, resizable=YES')" ><strong>Parroquias con registros de BAUTISMOS en la web</strong></a></li>
+	      <li class="nivel5"><a href="#" class="nivel4" onclick="window.open('../../localidades_indexadas/matrimonios_indexados.html','PopUp','width=500,height=500,screenX=500,screenY=700,top=100,left=400,scrollbars=YES, resizable=YES')" ><strong>Parroquias con registros de MATRIMONIOS en la web</strong></a></li>
+	      <li class="nivel5"><a href="#" class="nivel4" onclick="window.open('../../localidades_indexadas/difuntos_indexados.html','PopUp','width=500,height=500,screenX=500,screenY=700,top=100,left=400,scrollbars=YES, resizable=YES')" ><strong>Parroquias con registros de DIFUNTOS en la web</strong></a></li>
+      </ul>
+    </div>
+
+  <div id="consejos" class="left">
+    <span class="nivel2">Caracteres
+      comod&iacute;n</span><br />
+    % (tanto por ciento: teclas May&uacute;s+%) sustituye a cualquier
+    caracter, por ejemplo: Echebarr%, para encontrar Echebarria, Echebarrieta.<br />
+    <br />
+    _ (gui&oacute;n bajo: teclas May&uacute;s+gui&oacute;n) sustituye
+    a un car&aacute;cter, por ejemplo: Gon_ale_, para encontrar Gonzalez,
+    Gonzales, Gonsales, Gon&ccedil;ales, Gon&ccedil;alez. <br />
+    <br />
+    Para mas informaci&oacute;n consulte la ayuda.  </div>
+
+    <div id="form_persona">
+    <strong>Sacramento: </strong>
+    <select name="sacramento" onchange="ejecutar('','actualizar')">
+      <option value="">-------------------</option>
+      <option value="bautismo"  selected>bautismo</option>
+      <option value="matrimonio" >matrimonio</option>
+      <option value="difunto" >defuncion</option>
+      </select>
+
+  </div>
+
+<div id="form_registro">
+<p>Localidad<img alt=""  src="../../imagenes/tab.gif"  width="20" height="8"><br />
+        <select name="id_localidad">
+          <option value=0>-------------</option>
+          <option value='1' >Abadiño  </option>
+<option value='2' >Abanto y Ciérvana-Abanto Zierbena  </option>
+<option value='3' >Ajangiz  </option>
+<option value='4' >Alonsotegi  </option>
+<option value='6' >Amorebieta-Etxano  </option>
+<option value='7' >Amoroto  </option>
+<option value='8' >Arakaldo  </option>
+<option value='9' >Arantzazu  </option>
+<option value='10' >Areatza  </option>
+<option value='11' >Arrankudiaga-Zollo  </option>
+<option value='12' >Arratzu  </option>
+<option value='13' >Arrieta (Libano de)  </option>
+<option value='14' >Arrigorriaga  </option>
+<option value='15' >Artea  </option>
+<option value='16' >Artzentales  </option>
+<option value='17' >Atxondo  </option>
+<option value='18' >Aulesti  </option>
+<option value='19' >Bakio  </option>
+<option value='20' >Balmaseda  </option>
+<option value='21' >Barakaldo  </option>
+<option value='22' >Barrika  </option>
+<option value='23' >Basauri  </option>
+<option value='24' >Bedia  </option>
+<option value='25' >Berango  </option>
+<option value='26' >Bermeo  </option>
+<option value='27' >Berriatua  </option>
+<option value='28' >Berriz  </option>
+<option value='29' selected>Bilbao  </option>
+<option value='30' >Busturia  </option>
+<option value='31' >Derio  </option>
+<option value='32' >Dima  </option>
+<option value='33' >Durango  </option>
+<option value='34' >Ea  </option>
+<option value='35' >Elantxobe  </option>
+<option value='36' >Elorrio  </option>
+<option value='37' >Erandio  </option>
+<option value='38' >Ereño  </option>
+<option value='39' >Ermua  </option>
+<option value='40' >Errigoiti  </option>
+<option value='41' >Etxebarri  </option>
+<option value='42' >Etxebarria  </option>
+<option value='43' >Forua  </option>
+<option value='44' >Fruiz  </option>
+<option value='56' >Güeñes  </option>
+<option value='45' >Galdakao  </option>
+<option value='46' >Galdames  </option>
+<option value='47' >Gamiz-Fika  </option>
+<option value='48' >Garai  </option>
+<option value='49' >Gatika  </option>
+<option value='50' >Gautegiz Arteaga  </option>
+<option value='51' >Gernika-Lumo  </option>
+<option value='52' >Getxo  </option>
+<option value='53' >Gizaburuaga  </option>
+<option value='54' >Gordexola  </option>
+<option value='55' >Gorliz  </option>
+<option value='57' >Ibarrangelu  </option>
+<option value='58' >Igorre  </option>
+<option value='59' >Ispaster  </option>
+<option value='60' >Iurreta  </option>
+<option value='61' >Izurtza  </option>
+<option value='62' >Karrantza Harana/Valle de Carranza  </option>
+<option value='63' >Kortezubi  </option>
+<option value='64' >Lanestosa  </option>
+<option value='65' >Larrabetzu  </option>
+<option value='66' >Laukiz  </option>
+<option value='67' >Leioa  </option>
+<option value='68' >Lekeitio  </option>
+<option value='69' >Lemoa  </option>
+<option value='70' >Lemoiz  </option>
+<option value='71' >Lezama  </option>
+<option value='72' >Loiu  </option>
+<option value='76' >Mañaria  </option>
+<option value='73' >Mallabia  </option>
+<option value='74' >Markina-Xemein  </option>
+<option value='75' >Maruri-Jatabe  </option>
+<option value='79' >Meñaka  </option>
+<option value='77' >Mendata  </option>
+<option value='78' >Mendexa  </option>
+<option value='80' >Morga  </option>
+<option value='81' >Mundaka  </option>
+<option value='82' >Mungia  </option>
+<option value='83' >Munitibar-Arbatzegi Gerrikaitz  </option>
+<option value='84' >Murueta  </option>
+<option value='85' >Muskiz  </option>
+<option value='86' >Muxika  </option>
+<option value='87' >Nabarniz  </option>
+<option value='88' >Ondarroa  </option>
+<option value='89' >Orozko  </option>
+<option value='90' >Ortuella  </option>
+<option value='91' >Otxandio  </option>
+<option value='92' >Plentzia  </option>
+<option value='93' >Portugalete  </option>
+<option value='94' >Santurtzi  </option>
+<option value='95' >Sestao  </option>
+<option value='96' >Sondika  </option>
+<option value='97' >Sopela  </option>
+<option value='98' >Sopuerta  </option>
+<option value='99' >Sukarrieta  </option>
+<option value='100' >Trucios-Turtzioz  </option>
+<option value='101' >Ubidea  </option>
+<option value='102' >Ugao-Miraballes  </option>
+<option value='104' >Urduña/Orduña  </option>
+<option value='103' >Urduliz  </option>
+<option value='115' >Usansolo  </option>
+<option value='105' >Valle de Trápaga-Trapagaran  </option>
+<option value='106' >Valle de Villaverde (Villaverde de Trucíos)  </option>
+<option value='107' >Zaldibar  </option>
+<option value='108' >Zalla  </option>
+<option value='109' >Zamudio  </option>
+<option value='110' >Zaratamo  </option>
+<option value='111' >Zeanuri  </option>
+<option value='112' >Zeberio  </option>
+<option value='113' >Zierbena  </option>
+<option value='114' >Ziortza-Bolibar  </option>
+        </select>
+        <a href="../catalogacion/n_localidades.php" target="_blank" >
+          <img alt=""  src="../../imagenes/iconos/ojo.gif" width="16" height="16" border="0" /></a></p>
+        <p>Fecha concreta o intervalo (hasta 1900)<br />
+          <input name="fecha_form_ini_esp" type="text" value="1850"  size="15" />
+          <input name="fecha_form_fin_esp" type="text" value="1852" size="15" />
+          <br />
+          Intervalo recomendado 10 años</span></p>
+  </div>
+  <div  class="formbotones">
+  <a href="#"  class="stiloboton"   onclick="validar_indexacion_especial('n_indexacion_especial.php#buscar','buscar')">Buscar</a>
+  <a href="n_indexacion_especial.php" class="stiloboton">Limpiar</a>
+
+  </div>
+
+
+</div>
+</form>
+<div id="cargando" style="margin: 10px 0 0 0; text-align: center; display:none;">
+	Buscando...<br />
+	<img src="../../imagenes/ajax-loader.gif" alt="Cargando..." />
+</div>
+<a name="buscar"></a>
+
+    <link href="../../stilos.css" rel="stylesheet" type="text/css" />
+    <link href="../../stilos-form.css" rel="stylesheet" type="text/css" />
+    <p align="center" class="letras">&nbsp;</p>
+    <table align="center" cellpadding="3"  cellspacing="2" >
+        <tr>
+            <td colspan="9" valign="top" class="nota2pie"><div align="left">
+                    <strong>Registros encontrados <span class="nivel5">2689</span>. Mostrando del <span class="nivel5">101</span> al <span class="nivel5">200</span>.<br /><a href="?accion=buscar&auxiliar=&sacramento=bautismo&id_localidad=29&fecha_form_ini_esp=1850&fecha_form_fin_esp=1852&resultpage=1#buscar">&#9668;Anterior</a> <a href="?accion=buscar&auxiliar=&sacramento=bautismo&id_localidad=29&fecha_form_ini_esp=1850&fecha_form_fin_esp=1852&resultpage=1#buscar">1</a> 2 <a href="?accion=buscar&auxiliar=&sacramento=bautismo&id_localidad=29&fecha_form_ini_esp=1850&fecha_form_fin_esp=1852&resultpage=3#buscar">3</a> <a href="?accion=buscar&auxiliar=&sacramento=bautismo&id_localidad=29&fecha_form_ini_esp=1850&fecha_form_fin_esp=1852&resultpage=4#buscar">4</a> <a href="?accion=buscar&auxiliar=&sacramento=bautismo&id_localidad=29&fecha_form_ini_esp=1850&fecha_form_fin_esp=1852&resultpage=5#buscar">5</a> <a href="?accion=buscar&auxiliar=&sacramento=bautismo&id_localidad=29&fecha_form_ini_esp=1850&fecha_form_fin_esp=1852&resultpage=6#buscar">6</a> <a href="?accion=buscar&auxiliar=&sacramento=bautismo&id_localidad=29&fecha_form_ini_esp=1850&fecha_form_fin_esp=1852&resultpage=7#buscar">7</a> <a href="?accion=buscar&auxiliar=&sacramento=bautismo&id_localidad=29&fecha_form_ini_esp=1850&fecha_form_fin_esp=1852&resultpage=8#buscar">8</a> <a href="?accion=buscar&auxiliar=&sacramento=bautismo&id_localidad=29&fecha_form_ini_esp=1850&fecha_form_fin_esp=1852&resultpage=9#buscar">9</a> <a href="?accion=buscar&auxiliar=&sacramento=bautismo&id_localidad=29&fecha_form_ini_esp=1850&fecha_form_fin_esp=1852&resultpage=10#buscar">10</a> <a href="?accion=buscar&auxiliar=&sacramento=bautismo&id_localidad=29&fecha_form_ini_esp=1850&fecha_form_fin_esp=1852&resultpage=11#buscar">11</a> <a href="?accion=buscar&auxiliar=&sacramento=bautismo&id_localidad=29&fecha_form_ini_esp=1850&fecha_form_fin_esp=1852&resultpage=12#buscar">12</a> <a href="?accion=buscar&auxiliar=&sacramento=bautismo&id_localidad=29&fecha_form_ini_esp=1850&fecha_form_fin_esp=1852&resultpage=13#buscar">13</a> <a href="?accion=buscar&auxiliar=&sacramento=bautismo&id_localidad=29&fecha_form_ini_esp=1850&fecha_form_fin_esp=1852&resultpage=14#buscar">14</a> <a href="?accion=buscar&auxiliar=&sacramento=bautismo&id_localidad=29&fecha_form_ini_esp=1850&fecha_form_fin_esp=1852&resultpage=15#buscar">15</a> <a href="?accion=buscar&auxiliar=&sacramento=bautismo&id_localidad=29&fecha_form_ini_esp=1850&fecha_form_fin_esp=1852&resultpage=16#buscar">16</a> <a href="?accion=buscar&auxiliar=&sacramento=bautismo&id_localidad=29&fecha_form_ini_esp=1850&fecha_form_fin_esp=1852&resultpage=17#buscar">17</a> <a href="?accion=buscar&auxiliar=&sacramento=bautismo&id_localidad=29&fecha_form_ini_esp=1850&fecha_form_fin_esp=1852&resultpage=18#buscar">18</a> <a href="?accion=buscar&auxiliar=&sacramento=bautismo&id_localidad=29&fecha_form_ini_esp=1850&fecha_form_fin_esp=1852&resultpage=19#buscar">19</a> <a href="?accion=buscar&auxiliar=&sacramento=bautismo&id_localidad=29&fecha_form_ini_esp=1850&fecha_form_fin_esp=1852&resultpage=20#buscar">20</a> <a href="?accion=buscar&auxiliar=&sacramento=bautismo&id_localidad=29&fecha_form_ini_esp=1850&fecha_form_fin_esp=1852&resultpage=21#buscar">21</a> <a href="?accion=buscar&auxiliar=&sacramento=bautismo&id_localidad=29&fecha_form_ini_esp=1850&fecha_form_fin_esp=1852&resultpage=22#buscar">22</a> <a href="?accion=buscar&auxiliar=&sacramento=bautismo&id_localidad=29&fecha_form_ini_esp=1850&fecha_form_fin_esp=1852&resultpage=23#buscar">23</a> <a href="?accion=buscar&auxiliar=&sacramento=bautismo&id_localidad=29&fecha_form_ini_esp=1850&fecha_form_fin_esp=1852&resultpage=24#buscar">24</a> <a href="?accion=buscar&auxiliar=&sacramento=bautismo&id_localidad=29&fecha_form_ini_esp=1850&fecha_form_fin_esp=1852&resultpage=25#buscar">25</a> <a href="?accion=buscar&auxiliar=&sacramento=bautismo&id_localidad=29&fecha_form_ini_esp=1850&fecha_form_fin_esp=1852&resultpage=26#buscar">26</a> <a href="?accion=buscar&auxiliar=&sacramento=bautismo&id_localidad=29&fecha_form_ini_esp=1850&fecha_form_fin_esp=1852&resultpage=27#buscar">27</a> <a href="?accion=buscar&auxiliar=&sacramento=bautismo&id_localidad=29&fecha_form_ini_esp=1850&fecha_form_fin_esp=1852&resultpage=3#buscar">Siguiente&#9658;</a>                 </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="9" class="nota2pie"><span class="letras"><img alt="ficha"  src="../../imagenes/iconos/ficha_fondo.gif" border="0" />Detalles del registro sacramental  &bull;   <img src="../../imagenes/iconos/windows.gif" alt="icono pop up" width="17" height="17" /> Detalles del registro sacramental en NUEVA VENTANA                      </span></td>
+        </tr>
+        <tr class="cabsubtabla">
+            <td>ID bautismo</td>
+            <td><a href="?accion=buscar&auxiliar=&sacramento=bautismo&id_localidad=29&fecha_form_ini_esp=1850&fecha_form_fin_esp=1852&order=apellido1">Apellidos, Nombre</a></td>
+            <td><a href="?accion=buscar&auxiliar=&sacramento=bautismo&id_localidad=29&fecha_form_ini_esp=1850&fecha_form_fin_esp=1852&order=sexo">Sexo</a></td>
+                        <td><a href="?accion=buscar&auxiliar=&sacramento=bautismo&id_localidad=29&fecha_form_ini_esp=1850&fecha_form_fin_esp=1852&order=fecha_form_ini">Fecha</a></td>
+            <td><a href="?accion=buscar&auxiliar=&sacramento=bautismo&id_localidad=29&fecha_form_ini_esp=1850&fecha_form_fin_esp=1852&order=t_localidad,div_loc">Localidad</a></td>
+            <td><a href="?accion=buscar&auxiliar=&sacramento=bautismo&id_localidad=29&fecha_form_ini_esp=1850&fecha_form_fin_esp=1852&order=f4_desc_ca">Fondo</a></td>
+            <td width="40"></td>
+        </tr>
+                    <tr>
+                <td class="subtabla" >69546</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=69546" class="link" > Alberdi, Uriondo, Juan</a>
+                    <br />
+                    [Padre] Alberdi, Liza, Santos                    <br />
+                    [Madre] Uriondo, Aspiazu, Rufina                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1850-04-20</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    Santos Juanes                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=69546"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=69546&sin_cabecera=true', 'pop69546');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >51885</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=51885" class="link" > Albistur, Madariaga, Victoria Amalia</a>
+                    <br />
+                    [Padre] Albistur, Echeverria, Juan                    <br />
+                    [Madre] Madariaga, Uribarri, Elbira                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1850-12-23</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    San Nicolás de Bari                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=51885"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=51885&sin_cabecera=true', 'pop51885');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >69883</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=69883" class="link" > Albisu, Pichaut, Luis Felipe</a>
+                    <br />
+                    [Padre] Albisu, Arana, José Pablo                    <br />
+                    [Madre] Pichaut, Ortega, Juana Escolastica                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1852-09-14</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    Santos Juanes                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=69883"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=69883&sin_cabecera=true', 'pop69883');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >52043</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=52043" class="link" > Albisua, Murua, Maria Encarnacion Josefa Javiera</a>
+                    <br />
+                    [Padre] Albisua, Lasartegui, Jose                    <br />
+                    [Madre] Murua, Yzaguirre, Brigida                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1852-05-19</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    San Nicolás de Bari                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=52043"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=52043&sin_cabecera=true', 'pop52043');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >2848</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=2848" class="link" > Albisua, Puente, Ciriaco</a>
+                    <br />
+                    [Padre] Albisua, Lopez de Letona, Juan                    <br />
+                    [Madre] Puente, Ansa, Eduvigis                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1852-04-07</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    Señor Santiago                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=2848"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=2848&sin_cabecera=true', 'pop2848');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >41804</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=41804" class="link" > Albizua, Amezcaray, José Maria</a>
+                    <br />
+                    [Padre] Albizua, Azcaray, Gaspar                     <br />
+                    [Madre] Amezcaray, Bocanola, Josefa                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1851-02-02</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    San Antonio Abad                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=41804"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=41804&sin_cabecera=true', 'pop41804');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >52088</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=52088" class="link" > Albizua, Maguregui, Geronimo Rufino</a>
+                    <br />
+                    [Padre] Albizua, Larrinaga, Jose                    <br />
+                    [Madre] Maguregui, Beascoechea, Francisca                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1852-09-30</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    San Nicolás de Bari                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=52088"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=52088&sin_cabecera=true', 'pop52088');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >51884</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=51884" class="link" > Albizua, Murua, Maria Encarnacion Saturnina Flora</a>
+                    <br />
+                    [Padre] Albizua, Larrinaga, Jose                    <br />
+                    [Madre] Murua, Yzaguirre, Brigida                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1850-12-18</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    San Nicolás de Bari                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=51884"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=51884&sin_cabecera=true', 'pop51884');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >51902</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=51902" class="link" > Alboniga, Zurbano, Romualdo Doroteo</a>
+                    <br />
+                    [Padre] Alboniga, Artolazabal, Eusebio                    <br />
+                    [Madre] Zurbano, Oceta, Dominica                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1851-02-07</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    San Nicolás de Bari                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=51902"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=51902&sin_cabecera=true', 'pop51902');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >230419</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=230419" class="link" > Alcorta, Aldape, Lucia</a>
+                    <br />
+                    [Padre] Alcorta, Diez, Tomas                    <br />
+                    [Madre] Aldape, Usabel, Francisca                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1851-03-03</td>
+                <td class="subtabla"  >
+                    Bilbao-Begoña                </td>
+                <td class="subtabla"  >
+                    Santa María de Begoña                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=230419"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=230419&sin_cabecera=true', 'pop230419');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >2645</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=2645" class="link" > Alcorta, Ynchaurve, Elvira Gabriela</a>
+                    <br />
+                    [Padre] Alcorta, Alberdi, Juan Balentin                    <br />
+                    [Madre] Ynchaurve, Escurra, Juana Agustina                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1850-10-06</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    Señor Santiago                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=2645"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=2645&sin_cabecera=true', 'pop2645');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >230661</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=230661" class="link" > Alcorta, Yturri, Lucila</a>
+                    <br />
+                    [Padre] Alcorta, Zavaleta, Juan Manuel                    <br />
+                    [Madre] Yturri, Echevarria, Ysabel                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1852-11-01</td>
+                <td class="subtabla"  >
+                    Bilbao-Begoña                </td>
+                <td class="subtabla"  >
+                    Santa María de Begoña                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=230661"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=230661&sin_cabecera=true', 'pop230661');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >69721</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=69721" class="link" > Aldanondo, Zubelzu, Jacinta Josefa</a>
+                    <br />
+                    [Padre] Aldanondo, Goiburu, José Julian                    <br />
+                    [Madre] Zubelzu, Zulaibar, Mauricia                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1851-09-11</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    Santos Juanes                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=69721"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=69721&sin_cabecera=true', 'pop69721');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >199306</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=199306" class="link" > Alday, Aldecoa, Camila Carmen</a>
+                    <br />
+                    [Padre] Alday, Bidarte, Bernardino                    <br />
+                    [Madre] Aldecoa, Asla, Victora                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1852-07-16</td>
+                <td class="subtabla"  >
+                    Bilbao-Abando - Albia                </td>
+                <td class="subtabla"  >
+                    San Vicente Mártir                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=199306"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=199306&sin_cabecera=true', 'pop199306');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >199137</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=199137" class="link" > Alday, Aresqueta, Salustiano Felix</a>
+                    <br />
+                    [Padre] Alday, Garcia, Ygnacio                    <br />
+                    [Madre] Aresqueta, Lezama, Josefa                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1851-06-08</td>
+                <td class="subtabla"  >
+                    Bilbao-Abando - Albia                </td>
+                <td class="subtabla"  >
+                    San Vicente Mártir                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=199137"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=199137&sin_cabecera=true', 'pop199137');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >199256</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=199256" class="link" > Alday, Cardon, Venancio José</a>
+                    <br />
+                    [Padre] Alday, Garavilla, José Manuel                    <br />
+                    [Madre] Cardon, Elguera, Francisca                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1852-04-01</td>
+                <td class="subtabla"  >
+                    Bilbao-Abando - Albia                </td>
+                <td class="subtabla"  >
+                    San Vicente Mártir                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=199256"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=199256&sin_cabecera=true', 'pop199256');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >199037</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=199037" class="link" > Alday, Cardon, Eustaquia</a>
+                    <br />
+                    [Padre] Alday, Garabilla, Jose Manuel                    <br />
+                    [Madre] Cardon, Laesquerra, Francisca                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1850-11-03</td>
+                <td class="subtabla"  >
+                    Bilbao-Abando - Albia                </td>
+                <td class="subtabla"  >
+                    San Vicente Mártir                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=199037"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=199037&sin_cabecera=true', 'pop199037');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >2659</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=2659" class="link" > Alday, Eugercios, María Cruz Romana</a>
+                    <br />
+                    [Padre] Alday, Usobiaga, Manuel                    <br />
+                    [Madre] Eugercios, Bengoechea, Juana Josefa                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1850-11-18</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    Señor Santiago                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=2659"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=2659&sin_cabecera=true', 'pop2659');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >199106</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=199106" class="link" > Alday, Jaica, Raymunda</a>
+                    <br />
+                    [Padre] Alday, Castaños, Francisco                    <br />
+                    [Madre] Jaica, Justillo, Bernarda                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1851-03-16</td>
+                <td class="subtabla"  >
+                    Bilbao-Abando - Albia                </td>
+                <td class="subtabla"  >
+                    San Vicente Mártir                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=199106"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=199106&sin_cabecera=true', 'pop199106');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >41650</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=41650" class="link" > Alday, Menchaca, Hilario Antonio</a>
+                    <br />
+                    [Padre] Alday, Usubiaga, Fernado                    <br />
+                    [Madre] Menchaca, Cucullu, Maria Jesus                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1850-01-15</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    San Antonio Abad                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=41650"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=41650&sin_cabecera=true', 'pop41650');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >230655</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=230655" class="link" > Alday, Sarasola, Florentino</a>
+                    <br />
+                    [Padre] Alday, Azua, Juan José                     <br />
+                    [Madre] Sarasola, Orroño, Josefa                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1852-10-16</td>
+                <td class="subtabla"  >
+                    Bilbao-Begoña                </td>
+                <td class="subtabla"  >
+                    Santa María de Begoña                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=230655"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=230655&sin_cabecera=true', 'pop230655');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >230381</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=230381" class="link" > Alday, Sarasola, Juan José</a>
+                    <br />
+                    [Padre] Alday, Azua, Juan José                    <br />
+                    [Madre] Sarasola, Orroño, Maria Josefa                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1850-11-09</td>
+                <td class="subtabla"  >
+                    Bilbao-Begoña                </td>
+                <td class="subtabla"  >
+                    Santa María de Begoña                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=230381"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=230381&sin_cabecera=true', 'pop230381');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >2863</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=2863" class="link" > Aldecoa, Echevarria, María Dolores</a>
+                    <br />
+                    [Padre] Aldecoa, Landa, Manuel                    <br />
+                    [Madre] Echevarria, Echevarria, Josefa                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1852-05-21</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    Señor Santiago                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=2863"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=2863&sin_cabecera=true', 'pop2863');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >60234</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=60234" class="link" > Aldecoa, Echevarria, Pio Gabriel</a>
+                    <br />
+                    [Padre] Aldecoa, Landa, Manuel                    <br />
+                    [Madre] Echevarria, Echevarria, Josefa                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1850-07-11</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    Señor Santiago                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=60234"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=60234&sin_cabecera=true', 'pop60234');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >104614</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=104614" class="link" > Aldecoa, Larrasquitu, Reimundo</a>
+                    <br />
+                    [Padre] Aldecoa, Arana, Pedro Miguel                    <br />
+                    [Madre] Larrasquitu, Zarraga, Petra Buena Bentura                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1851-03-16</td>
+                <td class="subtabla"  >
+                    Bilbao-Deusto                </td>
+                <td class="subtabla"  >
+                    San Pedro Apóstol                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=104614"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=104614&sin_cabecera=true', 'pop104614');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >41741</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=41741" class="link" > Aldecoa, Yturrioz, Liborio Cristino</a>
+                    <br />
+                    [Padre] Aldecoa, Arlabeitia, Domingo                    <br />
+                    [Madre] Yturrioz, Mendia, Marisa                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1850-07-24</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    San Antonio Abad                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=41741"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=41741&sin_cabecera=true', 'pop41741');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >104387</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=104387" class="link" > Alegria, Beitia, Tomas Martin</a>
+                    <br />
+                    [Padre] Alegria, Zamensa, Nicolas                    <br />
+                    [Madre] Beitia, Aramburu, Maria Jesus                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1852-03-09</td>
+                <td class="subtabla"  >
+                    Bilbao-Deusto                </td>
+                <td class="subtabla"  >
+                    San Pedro Apóstol                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=104387"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=104387&sin_cabecera=true', 'pop104387');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >41994</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=41994" class="link" > Allende, Ancheta, Juan</a>
+                    <br />
+                    [Padre] Allende, Mirategui, Santiago                    <br />
+                    [Madre] Ancheta, Jauregui, Gregoria                 </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1852-06-03</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    San Antonio Abad                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=41994"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=41994&sin_cabecera=true', 'pop41994');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >42052</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=42052" class="link" > Allende, Uribarri, Rufina</a>
+                    <br />
+                    [Padre] Allende, Garay, Ramon                     <br />
+                    [Madre] Uribarri, Eguia, Magdalena                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1852-11-17</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    San Antonio Abad                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=42052"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=42052&sin_cabecera=true', 'pop42052');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >198952</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=198952" class="link" > Allende, Urquijo, Juan Victor</a>
+                    <br />
+                    [Padre] Allende, Gordolis, Juan Domingo                    <br />
+                    [Madre] Urquijo, Arana, Simona                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1850-04-13</td>
+                <td class="subtabla"  >
+                    Bilbao-Abando - Albia                </td>
+                <td class="subtabla"  >
+                    San Vicente Mártir                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=198952"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=198952&sin_cabecera=true', 'pop198952');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >199239</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=199239" class="link" > Allendesalazar, Gacitua, Federico Diego Baldomero Antonio</a>
+                    <br />
+                    [Padre] Allendesalazar, Mazarredo, José                    <br />
+                    [Madre] Gacitua, Ampudia, Maria Rita                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1852-02-28</td>
+                <td class="subtabla"  >
+                    Bilbao-Abando - Albia                </td>
+                <td class="subtabla"  >
+                    San Vicente Mártir                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=199239"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=199239&sin_cabecera=true', 'pop199239');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >51976</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=51976" class="link" > Alonso, Fulday, Maria Theresa</a>
+                    <br />
+                    [Padre] Alonso, Alonso, Manuel                    <br />
+                    [Madre] Fulday, Arrimbe, Fermina                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1851-10-14</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    San Nicolás de Bari                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=51976"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=51976&sin_cabecera=true', 'pop51976');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >51804</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=51804" class="link" > Alonso, Fulday, Leona Elisa</a>
+                    <br />
+                    [Padre] Alonso, Alonso, Manuel                    <br />
+                    [Madre] Fulday, Larrimbe, Fermina                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1850-04-12</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    San Nicolás de Bari                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=51804"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=51804&sin_cabecera=true', 'pop51804');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >69692</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=69692" class="link" > Alonso, Guinla, Josefa Salustiana</a>
+                    <br />
+                    [Padre] Alonso, Fuente, Dionisio                    <br />
+                    [Madre] Guinla, Sagun, Francisca                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1851-06-08</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    Santos Juanes                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=69692"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=69692&sin_cabecera=true', 'pop69692');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >51806</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=51806" class="link" > Alonso, Guinla, Marcelino</a>
+                    <br />
+                    [Padre] Alonso, Fuente, Dionicio                    <br />
+                    [Madre] Guinla, Sainz, Francisca                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1850-04-26</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    San Nicolás de Bari                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=51806"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=51806&sin_cabecera=true', 'pop51806');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >42044</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=42044" class="link" > Alonso, Mantecon, Hilaria</a>
+                    <br />
+                    [Padre] Alonso, Alonso, Juan                    <br />
+                    [Madre] Mantecon, Celis, Maria                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1852-10-29</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    San Antonio Abad                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=42044"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=42044&sin_cabecera=true', 'pop42044');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >69871</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=69871" class="link" > Alonso, Segura, Vicenta Cristina</a>
+                    <br />
+                    [Padre] Alonso, Fuente, Dionisio                     <br />
+                    [Madre] Guinla, Sagun, Francisca                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1852-09-01</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    Santos Juanes                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=69871"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=69871&sin_cabecera=true', 'pop69871');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >42017</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=42017" class="link" > Alonso de Celada, Cerrillos, Ygnacio German</a>
+                    <br />
+                    [Padre] Alonso de Celada, Somonte, José                    <br />
+                    [Madre] Cerrillos, Martinez, Rafaela                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1852-07-31</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    San Antonio Abad                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=42017"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=42017&sin_cabecera=true', 'pop42017');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >41749</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=41749" class="link" > Alquegui, Mericaechevarria, Sinforiano Felipe</a>
+                    <br />
+                    [Padre] Alquegui, Barturen, Juan                    <br />
+                    [Madre] Mericaechevarria, Arrizabalaga, Dominga                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1850-08-23</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    San Antonio Abad                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=41749"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=41749&sin_cabecera=true', 'pop41749');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >51973</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=51973" class="link" > Altube, Uribe Echevarria, Maria Pilar</a>
+                    <br />
+                    [Padre] Altube, Arenaza, Francisco                    <br />
+                    [Madre] Uribe Echevarria, Yruretagoyena, Agustina                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1851-10-12</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    San Nicolás de Bari                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=51973"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=51973&sin_cabecera=true', 'pop51973');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >51777</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=51777" class="link" > Altube, Uribe Echevarria, Aquilina</a>
+                    <br />
+                    [Padre] Altube, Arenaza, Francisco                    <br />
+                    [Madre] Uribe Echevarria, Yruetagoyena, Agustina                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1850-01-04</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    San Nicolás de Bari                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=51777"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=51777&sin_cabecera=true', 'pop51777');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >51887</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=51887" class="link" > Altuna, Badiola, Ysidoro</a>
+                    <br />
+                    [Padre] Altuna, Larramendi, Jose Antonio                    <br />
+                    [Madre] Badiola, Ycerna, Ramona                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1851-01-03</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    San Nicolás de Bari                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=51887"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=51887&sin_cabecera=true', 'pop51887');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >199291</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=199291" class="link" > Altuna, Echevarria, Prima Manuela</a>
+                    <br />
+                    [Padre] Altuna, Garay, Agustin                    <br />
+                    [Madre] Echevarria, Arguenguren, Rafaela                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1852-06-09</td>
+                <td class="subtabla"  >
+                    Bilbao-Abando - Albia                </td>
+                <td class="subtabla"  >
+                    San Vicente Mártir                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=199291"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=199291&sin_cabecera=true', 'pop199291');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >230519</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=230519" class="link" > Alvarez, Garcia, Maria Antonia</a>
+                    <br />
+                    [Padre] Alvarez, Moreno, Pedro Maria                    <br />
+                    [Madre] Garcia, Plano, Dolores                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1851-11-26</td>
+                <td class="subtabla"  >
+                    Bilbao-Begoña                </td>
+                <td class="subtabla"  >
+                    Santa María de Begoña                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=230519"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=230519&sin_cabecera=true', 'pop230519');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >230362</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=230362" class="link" > Alvístegui, Unzueta, Regina Amalia</a>
+                    <br />
+                    [Padre] Alvístegui, Telleria, Francisco                    <br />
+                    [Madre] Unzueta, Bengoa, Vicenta                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1850-09-07</td>
+                <td class="subtabla"  >
+                    Bilbao-Begoña                </td>
+                <td class="subtabla"  >
+                    Santa María de Begoña                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=230362"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=230362&sin_cabecera=true', 'pop230362');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >41824</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=41824" class="link" > Alverdi, Yturburu, Juan Climaco Ramon</a>
+                    <br />
+                    [Padre] Alverdi, Elorza, José Maria                     <br />
+                    [Madre] Yturburu, Azcarzua, Ursula                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1851-03-30</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    San Antonio Abad                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=41824"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=41824&sin_cabecera=true', 'pop41824');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >2675</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=2675" class="link" > Alzaga, Barua, Luis Antonio</a>
+                    <br />
+                    [Padre] Alzaga, Garay, Miguel Yginio                    <br />
+                    [Madre] Barua, Arriaga, Saturnina                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1851-01-17</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    Señor Santiago                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=2675"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=2675&sin_cabecera=true', 'pop2675');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >199146</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=199146" class="link" > Alzaga, Torre, Tomas Trifon</a>
+                    <br />
+                    [Padre] Alzaga, Garibe, Felipe                    <br />
+                    [Madre] Torre, Araluce, Agustina                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1851-07-03</td>
+                <td class="subtabla"  >
+                    Bilbao-Abando - Albia                </td>
+                <td class="subtabla"  >
+                    San Vicente Mártir                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=199146"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=199146&sin_cabecera=true', 'pop199146');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >230539</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=230539" class="link" > Amézaga, Eizaga, Manuel Pedro</a>
+                    <br />
+                    [Padre] Amézaga, Rivas, José Martin Hilarion                    <br />
+                    [Madre] Eizaga, Pagoaga, Brígida Pilar                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1852-01-01</td>
+                <td class="subtabla"  >
+                    Bilbao-Begoña                </td>
+                <td class="subtabla"  >
+                    Santa María de Begoña                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=230539"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=230539&sin_cabecera=true', 'pop230539');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >51954</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=51954" class="link" > Amalric, Andreu, Juan Victor</a>
+                    <br />
+                    [Padre] Amalric, Hibert, Bartolome Santiago                    <br />
+                    [Madre] Andreu, Faure, Maria                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1851-07-28</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    San Nicolás de Bari                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=51954"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=51954&sin_cabecera=true', 'pop51954');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >41990</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=41990" class="link" > Amann, Bulfi - Martinez, Manuel Ramon Victor</a>
+                    <br />
+                    [Padre] Amann, Palme, Emiliano                    <br />
+                    [Madre] Bulfi - Martinez, Gazmuri, Juana                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1852-05-14</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    San Antonio Abad                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=41990"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=41990&sin_cabecera=true', 'pop41990');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >41851</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=41851" class="link" > Amann, Bulfi - Martinez, José Ysaac</a>
+                    <br />
+                    [Padre] Amann, Palme, Emiliano                    <br />
+                    [Madre] Bulfi - Martinez, Gazmuri, Juana                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1851-06-03</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    San Antonio Abad                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=41851"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=41851&sin_cabecera=true', 'pop41851');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >41904</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=41904" class="link" > Amat, Azcaray, Juliana Venancia</a>
+                    <br />
+                    [Padre] Amat, Baileras, Vicente                    <br />
+                    [Madre] Azcaray, Aspe, Victoriana                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1851-10-07</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    San Antonio Abad                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=41904"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=41904&sin_cabecera=true', 'pop41904');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >41778</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=41778" class="link" > Amazaga, Vidaurrazaga, Ramon</a>
+                    <br />
+                    [Padre] Amazaga, Larrazabal, José                    <br />
+                    [Madre] Vidaurrazaga, Astobieta, Ramona                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1850-12-04</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    San Antonio Abad                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=41778"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=41778&sin_cabecera=true', 'pop41778');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >42029</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=42029" class="link" > Amendivar, Monasterio, Estefana Lorenza</a>
+                    <br />
+                    [Padre] Amendivar, Arando, Francisco                     <br />
+                    [Madre] Monasterio, Zarribeitia, Maria Antonia                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1852-09-03</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    San Antonio Abad                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=42029"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=42029&sin_cabecera=true', 'pop42029');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >41707</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=41707" class="link" > Amendivar, Monasterio, Sotera</a>
+                    <br />
+                    [Padre] Amendivar, Arando, Francisco                    <br />
+                    [Madre] Monasterio, Zarrabeitia, Maria Antonia                 </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1850-04-22</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    San Antonio Abad                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=41707"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=41707&sin_cabecera=true', 'pop41707');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >104649</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=104649" class="link" > Amesaga, Bilbao, Francisca Feliciana</a>
+                    <br />
+                    [Padre] Amesaga, Andicoechea, Ramon                    <br />
+                    [Madre] Bilbao, Amezaga, Maria Juana                 </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1850-09-14</td>
+                <td class="subtabla"  >
+                    Bilbao-Deusto                </td>
+                <td class="subtabla"  >
+                    San Pedro Apóstol                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=104649"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=104649&sin_cabecera=true', 'pop104649');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >69682</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=69682" class="link" > Amesarri, Errecachu, Dolores Engracia</a>
+                    <br />
+                    [Padre] Amesarri, Loroño, Jose Genaro                    <br />
+                    [Madre] Errecachu, Eguía, Manuela                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1851-04-17</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    Santos Juanes                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=69682"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=69682&sin_cabecera=true', 'pop69682');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >199093</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=199093" class="link" > Amezaga, Aldecoa, Jacoba Romana</a>
+                    <br />
+                    [Padre] Amezaga, Olagorta, Celestino                    <br />
+                    [Madre] Aldecoa, Goioaga, Francisca                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1851-02-28</td>
+                <td class="subtabla"  >
+                    Bilbao-Abando - Albia                </td>
+                <td class="subtabla"  >
+                    San Vicente Mártir                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=199093"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=199093&sin_cabecera=true', 'pop199093');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >104324</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=104324" class="link" > Amezaga, Bilbao, Ramon Luis Ygnacio</a>
+                    <br />
+                    [Padre] Amezaga, Andicoechea, Ramon                    <br />
+                    [Madre] Bilbao, Amezaga, Maria Juana                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1852-07-31</td>
+                <td class="subtabla"  >
+                    Bilbao-Deusto                </td>
+                <td class="subtabla"  >
+                    San Pedro Apóstol                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=104324"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=104324&sin_cabecera=true', 'pop104324');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >51850</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=51850" class="link" > Amezaga, Carvajal, Josefa Mercedes</a>
+                    <br />
+                    [Padre] Amezaga, Barinaga, Joaquin                    <br />
+                    [Madre] Carvajal, Yturbe, Gregoria                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1850-09-25</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    San Nicolás de Bari                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=51850"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=51850&sin_cabecera=true', 'pop51850');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >104391</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=104391" class="link" > Amezaga, Ybarrondo, Juan Jose</a>
+                    <br />
+                    [Padre] Amezaga, Ayaldaburu, Marcelino                    <br />
+                    [Madre] Ybarrondo, Viscaya, Josefa                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1852-03-08</td>
+                <td class="subtabla"  >
+                    Bilbao-Deusto                </td>
+                <td class="subtabla"  >
+                    San Pedro Apóstol                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=104391"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=104391&sin_cabecera=true', 'pop104391');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >106249</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=106249" class="link" > Amezaga, Ybarrondo, Brigida Leona</a>
+                    <br />
+                    [Padre] Amezaga, Ayaldaburu, Marcelino                    <br />
+                    [Madre] Ybarrondo, Vizcaya, Josefa                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1850-04-11</td>
+                <td class="subtabla"  >
+                    Bilbao-Deusto                </td>
+                <td class="subtabla"  >
+                    San Pedro Apóstol                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=106249"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=106249&sin_cabecera=true', 'pop106249');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >69640</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=69640" class="link" > Amigo, Lajosa, Tomasa</a>
+                    <br />
+                    [Padre] Amigo, Aguiriano, Nicanor                    <br />
+                    [Madre] Lajosa, Mariaca, Bernardina                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1850-12-30</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    Santos Juanes                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=69640"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=69640&sin_cabecera=true', 'pop69640');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >230646</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=230646" class="link" > Amigo, Lajosa, Francisca Bonifacia</a>
+                    <br />
+                    [Padre] Amigo, Agriano, Nicanor                    <br />
+                    [Madre] Lajosa, Mariaca, Bernardina                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1852-09-19</td>
+                <td class="subtabla"  >
+                    Bilbao-Begoña                </td>
+                <td class="subtabla"  >
+                    Santa María de Begoña                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=230646"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=230646&sin_cabecera=true', 'pop230646');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >199056</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=199056" class="link" > Amondarain, Garay, Nicolasa</a>
+                    <br />
+                    [Padre] Amondarain, Escalza, Francisco Esteban                    <br />
+                    [Madre] Garay, Esnaola, Antonia                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1850-12-07</td>
+                <td class="subtabla"  >
+                    Bilbao-Abando - Albia                </td>
+                <td class="subtabla"  >
+                    San Vicente Mártir                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=199056"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=199056&sin_cabecera=true', 'pop199056');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >41839</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=41839" class="link" > Amondo, -----, Juan Antonio</a>
+                    <br />
+                    [Padre] -----, -----, -----                    <br />
+                    [Madre] Amondo, -----, Petra                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1851-05-07</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    San Antonio Abad                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=41839"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=41839&sin_cabecera=true', 'pop41839');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >60171</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=60171" class="link" > Amoroto, Arrieta, Julian</a>
+                    <br />
+                    [Padre] Amoroto, Aspiri, Francisco                    <br />
+                    [Madre] Arrieta, Arriaga, Josefa                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1850-01-08</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    Señor Santiago                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=60171"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=60171&sin_cabecera=true', 'pop60171');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >2679</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=2679" class="link" > Amorrortu, Astuy, Francisca Maria Concepcion Rosario</a>
+                    <br />
+                    [Padre] Amorrortu, Yragorri, Antolin                    <br />
+                    [Madre] Astuy, Argais, Maria                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1851-01-29</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    Señor Santiago                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=2679"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=2679&sin_cabecera=true', 'pop2679');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >41667</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=41667" class="link" > Amorrosta, Lejalde, Leonardo</a>
+                    <br />
+                    [Padre] Amorrosta, Bernaola, Manuel                    <br />
+                    [Madre] Lejalde, Bilbao, Juliana                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1850-02-13</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    San Antonio Abad                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=41667"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=41667&sin_cabecera=true', 'pop41667');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >52006</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=52006" class="link" > Anchia, Fano, Juan Antonio</a>
+                    <br />
+                    [Padre] Anchia, Anduri, Juan Cruz                    <br />
+                    [Madre] Fano, Goyaolarte, Pilar                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1852-01-27</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    San Nicolás de Bari                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=52006"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=52006&sin_cabecera=true', 'pop52006');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >230420</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=230420" class="link" > Anchia, Trebolezabala, Hemeteria Marcelina</a>
+                    <br />
+                    [Padre] Anchia, Ysasmendi, Agapito                    <br />
+                    [Madre] Trebolezabala, Aguerre, Francisca                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1851-03-03</td>
+                <td class="subtabla"  >
+                    Bilbao-Begoña                </td>
+                <td class="subtabla"  >
+                    Santa María de Begoña                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=230420"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=230420&sin_cabecera=true', 'pop230420');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >230600</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=230600" class="link" > Andéchaga, Beraza, Juana Micaela</a>
+                    <br />
+                    [Padre] Andéchaga, Azua, José Ygancio                    <br />
+                    [Madre] Beraza, Urdampilleta, Maria Cármen                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1852-05-09</td>
+                <td class="subtabla"  >
+                    Bilbao-Begoña                </td>
+                <td class="subtabla"  >
+                    Santa María de Begoña                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=230600"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=230600&sin_cabecera=true', 'pop230600');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >42975</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=42975" class="link" > Andonegui, Diez de Sollano, Federico Blas</a>
+                    <br />
+                    [Padre] Andonegui, Ostolaza, Zacarias                     <br />
+                    [Madre] Diez de Sollano, Anarrito, Valentina                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1852-02-03</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    San Antonio Abad                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=42975"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=42975&sin_cabecera=true', 'pop42975');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >52110</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=52110" class="link" > Anduiza, Goicoechea, Luis Donato Luciano</a>
+                    <br />
+                    [Padre] Anduiza, Uribarri, Atanasio                    <br />
+                    [Madre] Goicoechea, Ugarte, Juana                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1852-12-13</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    San Nicolás de Bari                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=52110"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=52110&sin_cabecera=true', 'pop52110');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >51840</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=51840" class="link" > Anduiza, Goicoechea, Alfredo Tiburcio Donato</a>
+                    <br />
+                    [Padre] Anduiza, Uribarri, Atanasio                    <br />
+                    [Madre] Goicoechea, Ugarte, Juana Damiana                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1850-08-12</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    San Nicolás de Bari                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=51840"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=51840&sin_cabecera=true', 'pop51840');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >199165</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=199165" class="link" > Angoitia, Beitia, Felipe</a>
+                    <br />
+                    [Padre] Angoitia, Elorrieta, Jose                    <br />
+                    [Madre] Beitia, Olano, Maria Teresa                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1851-09-13</td>
+                <td class="subtabla"  >
+                    Bilbao-Abando - Albia                </td>
+                <td class="subtabla"  >
+                    San Vicente Mártir                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=199165"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=199165&sin_cabecera=true', 'pop199165');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >69656</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=69656" class="link" > Angoitia, Ceberio, Julian José</a>
+                    <br />
+                    [Padre] Angoitia, Austua, Manuel                     <br />
+                    [Madre] Ceberio, Lasa, Josefa Joaquina                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1851-02-16</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    Santos Juanes                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=69656"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=69656&sin_cabecera=true', 'pop69656');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >42015</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=42015" class="link" > Angoitia, Ruiz, Ygnacia Nazaria</a>
+                    <br />
+                    [Padre] Angoitia, Elorrieta, Julian                     <br />
+                    [Madre] Ruiz, Aspiazu, Maria                 </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1852-07-28</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    San Antonio Abad                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=42015"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=42015&sin_cabecera=true', 'pop42015');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >41771</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=41771" class="link" > Angoitia, Ruiz, Esteban Maria</a>
+                    <br />
+                    [Padre] Angoitia, Elorrieta, Julian                    <br />
+                    [Madre] Ruiz, Aspiazu, Maria                 </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1850-11-21</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    San Antonio Abad                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=41771"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=41771&sin_cabecera=true', 'pop41771');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >199287</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=199287" class="link" > Angoitia, Ybarreche, Julian Segundo</a>
+                    <br />
+                    [Padre] Angoitia, Elorrieta, Felipe                    <br />
+                    [Madre] Ybarreche, Lecue, Francisca                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1852-06-01</td>
+                <td class="subtabla"  >
+                    Bilbao-Abando - Albia                </td>
+                <td class="subtabla"  >
+                    San Vicente Mártir                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=199287"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=199287&sin_cabecera=true', 'pop199287');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >2902</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=2902" class="link" > Anguisolo, Gallarza, Evaristo Nicolas</a>
+                    <br />
+                    [Padre] Anguisolo, Solay, Francisco                    <br />
+                    [Madre] Gallarza, Derteano, Francisca                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1852-09-25</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    Señor Santiago                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=2902"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=2902&sin_cabecera=true', 'pop2902');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >199126</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=199126" class="link" > Angulo, Andechaga, Felipe Patricio</a>
+                    <br />
+                    [Padre] Angulo, Sollano, José                    <br />
+                    [Madre] Andechaga, Landa, Nicolasa                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1851-05-01</td>
+                <td class="subtabla"  >
+                    Bilbao-Abando - Albia                </td>
+                <td class="subtabla"  >
+                    San Vicente Mártir                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=199126"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=199126&sin_cabecera=true', 'pop199126');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >52063</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=52063" class="link" > Angulo, Hormaza, Jose Maria del Carmen Enrrique Serapio Luis</a>
+                    <br />
+                    [Padre] Angulo, Iñigo, Jose Maria                    <br />
+                    [Madre] Hormaza, Puente, Maria Dolores                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1852-07-16</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    San Nicolás de Bari                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=52063"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=52063&sin_cabecera=true', 'pop52063');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >230311</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=230311" class="link" > Angulo, Nuñez, Yndalecio Carlos</a>
+                    <br />
+                    [Padre] Angulo, Urbina, Francisco                     <br />
+                    [Madre] Nuñez, Martinez, Margarita                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1850-04-30</td>
+                <td class="subtabla"  >
+                    Bilbao-Begoña                </td>
+                <td class="subtabla"  >
+                    Santa María de Begoña                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=230311"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=230311&sin_cabecera=true', 'pop230311');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >41801</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=41801" class="link" > Angulo, Romarate, Paula</a>
+                    <br />
+                    [Padre] Angulo, Otaola, Manuel                    <br />
+                    [Madre] Romarate, Otaola, Faustina                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1851-01-26</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    San Antonio Abad                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=41801"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=41801&sin_cabecera=true', 'pop41801');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >2760</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=2760" class="link" > Anitua, Yzaguirre, Mariano Cruz Jose</a>
+                    <br />
+                    [Padre] Anitua, Frunis, Nicolás Ambrosio                    <br />
+                    [Madre] Yzaguirre, Orbeaforuren, Juana Ramona                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1851-09-14</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    Señor Santiago                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=2760"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=2760&sin_cabecera=true', 'pop2760');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >51822</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=51822" class="link" > Ansa, Atela, Justo Miguel Fernando</a>
+                    <br />
+                    [Padre] Ansa, Sanchez, Juan Jose                    <br />
+                    [Madre] Atela, Goicoechea, Maria Eusebia                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1850-05-30</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    San Nicolás de Bari                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=51822"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=51822&sin_cabecera=true', 'pop51822');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >2817</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=2817" class="link" > Ansoleaga, Ybarreche, Vicenta Modesta</a>
+                    <br />
+                    [Padre] Ansoleaga, Saray, Juan                    <br />
+                    [Madre] Ybarreche, Angulo, Catalina                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1852-02-24</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    Señor Santiago                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=2817"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=2817&sin_cabecera=true', 'pop2817');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >69654</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=69654" class="link" > Ansotegui, Trufaola, Juana Manuela</a>
+                    <br />
+                    [Padre] Ansotegui, Anchustegui, José Antonio                    <br />
+                    [Madre] Trufaola, Zubisarreta, Luisa                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1851-02-08</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    Santos Juanes                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=69654"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=69654&sin_cabecera=true', 'pop69654');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >42022</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=42022" class="link" > Ansuategui, Arteta, Justo Pastor Esteban</a>
+                    <br />
+                    [Padre] Ansuategui, Urrecha, Julian                     <br />
+                    [Madre] Arteta, Mendiguren, Narcisa                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1852-08-07</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    San Antonio Abad                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=42022"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=42022&sin_cabecera=true', 'pop42022');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >41937</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=41937" class="link" > Antin, Hormaeche, Ygnacio Serafin</a>
+                    <br />
+                    [Padre] Antin, Giral, Ramon                    <br />
+                    [Madre] Hormaeche, Elorriaga, Ysabel                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1852-02-02</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    San Antonio Abad                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=41937"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=41937&sin_cabecera=true', 'pop41937');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >69666</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=69666" class="link" > Anuncibay, Olaineta, Felicia</a>
+                    <br />
+                    [Padre] Anuncibay, Perez Caballero, Tomás                    <br />
+                    [Madre] Olaineta, Garamendi, Narcisa                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1851-02-22</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    Santos Juanes                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=69666"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=69666&sin_cabecera=true', 'pop69666');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >230510</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=230510" class="link" > Apraiz, Goicoechea, Vicente</a>
+                    <br />
+                    [Padre] Apraiz, Arriola, José                    <br />
+                    [Madre] Goicoechea, Jauregui, Cármen                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1851-10-27</td>
+                <td class="subtabla"  >
+                    Bilbao-Begoña                </td>
+                <td class="subtabla"  >
+                    Santa María de Begoña                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=230510"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=230510&sin_cabecera=true', 'pop230510');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >69550</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=69550" class="link" > Apraiz, Lapeira, José Jorge</a>
+                    <br />
+                    [Padre] Apraiz, Arteche, Juan Santos                    <br />
+                    [Madre] Lapeira, Langarica, Agustina                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1850-04-23</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    Santos Juanes                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=69550"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=69550&sin_cabecera=true', 'pop69550');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >69534</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=69534" class="link" > Apraiz, Urdampilleta, Juana Melitona</a>
+                    <br />
+                    [Padre] Apraiz, Urizar, Juan Bautista                    <br />
+                    [Madre] Urdampilleta, Escoriaza, Maria Elena                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1850-03-10</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    Santos Juanes                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=69534"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=69534&sin_cabecera=true', 'pop69534');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >2777</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=2777" class="link" > Arabaolaza, Echeverria, Vicente Alberto</a>
+                    <br />
+                    [Padre] Arabaolaza, Narbaiza, Jose Antonio                    <br />
+                    [Madre] Echeverria, Alzaga, Juana                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1851-10-28</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    Señor Santiago                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=2777"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=2777&sin_cabecera=true', 'pop2777');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >41685</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=41685" class="link" > Aragoitia, Amenabar, Josefa Maria Dolores</a>
+                    <br />
+                    [Padre] -----, -----, -----                    <br />
+                    [Madre] Aragoitia, Amenabar, Petronila                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1850-03-22</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    San Antonio Abad                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=41685"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=41685&sin_cabecera=true', 'pop41685');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >199115</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=199115" class="link" > Araluce, Arizua, Epifania</a>
+                    <br />
+                    [Padre] Araluce, Goycuria, Jose Domingo                    <br />
+                    [Madre] Arizua, Cubian, Carlota                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1851-04-08</td>
+                <td class="subtabla"  >
+                    Bilbao-Abando - Albia                </td>
+                <td class="subtabla"  >
+                    San Vicente Mártir                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=199115"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=199115&sin_cabecera=true', 'pop199115');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >52072</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=52072" class="link" > Araluce, Barturen, Favian Segundo</a>
+                    <br />
+                    [Padre] Araluce, Gimenez, Eustasio                    <br />
+                    [Madre] Barturen, Barturen, Josefa                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1852-07-31</td>
+                <td class="subtabla"  >
+                    Bilbao-Casco Viejo                </td>
+                <td class="subtabla"  >
+                    San Nicolás de Bari                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=52072"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=52072&sin_cabecera=true', 'pop52072');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+            </table>
+    <p align="center">
+    Si no ha encontrado los datos que desea, por favor, realice una<a href="n_indexacion.php">nueva busqueda</a> o p&oacute;ngase en contacto con el AHEB-BEHA</p>
+
+
+
+</div>
+</div>
+<script language="javascript" type="text/javascript">
+//document.getElementById("cargar").style.visibility="hidden";
+</script>
+
+
+</body>
+</html>

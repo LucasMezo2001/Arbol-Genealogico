@@ -1,0 +1,1899 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>SIGA-AKIS .:. AHEB-BEHA</title>
+<link href="../../stilos.css" rel="stylesheet" type="text/css" />
+<link href="../../stilos-form.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript" src="../../includes/js_extranet_ca.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://www.centroicaro.net/fileadmin/icaro/flaccess.js"></script>
+</head>
+
+<body>
+<div id="cabecera">
+<div id="logotipo"><img src="../../imagenes/logo_cabecera.gif" alt="siga" width="600" height="24" longdesc="siga aheb sistema inet de gestion de archivos artxibpen kudeaketarako inet sistema" ></div>
+<div id="varios_menus">
+	<div id="menu1">
+		<ul class="menu_idiomas"><li>&nbsp;</li></ul>
+	</div>
+
+</div>
+<div id="adorno_cabecera"><div id="menu2">
+		<ul class="menu_idiomas">
+		<li><a href="../../index.php?idioma_cook=eu">eu</a></li>
+		<li><a href="../../index.php?idioma_cook=ca">es</a></li>
+		<li><a href="../../index.php?idioma_cook=en">en</a></li>
+		</ul>
+</div></div>
+
+<div id="menu_principal">
+	<div id="menu_prin_izda">
+	<div id="pestana_inicio"><a href="../portada/n_portada.php"> Inicio :: SIGA-AKIS </a></div>
+	<div id="registro"><a href="../indexacion/n_indexacion.php">Registros Sacramentales</a></div>
+	<div id="fondos"><a href="../catalogacion/n_catalogo.php">Catálogo General</a></div>
+	<div id="pestana_inicio"><a href="http://www.aheb-beha.org/" target="_blank">Web del Archivo</a></div>
+	<div id="facebook"><a href="http://www.facebook.com/aheb-beha/"><img src="../../imagenes/facebook.gif" width="90" height="26" alt="facebook" /></a></div>
+    <div id="pestana_botonicaro" >
+        <div id="out1">
+        <div id="in1"><a style="color:#990000;" target="_blank" href="http://www.centroicaro.net/">Centro Icaro</a></div>
+        </div>
+        <script  type="text/javascript">
+        // addFlash(postpone,minversion,path,width,height,node);
+        addFlash(0,8,"../../imagenes/boton-icaro.swf",150,26,"fl1,in1,out1");
+        </script>
+    </div>
+</div>
+
+<div id="menu_prin_dcha">
+  </div></div>
+
+
+</div>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-9661238-7']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script><div id="contendor_central">
+<div class="contenedorform">
+<div class="tituloform" style="width:97%; margin-bottom:0px;">CONSULTA DE REGISTROS SACRAMENTALES (1501-1900 inclusive)</div>
+
+<form action=""  method="post" name="form">
+<input type="hidden" name="accion"/>
+<input type="hidden" name="auxiliar" />
+<div id="pestanas2" >
+		<ul>
+			<li ><a href="n_indexacion.php">búsqueda simple</a></li>
+			<li><a href="n_indexacion_completa.php?sacramento=difunto">búsqueda avanzada</a></li>
+            <li id="current"><a href="n_indexacion_especial.php?sacramento=difunto">búsquedas especiales</a></li>
+		</ul>
+</div>
+<div id="contenido" > <a href="#" onclick="abrir_pop_up('../ayudas/ca_ayuda_indexacion.html')" class="stilobotonayuda">AYUDA</a>
+  <div class="left">
+    <ul>
+      <li><a href="#"onclick="abrir_pop_up('../ayudas/ca_ayuda_indexacion.html')">Ayuda a la consulta</a></li>
+
+		  <li class="nivel5"><a href="#" class="nivel4" onclick="window.open('../../localidades_indexadas/bautismos_indexados.html','PopUp','width=500,height=500,screenX=500,screenY=700,top=100,left=400,scrollbars=YES, resizable=YES')" ><strong>Parroquias con registros de BAUTISMOS en la web</strong></a></li>
+	      <li class="nivel5"><a href="#" class="nivel4" onclick="window.open('../../localidades_indexadas/matrimonios_indexados.html','PopUp','width=500,height=500,screenX=500,screenY=700,top=100,left=400,scrollbars=YES, resizable=YES')" ><strong>Parroquias con registros de MATRIMONIOS en la web</strong></a></li>
+	      <li class="nivel5"><a href="#" class="nivel4" onclick="window.open('../../localidades_indexadas/difuntos_indexados.html','PopUp','width=500,height=500,screenX=500,screenY=700,top=100,left=400,scrollbars=YES, resizable=YES')" ><strong>Parroquias con registros de DIFUNTOS en la web</strong></a></li>
+      </ul>
+    </div>
+
+  <div id="consejos" class="left">
+    <span class="nivel2">Caracteres
+      comod&iacute;n</span><br />
+    % (tanto por ciento: teclas May&uacute;s+%) sustituye a cualquier
+    caracter, por ejemplo: Echebarr%, para encontrar Echebarria, Echebarrieta.<br />
+    <br />
+    _ (gui&oacute;n bajo: teclas May&uacute;s+gui&oacute;n) sustituye
+    a un car&aacute;cter, por ejemplo: Gon_ale_, para encontrar Gonzalez,
+    Gonzales, Gonsales, Gon&ccedil;ales, Gon&ccedil;alez. <br />
+    <br />
+    Para mas informaci&oacute;n consulte la ayuda.  </div>
+
+    <div id="form_persona">
+    <strong>Sacramento: </strong>
+    <select name="sacramento" onchange="ejecutar('','actualizar')">
+      <option value="">-------------------</option>
+      <option value="bautismo" >bautismo</option>
+      <option value="matrimonio" >matrimonio</option>
+      <option value="difunto"  selected>defuncion</option>
+      </select>
+
+  </div>
+
+<div id="form_registro">
+<p>Localidad<img alt=""  src="../../imagenes/tab.gif"  width="20" height="8"><br />
+        <select name="id_localidad">
+          <option value=0>-------------</option>
+          <option value='1' >Abadiño  </option>
+<option value='2' >Abanto y Ciérvana-Abanto Zierbena  </option>
+<option value='3' >Ajangiz  </option>
+<option value='4' >Alonsotegi  </option>
+<option value='6' >Amorebieta-Etxano  </option>
+<option value='7' >Amoroto  </option>
+<option value='8' >Arakaldo  </option>
+<option value='9' >Arantzazu  </option>
+<option value='10' >Areatza  </option>
+<option value='11' >Arrankudiaga-Zollo  </option>
+<option value='12' >Arratzu  </option>
+<option value='13' >Arrieta (Libano de)  </option>
+<option value='14' >Arrigorriaga  </option>
+<option value='15' >Artea  </option>
+<option value='16' >Artzentales  </option>
+<option value='17' >Atxondo  </option>
+<option value='18' >Aulesti  </option>
+<option value='19' >Bakio  </option>
+<option value='20' >Balmaseda  </option>
+<option value='21' >Barakaldo  </option>
+<option value='22' >Barrika  </option>
+<option value='23' >Basauri  </option>
+<option value='24' >Bedia  </option>
+<option value='25' >Berango  </option>
+<option value='26' >Bermeo  </option>
+<option value='27' >Berriatua  </option>
+<option value='28' >Berriz  </option>
+<option value='29' >Bilbao  </option>
+<option value='30' >Busturia  </option>
+<option value='31' >Derio  </option>
+<option value='32' >Dima  </option>
+<option value='33' >Durango  </option>
+<option value='34' >Ea  </option>
+<option value='35' >Elantxobe  </option>
+<option value='36' >Elorrio  </option>
+<option value='37' >Erandio  </option>
+<option value='38' >Ereño  </option>
+<option value='39' >Ermua  </option>
+<option value='40' >Errigoiti  </option>
+<option value='41' >Etxebarri  </option>
+<option value='42' >Etxebarria  </option>
+<option value='43' >Forua  </option>
+<option value='44' >Fruiz  </option>
+<option value='56' >Güeñes  </option>
+<option value='45' >Galdakao  </option>
+<option value='46' >Galdames  </option>
+<option value='47' >Gamiz-Fika  </option>
+<option value='48' >Garai  </option>
+<option value='49' >Gatika  </option>
+<option value='50' >Gautegiz Arteaga  </option>
+<option value='51' >Gernika-Lumo  </option>
+<option value='52' >Getxo  </option>
+<option value='53' >Gizaburuaga  </option>
+<option value='54' >Gordexola  </option>
+<option value='55' >Gorliz  </option>
+<option value='57' >Ibarrangelu  </option>
+<option value='58' >Igorre  </option>
+<option value='59' >Ispaster  </option>
+<option value='60' >Iurreta  </option>
+<option value='61' >Izurtza  </option>
+<option value='62' >Karrantza Harana/Valle de Carranza  </option>
+<option value='63' >Kortezubi  </option>
+<option value='64' >Lanestosa  </option>
+<option value='65' >Larrabetzu  </option>
+<option value='66' >Laukiz  </option>
+<option value='67' >Leioa  </option>
+<option value='68' >Lekeitio  </option>
+<option value='69' >Lemoa  </option>
+<option value='70' >Lemoiz  </option>
+<option value='71' >Lezama  </option>
+<option value='72' >Loiu  </option>
+<option value='76' >Mañaria  </option>
+<option value='73' >Mallabia  </option>
+<option value='74' >Markina-Xemein  </option>
+<option value='75' >Maruri-Jatabe  </option>
+<option value='79' >Meñaka  </option>
+<option value='77' >Mendata  </option>
+<option value='78' >Mendexa  </option>
+<option value='80' >Morga  </option>
+<option value='81' >Mundaka  </option>
+<option value='82' >Mungia  </option>
+<option value='83' >Munitibar-Arbatzegi Gerrikaitz  </option>
+<option value='84' >Murueta  </option>
+<option value='85' >Muskiz  </option>
+<option value='86' >Muxika  </option>
+<option value='87' >Nabarniz  </option>
+<option value='88' >Ondarroa  </option>
+<option value='89' >Orozko  </option>
+<option value='90' >Ortuella  </option>
+<option value='91' >Otxandio  </option>
+<option value='92' >Plentzia  </option>
+<option value='93' >Portugalete  </option>
+<option value='94' >Santurtzi  </option>
+<option value='95' >Sestao  </option>
+<option value='96' >Sondika  </option>
+<option value='97' >Sopela  </option>
+<option value='98' >Sopuerta  </option>
+<option value='99' >Sukarrieta  </option>
+<option value='100' >Trucios-Turtzioz  </option>
+<option value='101' selected>Ubidea  </option>
+<option value='102' >Ugao-Miraballes  </option>
+<option value='104' >Urduña/Orduña  </option>
+<option value='103' >Urduliz  </option>
+<option value='115' >Usansolo  </option>
+<option value='105' >Valle de Trápaga-Trapagaran  </option>
+<option value='106' >Valle de Villaverde (Villaverde de Trucíos)  </option>
+<option value='107' >Zaldibar  </option>
+<option value='108' >Zalla  </option>
+<option value='109' >Zamudio  </option>
+<option value='110' >Zaratamo  </option>
+<option value='111' >Zeanuri  </option>
+<option value='112' >Zeberio  </option>
+<option value='113' >Zierbena  </option>
+<option value='114' >Ziortza-Bolibar  </option>
+        </select>
+        <a href="../catalogacion/n_localidades.php" target="_blank" >
+          <img alt=""  src="../../imagenes/iconos/ojo.gif" width="16" height="16" border="0" /></a></p>
+        <p>Fecha concreta o intervalo (hasta 1900)<br />
+          <input name="fecha_form_ini_esp" type="text" value="1850"  size="15" />
+          <input name="fecha_form_fin_esp" type="text" value="1860" size="15" />
+          <br />
+          Intervalo recomendado 10 años</span></p>
+  </div>
+  <div  class="formbotones">
+  <a href="#"  class="stiloboton"   onclick="validar_indexacion_especial('n_indexacion_especial.php#buscar','buscar')">Buscar</a>
+  <a href="n_indexacion_especial.php" class="stiloboton">Limpiar</a>
+
+  </div>
+
+
+</div>
+</form>
+<div id="cargando" style="margin: 10px 0 0 0; text-align: center; display:none;">
+	Buscando...<br />
+	<img src="../../imagenes/ajax-loader.gif" alt="Cargando..." />
+</div>
+<a name="buscar"></a>
+    <link href="../../stilos.css" rel="stylesheet" type="text/css" />
+    <link href="../../stilos-form.css" rel="stylesheet" type="text/css" />
+    <p align="center" class="letras">&nbsp;</p>
+    <table align="center" cellpadding="3"  cellspacing="2" >
+        <tr>
+            <td colspan="9" valign="top" class="nota2pie">
+                <div align="left">
+                    <strong>Registros encontrados <span class="nivel5">160</span>. Mostrando del <span class="nivel5">1</span> al <span class="nivel5">100</span>.<br />1 <a href="?accion=buscar&auxiliar=&sacramento=difunto&id_localidad=101&fecha_form_ini_esp=1850&fecha_form_fin_esp=1860&&resultpage=2#buscar">2</a> <a href="?accion=buscar&auxiliar=&sacramento=difunto&id_localidad=101&fecha_form_ini_esp=1850&fecha_form_fin_esp=1860&&resultpage=2#buscar">Siguiente&#9658;</a>                 </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="9" class="nota2pie"><span class="letras"><img alt="ficha"  src="../../imagenes/iconos/ficha_fondo.gif" border="0" />
+                    Detalles del registro sacramental &bull;   <img src="../../imagenes/iconos/windows.gif" alt="icono pop up" width="17" height="17" />
+                    Detalles del registro sacramental en NUEVA VENTANA                      </span></td>
+        </tr>
+        <tr class="cabsubtabla">
+            <td>ID defuncion</td>
+
+            <td valign="top" ><a href="?accion=buscar&auxiliar=&sacramento=difunto&id_localidad=101&fecha_form_ini_esp=1850&fecha_form_fin_esp=1860&&amp;order=apellido1">
+                    Apellidos, Nombre                </a></td>
+            <td><a href="?accion=buscar&auxiliar=&sacramento=difunto&id_localidad=101&fecha_form_ini_esp=1850&fecha_form_fin_esp=1860&&order=sexo">
+                    Sexo                </a></td>
+                        <td><a href="?accion=buscar&auxiliar=&sacramento=difunto&id_localidad=101&fecha_form_ini_esp=1850&fecha_form_fin_esp=1860&&order=fecha_form_ini">
+                    Fecha                </a></td>
+            <td><a href="?accion=buscar&auxiliar=&sacramento=difunto&id_localidad=101&fecha_form_ini_esp=1850&fecha_form_fin_esp=1860&&amp;order=fecha_form_ini">
+                    Localidad                </a><a href="?accion=buscar&auxiliar=&sacramento=difunto&id_localidad=101&fecha_form_ini_esp=1850&fecha_form_fin_esp=1860&&order=t_localidad,div_loc"></a></td>
+            <td><a href="?accion=buscar&auxiliar=&sacramento=difunto&id_localidad=101&fecha_form_ini_esp=1850&fecha_form_fin_esp=1860&&order=f4_desc_ca">
+                    Fondo                </a></td>
+            <td width="40"></td>
+        </tr>
+                    <tr>
+                <td class="subtabla">242464</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=242464" class="link" > Abasolo, -----, Emeterio</a>
+                </td>
+                <td class="subtabla" >H</td>
+                                <td class="subtabla"  >1857-11-20</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=242464" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=242464&sin_cabecera=true', 'pop242464');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">241241</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=241241" class="link" > Abasolo, Aguirre, Estanislaa</a>
+                </td>
+                <td class="subtabla" >M</td>
+                                <td class="subtabla"  >1855-11-11</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=241241" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=241241&sin_cabecera=true', 'pop241241');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">241169</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=241169" class="link" > Abasolo, Aguirre, Vicente</a>
+                </td>
+                <td class="subtabla" >H</td>
+                                <td class="subtabla"  >1855-10-21</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=241169" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=241169&sin_cabecera=true', 'pop241169');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">245481</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=245481" class="link" > Abasolo, Aguirre, Juliana</a>
+                </td>
+                <td class="subtabla" >M</td>
+                                <td class="subtabla"  >1853-04-04</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=245481" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=245481&sin_cabecera=true', 'pop245481');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">246016</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=246016" class="link" > Abasolo, Aguirre, Matias</a>
+                </td>
+                <td class="subtabla" >H</td>
+                                <td class="subtabla"  >1854-03-02</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=246016" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=246016&sin_cabecera=true', 'pop246016');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">245528</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=245528" class="link" > Abasolo, Aguirre, Eusebio Esequiel</a>
+                </td>
+                <td class="subtabla" >H</td>
+                                <td class="subtabla"  >1860-04-24</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=245528" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=245528&sin_cabecera=true', 'pop245528');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">240479</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=240479" class="link" > Abasolo, Ajuria, Gregorio</a>
+                </td>
+                <td class="subtabla" >H</td>
+                                <td class="subtabla"  >1855-09-12</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=240479" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=240479&sin_cabecera=true', 'pop240479');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">244028</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=244028" class="link" > Abasolo, Ajuria, Bernardino</a>
+                </td>
+                <td class="subtabla" >H</td>
+                                <td class="subtabla"  >1850-02-03</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=244028" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=244028&sin_cabecera=true', 'pop244028');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">244680</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=244680" class="link" > Abasolo, Ajuria, Martin</a>
+                </td>
+                <td class="subtabla" >H</td>
+                                <td class="subtabla"  >1851-07-24</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=244680" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=244680&sin_cabecera=true', 'pop244680');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">245981</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=245981" class="link" > Abasolo, Ajuria, Ysidora</a>
+                </td>
+                <td class="subtabla" >M</td>
+                                <td class="subtabla"  >1854-02-15</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=245981" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=245981&sin_cabecera=true', 'pop245981');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">245879</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=245879" class="link" > Aguirre, -----, Antonio</a>
+                </td>
+                <td class="subtabla" >H</td>
+                                <td class="subtabla"  >1854-01-14</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=245879" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=245879&sin_cabecera=true', 'pop245879');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">245516</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=245516" class="link" > Aguirre, -----, Estefana</a>
+                </td>
+                <td class="subtabla" >M</td>
+                                <td class="subtabla"  >1860-04-23</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=245516" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=245516&sin_cabecera=true', 'pop245516');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">241105</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=241105" class="link" > Aguirre, -----, Francisco Javier</a>
+                </td>
+                <td class="subtabla" >H</td>
+                                <td class="subtabla"  >1855-10-04</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=241105" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=241105&sin_cabecera=true', 'pop241105');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">245575</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=245575" class="link" > Aguirre, -----, Julian</a>
+                </td>
+                <td class="subtabla" >H</td>
+                                <td class="subtabla"  >1853-06-29</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=245575" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=245575&sin_cabecera=true', 'pop245575');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">245687</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=245687" class="link" > Aguirre, -----, Eusebio</a>
+                </td>
+                <td class="subtabla" >H</td>
+                                <td class="subtabla"  >1860-09-19</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=245687" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=245687&sin_cabecera=true', 'pop245687');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">242442</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=242442" class="link" > Aguirre, -----, Concepcion</a>
+                </td>
+                <td class="subtabla" >M</td>
+                                <td class="subtabla"  >1857-11-05</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=242442" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=242442&sin_cabecera=true', 'pop242442');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">241073</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=241073" class="link" > Aguirre, -----, Jose</a>
+                </td>
+                <td class="subtabla" >H</td>
+                                <td class="subtabla"  >1855-10-03</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=241073" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=241073&sin_cabecera=true', 'pop241073');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">241136</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=241136" class="link" > Aguirre, -----, Faustina</a>
+                </td>
+                <td class="subtabla" >M</td>
+                                <td class="subtabla"  >1855-10-10</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=241136" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=241136&sin_cabecera=true', 'pop241136');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">239743</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=239743" class="link" > Aguirre, -----, Vicenta</a>
+                </td>
+                <td class="subtabla" >M</td>
+                                <td class="subtabla"  >1854-09-09</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=239743" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=239743&sin_cabecera=true', 'pop239743');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">245532</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=245532" class="link" > Aguirre, -----, Josefa</a>
+                </td>
+                <td class="subtabla" >M</td>
+                                <td class="subtabla"  >1853-05-10</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=245532" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=245532&sin_cabecera=true', 'pop245532');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">243099</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=243099" class="link" > Aguirre, -----, Mateo</a>
+                </td>
+                <td class="subtabla" >H</td>
+                                <td class="subtabla"  >1859-08-27</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=243099" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=243099&sin_cabecera=true', 'pop243099');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">242824</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=242824" class="link" > Aguirre, -----, Domingo</a>
+                </td>
+                <td class="subtabla" >H</td>
+                                <td class="subtabla"  >1859-04-18</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=242824" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=242824&sin_cabecera=true', 'pop242824');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">245246</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=245246" class="link" > Aguirre, -----, Paula</a>
+                </td>
+                <td class="subtabla" >M</td>
+                                <td class="subtabla"  >1852-09-16</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=245246" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=245246&sin_cabecera=true', 'pop245246');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">241316</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=241316" class="link" > Aguirre, Abasolo, Ambrosio</a>
+                </td>
+                <td class="subtabla" >H</td>
+                                <td class="subtabla"  >1855-12-22</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=241316" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=241316&sin_cabecera=true', 'pop241316');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">244181</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=244181" class="link" > Aguirre, Abasolo, Emilia</a>
+                </td>
+                <td class="subtabla" >M</td>
+                                <td class="subtabla"  >1850-06-09</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=244181" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=244181&sin_cabecera=true', 'pop244181');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">242382</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=242382" class="link" > Aguirre, Abasolo, Gorgonio</a>
+                </td>
+                <td class="subtabla" >H</td>
+                                <td class="subtabla"  >1857-06-17</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=242382" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=242382&sin_cabecera=true', 'pop242382');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">242479</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=242479" class="link" > Aguirre, Aguirre, Maria Esutaquia</a>
+                </td>
+                <td class="subtabla" >M</td>
+                                <td class="subtabla"  >1859-09-04</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=242479" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=242479&sin_cabecera=true', 'pop242479');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">241639</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=241639" class="link" > Aguirre, Aguirre, Jose Aniceto</a>
+                </td>
+                <td class="subtabla" >H</td>
+                                <td class="subtabla"  >1856-09-07</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=241639" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=241639&sin_cabecera=true', 'pop241639');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">244308</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=244308" class="link" > Aguirre, Aguirre, Maria Paula</a>
+                </td>
+                <td class="subtabla" >M</td>
+                                <td class="subtabla"  >1850-08-05</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=244308" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=244308&sin_cabecera=true', 'pop244308');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">244699</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=244699" class="link" > Aguirre, Aguirre, Luis</a>
+                </td>
+                <td class="subtabla" >H</td>
+                                <td class="subtabla"  >1851-09-02</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=244699" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=244699&sin_cabecera=true', 'pop244699');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">239946</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=239946" class="link" > Aguirre, Aguirre, Maria Luisa</a>
+                </td>
+                <td class="subtabla" >M</td>
+                                <td class="subtabla"  >1854-10-07</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=239946" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=239946&sin_cabecera=true', 'pop239946');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">244370</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=244370" class="link" > Aguirre, Ajuria, Prudencio</a>
+                </td>
+                <td class="subtabla" >H</td>
+                                <td class="subtabla"  >1850-08-12</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=244370" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=244370&sin_cabecera=true', 'pop244370');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">241332</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=241332" class="link" > Aguirre, Arecha, Juan</a>
+                </td>
+                <td class="subtabla" >H</td>
+                                <td class="subtabla"  >1856-03-10</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=241332" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=241332&sin_cabecera=true', 'pop241332');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">245814</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=245814" class="link" > Aguirre, Arechaga, Juan</a>
+                </td>
+                <td class="subtabla" >H</td>
+                                <td class="subtabla"  >1853-12-14</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=245814" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=245814&sin_cabecera=true', 'pop245814');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">243147</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=243147" class="link" > Aguirre, Arechaga, Benito</a>
+                </td>
+                <td class="subtabla" >H</td>
+                                <td class="subtabla"  >1859-08-31</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=243147" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=243147&sin_cabecera=true', 'pop243147');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">240749</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=240749" class="link" > Aguirre, Arechaga, Nicomedes</a>
+                </td>
+                <td class="subtabla" >H</td>
+                                <td class="subtabla"  >1855-09-26</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=240749" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=240749&sin_cabecera=true', 'pop240749');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">242516</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=242516" class="link" > Aguirre, Olivares, Juan Cruz</a>
+                </td>
+                <td class="subtabla" >H</td>
+                                <td class="subtabla"  >1858-02-28</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=242516" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=242516&sin_cabecera=true', 'pop242516');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">247635</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=247635" class="link" > Aguirre, Uribiarte, Vicenta</a>
+                </td>
+                <td class="subtabla" >M</td>
+                                <td class="subtabla"  >1855-09-26</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=247635" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=247635&sin_cabecera=true', 'pop247635');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">242235</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=242235" class="link" > Aguirre, Ybarguchi, Juana</a>
+                </td>
+                <td class="subtabla" >M</td>
+                                <td class="subtabla"  >1856-12-18</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=242235" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=242235&sin_cabecera=true', 'pop242235');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">240883</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=240883" class="link" > Aguirre Gaviria, Gallaga, Gertrudis</a>
+                </td>
+                <td class="subtabla" >M</td>
+                                <td class="subtabla"  >1855-09-28</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=240883" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=240883&sin_cabecera=true', 'pop240883');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">240971</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=240971" class="link" > Aguirre Gaviria, Gallaga, Demetria</a>
+                </td>
+                <td class="subtabla" >M</td>
+                                <td class="subtabla"  >1855-10-03</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=240971" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=240971&sin_cabecera=true', 'pop240971');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">239681</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=239681" class="link" > Ajuria, -----, Manuel</a>
+                </td>
+                <td class="subtabla" >H</td>
+                                <td class="subtabla"  >1854-08-29</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=239681" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=239681&sin_cabecera=true', 'pop239681');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">245440</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=245440" class="link" > Ajuria, -----, Ana</a>
+                </td>
+                <td class="subtabla" >M</td>
+                                <td class="subtabla"  >1853-03-21</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=245440" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=245440&sin_cabecera=true', 'pop245440');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">242137</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=242137" class="link" > Ajuria, -----, Jose Manuel</a>
+                </td>
+                <td class="subtabla" >H</td>
+                                <td class="subtabla"  >1855-09-06</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=242137" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=242137&sin_cabecera=true', 'pop242137');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">240087</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=240087" class="link" > Ajuria, -----, Maria Andresa</a>
+                </td>
+                <td class="subtabla" >M</td>
+                                <td class="subtabla"  >1854-11-11</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=240087" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=240087&sin_cabecera=true', 'pop240087');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">239777</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=239777" class="link" > Ajuria, -----, Ramon</a>
+                </td>
+                <td class="subtabla" >H</td>
+                                <td class="subtabla"  >1854-09-28</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=239777" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=239777&sin_cabecera=true', 'pop239777');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">242501</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=242501" class="link" > Ajuria, -----, Ysabel</a>
+                </td>
+                <td class="subtabla" >M</td>
+                                <td class="subtabla"  >1858-02-27</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=242501" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=242501&sin_cabecera=true', 'pop242501');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">244343</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=244343" class="link" > Ajuria, Abasolo, Justa</a>
+                </td>
+                <td class="subtabla" >M</td>
+                                <td class="subtabla"  >1850-08-06</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=244343" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=244343&sin_cabecera=true', 'pop244343');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">244188</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=244188" class="link" > Ajuria, Goicoolea, Adelaida</a>
+                </td>
+                <td class="subtabla" >M</td>
+                                <td class="subtabla"  >1859-09-27</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=244188" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=244188&sin_cabecera=true', 'pop244188');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">245277</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=245277" class="link" > Ajuria Gordovil, -----, Neomesia</a>
+                </td>
+                <td class="subtabla" >M</td>
+                                <td class="subtabla"  >1860-02-10</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=245277" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=245277&sin_cabecera=true', 'pop245277');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">242862</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=242862" class="link" > Ajuria Gordovil, -----, Nicolas</a>
+                </td>
+                <td class="subtabla" >H</td>
+                                <td class="subtabla"  >1859-05-24</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=242862" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=242862&sin_cabecera=true', 'pop242862');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">241289</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=241289" class="link" > Alcatena, -----, Maria Bautista</a>
+                </td>
+                <td class="subtabla" >M</td>
+                                <td class="subtabla"  >1855-12-02</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=241289" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=241289&sin_cabecera=true', 'pop241289');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">242174</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=242174" class="link" > Apoita, -----, Dionisia</a>
+                </td>
+                <td class="subtabla" >M</td>
+                                <td class="subtabla"  >1855-09-12</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=242174" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=242174&sin_cabecera=true', 'pop242174');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">240457</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=240457" class="link" > Apoita, Barañano, Flora</a>
+                </td>
+                <td class="subtabla" >M</td>
+                                <td class="subtabla"  >1855-09-09</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=240457" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=240457&sin_cabecera=true', 'pop240457');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">242867</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=242867" class="link" > Apoita, Ureta, Ysidora</a>
+                </td>
+                <td class="subtabla" >M</td>
+                                <td class="subtabla"  >1859-06-27</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=242867" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=242867&sin_cabecera=true', 'pop242867');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">242365</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=242365" class="link" > Arechaga, Aguirre, Venancio</a>
+                </td>
+                <td class="subtabla" >H</td>
+                                <td class="subtabla"  >1857-05-17</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=242365" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=242365&sin_cabecera=true', 'pop242365');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">246051</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=246051" class="link" > Arechaga, Aguirre, Bonifacio</a>
+                </td>
+                <td class="subtabla" >H</td>
+                                <td class="subtabla"  >1854-03-21</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=246051" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=246051&sin_cabecera=true', 'pop246051');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">246093</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=246093" class="link" > Arechaga, Aguirre, Marcelino</a>
+                </td>
+                <td class="subtabla" >H</td>
+                                <td class="subtabla"  >1854-04-27</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=246093" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=246093&sin_cabecera=true', 'pop246093');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">243607</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=243607" class="link" > Arechaga, Aguirre, Teresa</a>
+                </td>
+                <td class="subtabla" >M</td>
+                                <td class="subtabla"  >1859-09-16</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=243607" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=243607&sin_cabecera=true', 'pop243607');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">245607</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=245607" class="link" > Arrese, Aguirre, Margarita</a>
+                </td>
+                <td class="subtabla" >M</td>
+                                <td class="subtabla"  >1860-05-27</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=245607" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=245607&sin_cabecera=true', 'pop245607');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">244258</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=244258" class="link" > Arriola, -----, Prudencia</a>
+                </td>
+                <td class="subtabla" >M</td>
+                                <td class="subtabla"  >1850-07-18</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=244258" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=244258&sin_cabecera=true', 'pop244258');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">245033</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=245033" class="link" > Arteaga, -----, Ynocencio</a>
+                </td>
+                <td class="subtabla" >H</td>
+                                <td class="subtabla"  >1852-03-20</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=245033" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=245033&sin_cabecera=true', 'pop245033');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">240228</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=240228" class="link" > Arteaga, -----, Maria Cruz</a>
+                </td>
+                <td class="subtabla" >M</td>
+                                <td class="subtabla"  >1855-03-26</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=240228" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=240228&sin_cabecera=true', 'pop240228');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">241532</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=241532" class="link" > Arteaga, -----, Pedro</a>
+                </td>
+                <td class="subtabla" >H</td>
+                                <td class="subtabla"  >1856-07-27</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=241532" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=241532&sin_cabecera=true', 'pop241532');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">240196</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=240196" class="link" > Arteaga, Ajuria, Angel</a>
+                </td>
+                <td class="subtabla" >H</td>
+                                <td class="subtabla"  >1855-01-11</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=240196" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=240196&sin_cabecera=true', 'pop240196');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">241766</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=241766" class="link" > Aspiazau, -----, Jose Maria</a>
+                </td>
+                <td class="subtabla" >H</td>
+                                <td class="subtabla"  >1852-04-16</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=241766" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=241766&sin_cabecera=true', 'pop241766');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">245952</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=245952" class="link" > Barrondo, -----, Carlos</a>
+                </td>
+                <td class="subtabla" >H</td>
+                                <td class="subtabla"  >1854-02-04</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=245952" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=245952&sin_cabecera=true', 'pop245952');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">239990</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=239990" class="link" > Barrondo, Aguirre, Donato</a>
+                </td>
+                <td class="subtabla" >H</td>
+                                <td class="subtabla"  >1854-10-17</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=239990" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=239990&sin_cabecera=true', 'pop239990');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">245774</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=245774" class="link" > Basterra, Abasolo, Teodora</a>
+                </td>
+                <td class="subtabla" >M</td>
+                                <td class="subtabla"  >1853-11-15</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=245774" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=245774&sin_cabecera=true', 'pop245774');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">244963</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=244963" class="link" > Bilbao, Aguirre, Romulo</a>
+                </td>
+                <td class="subtabla" >H</td>
+                                <td class="subtabla"  >1852-02-17</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=244963" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=244963&sin_cabecera=true', 'pop244963');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">244000</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=244000" class="link" > Bilbao, Aguirre, Martina</a>
+                </td>
+                <td class="subtabla" >M</td>
+                                <td class="subtabla"  >1850-01-18</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=244000" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=244000&sin_cabecera=true', 'pop244000');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">240720</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=240720" class="link" > Campo, -----, Mauricia</a>
+                </td>
+                <td class="subtabla" >M</td>
+                                <td class="subtabla"  >1855-09-26</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=240720" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=240720&sin_cabecera=true', 'pop240720');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">244749</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=244749" class="link" > Corcostegui, -----, Jacoba</a>
+                </td>
+                <td class="subtabla" >M</td>
+                                <td class="subtabla"  >1851-11-12</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=244749" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=244749&sin_cabecera=true', 'pop244749');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">239815</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=239815" class="link" > Cortazar, -----, Brigida</a>
+                </td>
+                <td class="subtabla" >M</td>
+                                <td class="subtabla"  >1854-10-03</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=239815" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=239815&sin_cabecera=true', 'pop239815');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">239923</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=239923" class="link" > Cortazar, -----, Juan</a>
+                </td>
+                <td class="subtabla" >H</td>
+                                <td class="subtabla"  >1854-10-05</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=239923" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=239923&sin_cabecera=true', 'pop239923');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">245655</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=245655" class="link" > Cortazar, Solavarria, Juan Cruz</a>
+                </td>
+                <td class="subtabla" >H</td>
+                                <td class="subtabla"  >1853-09-12</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=245655" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=245655&sin_cabecera=true', 'pop245655');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">240342</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=240342" class="link" > Echeandia, -----, Rufino</a>
+                </td>
+                <td class="subtabla" >H</td>
+                                <td class="subtabla"  >1855-09-04</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=240342" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=240342&sin_cabecera=true', 'pop240342');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">244834</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=244834" class="link" > Echevarria, Ybarguchi, Justo</a>
+                </td>
+                <td class="subtabla" >H</td>
+                                <td class="subtabla"  >1851-12-09</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=244834" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=244834&sin_cabecera=true', 'pop244834');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">241054</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=241054" class="link" > Echezarraga, -----, Dominica</a>
+                </td>
+                <td class="subtabla" >M</td>
+                                <td class="subtabla"  >1855-10-03</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=241054" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=241054&sin_cabecera=true', 'pop241054');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">242731</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=242731" class="link" > Echezarraga, -----, Martin</a>
+                </td>
+                <td class="subtabla" >H</td>
+                                <td class="subtabla"  >1858-11-24</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=242731" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=242731&sin_cabecera=true', 'pop242731');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">244879</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=244879" class="link" > Egaña, Uriarte, Lucrecia</a>
+                </td>
+                <td class="subtabla" >M</td>
+                                <td class="subtabla"  >1852-01-03</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=244879" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=244879&sin_cabecera=true', 'pop244879');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">246111</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=246111" class="link" > Egaña, Uriarte, Segunda</a>
+                </td>
+                <td class="subtabla" >M</td>
+                                <td class="subtabla"  >1854-07-14</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=246111" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=246111&sin_cabecera=true', 'pop246111');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">245340</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=245340" class="link" > Eguia, -----, Jose</a>
+                </td>
+                <td class="subtabla" >H</td>
+                                <td class="subtabla"  >1852-10-20</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=245340" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=245340&sin_cabecera=true', 'pop245340');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">244230</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=244230" class="link" > Eguia, Yturzaeta, Juana Francisca</a>
+                </td>
+                <td class="subtabla" >M</td>
+                                <td class="subtabla"  >1850-06-22</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=244230" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=244230&sin_cabecera=true', 'pop244230');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">242436</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=242436" class="link" > Elespuru, Barrondo, Toribia</a>
+                </td>
+                <td class="subtabla" >M</td>
+                                <td class="subtabla"  >1857-10-28</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=242436" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=242436&sin_cabecera=true', 'pop242436');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">240569</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=240569" class="link" > Elguea, -----, Toribia</a>
+                </td>
+                <td class="subtabla" >M</td>
+                                <td class="subtabla"  >1855-09-15</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=240569" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=240569&sin_cabecera=true', 'pop240569');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">240018</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=240018" class="link" > Elorriaga, Sillero, Juan</a>
+                </td>
+                <td class="subtabla" >H</td>
+                                <td class="subtabla"  >1854-10-17</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=240018" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=240018&sin_cabecera=true', 'pop240018');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">245133</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=245133" class="link" > Fernandez de Aranguiz, Abasolo, Antonia</a>
+                </td>
+                <td class="subtabla" >M</td>
+                                <td class="subtabla"  >1852-06-14</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=245133" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=245133&sin_cabecera=true', 'pop245133');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">241459</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=241459" class="link" > Gandasegui, Goicoolea, Esteban</a>
+                </td>
+                <td class="subtabla" >H</td>
+                                <td class="subtabla"  >1856-06-17</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=241459" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=241459&sin_cabecera=true', 'pop241459');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">244621</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=244621" class="link" > Goicoolea, -----, Eugenio</a>
+                </td>
+                <td class="subtabla" >H</td>
+                                <td class="subtabla"  >1859-10-16</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=244621" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=244621&sin_cabecera=true', 'pop244621');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">245614</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=245614" class="link" > Goicoolea, -----, Gavriela</a>
+                </td>
+                <td class="subtabla" >M</td>
+                                <td class="subtabla"  >1853-08-23</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=245614" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=245614&sin_cabecera=true', 'pop245614');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">242702</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=242702" class="link" > Goicoolea, Abasolo, Justo</a>
+                </td>
+                <td class="subtabla" >H</td>
+                                <td class="subtabla"  >1858-10-24</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=242702" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=242702&sin_cabecera=true', 'pop242702');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">246137</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=246137" class="link" > Goicoolea, Arechaga, Bonifacio</a>
+                </td>
+                <td class="subtabla" >H</td>
+                                <td class="subtabla"  >1854-07-17</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=246137" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=246137&sin_cabecera=true', 'pop246137');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">241227</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=241227" class="link" > Goicoolea, Arechaga, Norverta Antonia</a>
+                </td>
+                <td class="subtabla" >M</td>
+                                <td class="subtabla"  >1855-10-25</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=241227" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=241227&sin_cabecera=true', 'pop241227');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">242259</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=242259" class="link" > Goicoolea, Arechaga, Eusebia</a>
+                </td>
+                <td class="subtabla" >M</td>
+                                <td class="subtabla"  >1857-01-22</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=242259" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=242259&sin_cabecera=true', 'pop242259');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">242595</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=242595" class="link" > Goicoolea, Arechaga, Gregoria</a>
+                </td>
+                <td class="subtabla" >M</td>
+                                <td class="subtabla"  >1858-06-27</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=242595" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=242595&sin_cabecera=true', 'pop242595');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">244468</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=244468" class="link" > Goicoolea, Corcostegui, Feliz</a>
+                </td>
+                <td class="subtabla" >H</td>
+                                <td class="subtabla"  >1850-11-17</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=244468" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=244468&sin_cabecera=true', 'pop244468');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">245489</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=245489" class="link" > Goicoolea, Ybarguchi, Jose Zoilo</a>
+                </td>
+                <td class="subtabla" >H</td>
+                                <td class="subtabla"  >1860-03-29</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=245489" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=245489&sin_cabecera=true', 'pop245489');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">245756</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=245756" class="link" > Gomusio, Erenchun, Luisa</a>
+                </td>
+                <td class="subtabla" >M</td>
+                                <td class="subtabla"  >1860-11-13</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=245756" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=245756&sin_cabecera=true', 'pop245756');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="subtabla">244645</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_difuntos.php?id_difunto=244645" class="link" > Gordovil, Apoita, Dominica</a>
+                </td>
+                <td class="subtabla" >M</td>
+                                <td class="subtabla"  >1850-06-28</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_difuntos.php?id_difunto=244645" ><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_difuntos.php?id_difunto=244645&sin_cabecera=true', 'pop244645');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+
+                                    </td>
+            </tr>
+            </table>
+    <p align="center">
+    Si no ha encontrado los datos que desea, por favor, realice una    <a href="n_indexacion.php">
+        nueva busqueda    </a>
+    o p&oacute;ngase en contacto con el AHEB-BEHA</p>
+
+
+</div>
+</div>
+<script language="javascript" type="text/javascript">
+//document.getElementById("cargar").style.visibility="hidden";
+</script>
+
+
+</body>
+</html>

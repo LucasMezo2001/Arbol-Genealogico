@@ -1,0 +1,2190 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>SIGA-AKIS .:. AHEB-BEHA</title>
+<link href="../../stilos.css" rel="stylesheet" type="text/css" />
+<link href="../../stilos-form.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript" src="../../includes/js_extranet_ca.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://www.centroicaro.net/fileadmin/icaro/flaccess.js"></script>
+</head>
+
+<body>
+<div id="cabecera">
+<div id="logotipo"><img src="../../imagenes/logo_cabecera.gif" alt="siga" width="600" height="24" longdesc="siga aheb sistema inet de gestion de archivos artxibpen kudeaketarako inet sistema" ></div>
+<div id="varios_menus">
+	<div id="menu1">
+		<ul class="menu_idiomas"><li>&nbsp;</li></ul>
+	</div>
+
+</div>
+<div id="adorno_cabecera"><div id="menu2">
+		<ul class="menu_idiomas">
+		<li><a href="../../index.php?idioma_cook=eu">eu</a></li>
+		<li><a href="../../index.php?idioma_cook=ca">es</a></li>
+		<li><a href="../../index.php?idioma_cook=en">en</a></li>
+		</ul>
+</div></div>
+
+<div id="menu_principal">
+	<div id="menu_prin_izda">
+	<div id="pestana_inicio"><a href="../portada/n_portada.php"> Inicio :: SIGA-AKIS </a></div>
+	<div id="registro"><a href="../indexacion/n_indexacion.php">Registros Sacramentales</a></div>
+	<div id="fondos"><a href="../catalogacion/n_catalogo.php">Catálogo General</a></div>
+	<div id="pestana_inicio"><a href="http://www.aheb-beha.org/" target="_blank">Web del Archivo</a></div>
+	<div id="facebook"><a href="http://www.facebook.com/aheb-beha/"><img src="../../imagenes/facebook.gif" width="90" height="26" alt="facebook" /></a></div>
+    <div id="pestana_botonicaro" >
+        <div id="out1">
+        <div id="in1"><a style="color:#990000;" target="_blank" href="http://www.centroicaro.net/">Centro Icaro</a></div>
+        </div>
+        <script  type="text/javascript">
+        // addFlash(postpone,minversion,path,width,height,node);
+        addFlash(0,8,"../../imagenes/boton-icaro.swf",150,26,"fl1,in1,out1");
+        </script>
+    </div>
+</div>
+
+<div id="menu_prin_dcha">
+  </div></div>
+
+
+</div>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-9661238-7']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script><div id="contendor_central">
+<div class="contenedorform">
+<div class="tituloform" style="width:97%; margin-bottom:0px;">CONSULTA DE REGISTROS SACRAMENTALES (1501-1900 inclusive)</div>
+
+<form action=""  method="post" name="form">
+<input type="hidden" name="accion"/>
+<input type="hidden" name="auxiliar" />
+<div id="pestanas2" >
+		<ul>
+			<li ><a href="n_indexacion.php">búsqueda simple</a></li>
+			<li><a href="n_indexacion_completa.php?sacramento=bautismo">búsqueda avanzada</a></li>
+            <li id="current"><a href="n_indexacion_especial.php?sacramento=bautismo">búsquedas especiales</a></li>
+		</ul>
+</div>
+<div id="contenido" > <a href="#" onclick="abrir_pop_up('../ayudas/ca_ayuda_indexacion.html')" class="stilobotonayuda">AYUDA</a>
+  <div class="left">
+    <ul>
+      <li><a href="#"onclick="abrir_pop_up('../ayudas/ca_ayuda_indexacion.html')">Ayuda a la consulta</a></li>
+
+		  <li class="nivel5"><a href="#" class="nivel4" onclick="window.open('../../localidades_indexadas/bautismos_indexados.html','PopUp','width=500,height=500,screenX=500,screenY=700,top=100,left=400,scrollbars=YES, resizable=YES')" ><strong>Parroquias con registros de BAUTISMOS en la web</strong></a></li>
+	      <li class="nivel5"><a href="#" class="nivel4" onclick="window.open('../../localidades_indexadas/matrimonios_indexados.html','PopUp','width=500,height=500,screenX=500,screenY=700,top=100,left=400,scrollbars=YES, resizable=YES')" ><strong>Parroquias con registros de MATRIMONIOS en la web</strong></a></li>
+	      <li class="nivel5"><a href="#" class="nivel4" onclick="window.open('../../localidades_indexadas/difuntos_indexados.html','PopUp','width=500,height=500,screenX=500,screenY=700,top=100,left=400,scrollbars=YES, resizable=YES')" ><strong>Parroquias con registros de DIFUNTOS en la web</strong></a></li>
+      </ul>
+    </div>
+
+  <div id="consejos" class="left">
+    <span class="nivel2">Caracteres
+      comod&iacute;n</span><br />
+    % (tanto por ciento: teclas May&uacute;s+%) sustituye a cualquier
+    caracter, por ejemplo: Echebarr%, para encontrar Echebarria, Echebarrieta.<br />
+    <br />
+    _ (gui&oacute;n bajo: teclas May&uacute;s+gui&oacute;n) sustituye
+    a un car&aacute;cter, por ejemplo: Gon_ale_, para encontrar Gonzalez,
+    Gonzales, Gonsales, Gon&ccedil;ales, Gon&ccedil;alez. <br />
+    <br />
+    Para mas informaci&oacute;n consulte la ayuda.  </div>
+
+    <div id="form_persona">
+    <strong>Sacramento: </strong>
+    <select name="sacramento" onchange="ejecutar('','actualizar')">
+      <option value="">-------------------</option>
+      <option value="bautismo"  selected>bautismo</option>
+      <option value="matrimonio" >matrimonio</option>
+      <option value="difunto" >defuncion</option>
+      </select>
+
+  </div>
+
+<div id="form_registro">
+<p>Localidad<img alt=""  src="../../imagenes/tab.gif"  width="20" height="8"><br />
+        <select name="id_localidad">
+          <option value=0>-------------</option>
+          <option value='1' >Abadiño  </option>
+<option value='2' >Abanto y Ciérvana-Abanto Zierbena  </option>
+<option value='3' >Ajangiz  </option>
+<option value='4' >Alonsotegi  </option>
+<option value='6' >Amorebieta-Etxano  </option>
+<option value='7' >Amoroto  </option>
+<option value='8' >Arakaldo  </option>
+<option value='9' >Arantzazu  </option>
+<option value='10' >Areatza  </option>
+<option value='11' >Arrankudiaga-Zollo  </option>
+<option value='12' >Arratzu  </option>
+<option value='13' >Arrieta (Libano de)  </option>
+<option value='14' >Arrigorriaga  </option>
+<option value='15' >Artea  </option>
+<option value='16' >Artzentales  </option>
+<option value='17' >Atxondo  </option>
+<option value='18' >Aulesti  </option>
+<option value='19' >Bakio  </option>
+<option value='20' >Balmaseda  </option>
+<option value='21' >Barakaldo  </option>
+<option value='22' >Barrika  </option>
+<option value='23' >Basauri  </option>
+<option value='24' >Bedia  </option>
+<option value='25' >Berango  </option>
+<option value='26' >Bermeo  </option>
+<option value='27' >Berriatua  </option>
+<option value='28' >Berriz  </option>
+<option value='29' >Bilbao  </option>
+<option value='30' >Busturia  </option>
+<option value='31' >Derio  </option>
+<option value='32' >Dima  </option>
+<option value='33' >Durango  </option>
+<option value='34' >Ea  </option>
+<option value='35' >Elantxobe  </option>
+<option value='36' >Elorrio  </option>
+<option value='37' >Erandio  </option>
+<option value='38' >Ereño  </option>
+<option value='39' >Ermua  </option>
+<option value='40' >Errigoiti  </option>
+<option value='41' >Etxebarri  </option>
+<option value='42' >Etxebarria  </option>
+<option value='43' >Forua  </option>
+<option value='44' >Fruiz  </option>
+<option value='56' >Güeñes  </option>
+<option value='45' >Galdakao  </option>
+<option value='46' >Galdames  </option>
+<option value='47' >Gamiz-Fika  </option>
+<option value='48' >Garai  </option>
+<option value='49' >Gatika  </option>
+<option value='50' >Gautegiz Arteaga  </option>
+<option value='51' >Gernika-Lumo  </option>
+<option value='52' >Getxo  </option>
+<option value='53' >Gizaburuaga  </option>
+<option value='54' >Gordexola  </option>
+<option value='55' >Gorliz  </option>
+<option value='57' >Ibarrangelu  </option>
+<option value='58' >Igorre  </option>
+<option value='59' >Ispaster  </option>
+<option value='60' >Iurreta  </option>
+<option value='61' >Izurtza  </option>
+<option value='62' >Karrantza Harana/Valle de Carranza  </option>
+<option value='63' >Kortezubi  </option>
+<option value='64' >Lanestosa  </option>
+<option value='65' >Larrabetzu  </option>
+<option value='66' >Laukiz  </option>
+<option value='67' >Leioa  </option>
+<option value='68' >Lekeitio  </option>
+<option value='69' >Lemoa  </option>
+<option value='70' >Lemoiz  </option>
+<option value='71' >Lezama  </option>
+<option value='72' >Loiu  </option>
+<option value='76' >Mañaria  </option>
+<option value='73' >Mallabia  </option>
+<option value='74' >Markina-Xemein  </option>
+<option value='75' >Maruri-Jatabe  </option>
+<option value='79' >Meñaka  </option>
+<option value='77' >Mendata  </option>
+<option value='78' >Mendexa  </option>
+<option value='80' >Morga  </option>
+<option value='81' >Mundaka  </option>
+<option value='82' >Mungia  </option>
+<option value='83' >Munitibar-Arbatzegi Gerrikaitz  </option>
+<option value='84' >Murueta  </option>
+<option value='85' >Muskiz  </option>
+<option value='86' >Muxika  </option>
+<option value='87' >Nabarniz  </option>
+<option value='88' >Ondarroa  </option>
+<option value='89' >Orozko  </option>
+<option value='90' >Ortuella  </option>
+<option value='91' >Otxandio  </option>
+<option value='92' >Plentzia  </option>
+<option value='93' >Portugalete  </option>
+<option value='94' >Santurtzi  </option>
+<option value='95' >Sestao  </option>
+<option value='96' >Sondika  </option>
+<option value='97' >Sopela  </option>
+<option value='98' >Sopuerta  </option>
+<option value='99' >Sukarrieta  </option>
+<option value='100' >Trucios-Turtzioz  </option>
+<option value='101' selected>Ubidea  </option>
+<option value='102' >Ugao-Miraballes  </option>
+<option value='104' >Urduña/Orduña  </option>
+<option value='103' >Urduliz  </option>
+<option value='115' >Usansolo  </option>
+<option value='105' >Valle de Trápaga-Trapagaran  </option>
+<option value='106' >Valle de Villaverde (Villaverde de Trucíos)  </option>
+<option value='107' >Zaldibar  </option>
+<option value='108' >Zalla  </option>
+<option value='109' >Zamudio  </option>
+<option value='110' >Zaratamo  </option>
+<option value='111' >Zeanuri  </option>
+<option value='112' >Zeberio  </option>
+<option value='113' >Zierbena  </option>
+<option value='114' >Ziortza-Bolibar  </option>
+        </select>
+        <a href="../catalogacion/n_localidades.php" target="_blank" >
+          <img alt=""  src="../../imagenes/iconos/ojo.gif" width="16" height="16" border="0" /></a></p>
+        <p>Fecha concreta o intervalo (hasta 1900)<br />
+          <input name="fecha_form_ini_esp" type="text" value="1850"  size="15" />
+          <input name="fecha_form_fin_esp" type="text" value="1860" size="15" />
+          <br />
+          Intervalo recomendado 10 años</span></p>
+  </div>
+  <div  class="formbotones">
+  <a href="#"  class="stiloboton"   onclick="validar_indexacion_especial('n_indexacion_especial.php#buscar','buscar')">Buscar</a>
+  <a href="n_indexacion_especial.php" class="stiloboton">Limpiar</a>
+
+  </div>
+
+
+</div>
+</form>
+<div id="cargando" style="margin: 10px 0 0 0; text-align: center; display:none;">
+	Buscando...<br />
+	<img src="../../imagenes/ajax-loader.gif" alt="Cargando..." />
+</div>
+<a name="buscar"></a>
+
+    <link href="../../stilos.css" rel="stylesheet" type="text/css" />
+    <link href="../../stilos-form.css" rel="stylesheet" type="text/css" />
+    <p align="center" class="letras">&nbsp;</p>
+    <table align="center" cellpadding="3"  cellspacing="2" >
+        <tr>
+            <td colspan="9" valign="top" class="nota2pie"><div align="left">
+                    <strong>Registros encontrados <span class="nivel5">254</span>. Mostrando del <span class="nivel5">1</span> al <span class="nivel5">100</span>.<br />1 <a href="?accion=buscar&auxiliar=&sacramento=bautismo&id_localidad=101&fecha_form_ini_esp=1850&fecha_form_fin_esp=1860&&resultpage=2#buscar">2</a> <a href="?accion=buscar&auxiliar=&sacramento=bautismo&id_localidad=101&fecha_form_ini_esp=1850&fecha_form_fin_esp=1860&&resultpage=3#buscar">3</a> <a href="?accion=buscar&auxiliar=&sacramento=bautismo&id_localidad=101&fecha_form_ini_esp=1850&fecha_form_fin_esp=1860&&resultpage=2#buscar">Siguiente&#9658;</a>                 </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="9" class="nota2pie"><span class="letras"><img alt="ficha"  src="../../imagenes/iconos/ficha_fondo.gif" border="0" />Detalles del registro sacramental  &bull;   <img src="../../imagenes/iconos/windows.gif" alt="icono pop up" width="17" height="17" /> Detalles del registro sacramental en NUEVA VENTANA                      </span></td>
+        </tr>
+        <tr class="cabsubtabla">
+            <td>ID bautismo</td>
+            <td><a href="?accion=buscar&auxiliar=&sacramento=bautismo&id_localidad=101&fecha_form_ini_esp=1850&fecha_form_fin_esp=1860&&order=apellido1">Apellidos, Nombre</a></td>
+            <td><a href="?accion=buscar&auxiliar=&sacramento=bautismo&id_localidad=101&fecha_form_ini_esp=1850&fecha_form_fin_esp=1860&&order=sexo">Sexo</a></td>
+                        <td><a href="?accion=buscar&auxiliar=&sacramento=bautismo&id_localidad=101&fecha_form_ini_esp=1850&fecha_form_fin_esp=1860&&order=fecha_form_ini">Fecha</a></td>
+            <td><a href="?accion=buscar&auxiliar=&sacramento=bautismo&id_localidad=101&fecha_form_ini_esp=1850&fecha_form_fin_esp=1860&&order=t_localidad,div_loc">Localidad</a></td>
+            <td><a href="?accion=buscar&auxiliar=&sacramento=bautismo&id_localidad=101&fecha_form_ini_esp=1850&fecha_form_fin_esp=1860&&order=f4_desc_ca">Fondo</a></td>
+            <td width="40"></td>
+        </tr>
+                    <tr>
+                <td class="subtabla" >186036</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=186036" class="link" > Abasolo, Aguirre, Estanislaa</a>
+                    <br />
+                    [Padre] Abasolo, Aguirre, Cecilio                    <br />
+                    [Madre] Aguirre, Ajuria, Baldomera                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1850-05-07</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=186036"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=186036&sin_cabecera=true', 'pop186036');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >285913</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=285913" class="link" > Abasolo, Aguirre, Vicente</a>
+                    <br />
+                    [Padre] Abasolo, Aguirre, Cecilio                    <br />
+                    [Madre] Aguirre, Ajuria, Baldomera                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1853-01-22</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=285913"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=285913&sin_cabecera=true', 'pop285913');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >299810</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=299810" class="link" > Abasolo, Aguirre, Eusebio Esequiel</a>
+                    <br />
+                    [Padre] Abasolo, Ajuria, Balentin                    <br />
+                    [Madre] Aguirre, Bereycua, Clara                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1860-04-10</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=299810"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=299810&sin_cabecera=true', 'pop299810');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >285896</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=285896" class="link" > Abasolo, Aguirre, Benigno</a>
+                    <br />
+                    [Padre] Abasolo, Aguirre, Cecilio                    <br />
+                    [Madre] Aguirre, Ajuria, Baldomera                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1856-02-12</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=285896"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=285896&sin_cabecera=true', 'pop285896');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >285838</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=285838" class="link" > Abasolo, Aguirre, Marta</a>
+                    <br />
+                    [Padre] Abasolo, Aguirre, Cecilio                    <br />
+                    [Madre] Aguirre, Ajuria, Baldomera                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1859-02-23</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=285838"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=285838&sin_cabecera=true', 'pop285838');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >186086</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=186086" class="link" > Abasolo, Ajuria, Martin</a>
+                    <br />
+                    [Padre] Abasolo, Aguirre, Emeterio                    <br />
+                    [Madre] Ajuria, Elguea, Ana Josefa                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1851-07-05</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=186086"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=186086&sin_cabecera=true', 'pop186086');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >186079</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=186079" class="link" > Abasolo, Ajuria, Ysidro</a>
+                    <br />
+                    [Padre] Abasolo, Aguirre, Alejo                    <br />
+                    [Madre] Ajuria, Aguirre, Clotilde                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1851-05-15</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=186079"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=186079&sin_cabecera=true', 'pop186079');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >299766</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=299766" class="link" > Abasolo, Ajuria, Maria</a>
+                    <br />
+                    [Padre] Abasolo, Aguirre, Alejo                    <br />
+                    [Madre] Ajuria, Aguirre, Clotilde                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1855-12-12</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=299766"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=299766&sin_cabecera=true', 'pop299766');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >303819</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=303819" class="link" > Abasolo, Ajuria, Ciriaco</a>
+                    <br />
+                    [Padre] Abasolo, Aguirre, Alejo                    <br />
+                    [Madre] Ajuria, Aguirrea, Clotilde                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1858-04-07</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=303819"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=303819&sin_cabecera=true', 'pop303819');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >299765</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=299765" class="link" > Abasolo, Ajuria, Ysidora</a>
+                    <br />
+                    [Padre] Abasolo, Aguirre, Emeterio                    <br />
+                    [Madre] Ajuria, Elguea, Ana Josefa                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1853-04-04</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=299765"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=299765&sin_cabecera=true', 'pop299765');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >299757</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=299757" class="link" > Abasolo, Ajuria, Gorgonio</a>
+                    <br />
+                    [Padre] Abasolo, Aguirre, Emeterio                    <br />
+                    [Madre] Ajuria, Elguea, Ana Josefa                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1855-09-09</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=299757"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=299757&sin_cabecera=true', 'pop299757');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >303503</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=303503" class="link" > Abasolo, Apoita, Segundo</a>
+                    <br />
+                    [Padre] Abasolo, Aguirre, Manuel                    <br />
+                    [Madre] Apoita, Ajuria, Timotea                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1856-05-22</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=303503"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=303503&sin_cabecera=true', 'pop303503');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >186350</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=186350" class="link" > Abasolo, Apoita, Anastasia</a>
+                    <br />
+                    [Padre] Abasolo, Aguirre, Manuel                    <br />
+                    [Madre] Apoita, Ajuria, Timotea                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1852-12-25</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=186350"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=186350&sin_cabecera=true', 'pop186350');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >302126</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=302126" class="link" > Abasolo, Machain, Ysabel</a>
+                    <br />
+                    [Padre] Abasolo, Diaz de Mendivil, Guillermo                    <br />
+                    [Madre] Machain, Yturrioz, Josefa Martina                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1857-07-08</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=302126"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=302126&sin_cabecera=true', 'pop302126');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >186031</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=186031" class="link" > Aguirre, Abasolo, Emilia</a>
+                    <br />
+                    [Padre] Aguirre, Elguea, Vicente Ramon                    <br />
+                    [Madre] Abasolo, Aguirre, Dorotea                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1850-04-05</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=186031"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=186031&sin_cabecera=true', 'pop186031');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >285909</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=285909" class="link" > Aguirre, Abasolo, Petra</a>
+                    <br />
+                    [Padre] Aguirre, Elguea, Vicente Ramon                    <br />
+                    [Madre] Abasolo, Aguirre, Dorotea                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1854-02-22</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=285909"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=285909&sin_cabecera=true', 'pop285909');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >186082</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=186082" class="link" > Aguirre, Abasolo, Santiago</a>
+                    <br />
+                    [Padre] Aguirre, Elguea, Vicente Ramon                    <br />
+                    [Madre] Abasolo, Aguirre, Dorotea                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1851-05-22</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=186082"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=186082&sin_cabecera=true', 'pop186082');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >303258</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=303258" class="link" > Aguirre, Abasolo, Cecilia</a>
+                    <br />
+                    [Padre] Aguirre, Ajuria, Jose                    <br />
+                    [Madre] Abasolo, Aguirre, Leona                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1854-11-22</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=303258"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=303258&sin_cabecera=true', 'pop303258');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >285885</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=285885" class="link" > Aguirre, Abasolo, Timoteo</a>
+                    <br />
+                    [Padre] Aguirre, Elguea, Vicente Ramon                    <br />
+                    [Madre] Abasolo, Aguirre, Dorotea                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1856-06-10</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=285885"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=285885&sin_cabecera=true', 'pop285885');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >285864</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=285864" class="link" > Aguirre, Aguirre, Maria Eustoquia</a>
+                    <br />
+                    [Padre] Aguirre, Echezarraga, Bernardino                    <br />
+                    [Madre] Aguirre, Ajuria, Cecilia                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1857-09-28</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=285864"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=285864&sin_cabecera=true', 'pop285864');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >186093</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=186093" class="link" > Aguirre, Aguirre, Luis</a>
+                    <br />
+                    [Padre] Aguirre, Achezarraga, Bernardino                    <br />
+                    [Madre] Aguirre, Ajuria, Cecilia                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1851-08-25</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=186093"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=186093&sin_cabecera=true', 'pop186093');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >186027</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=186027" class="link" > Aguirre, Aguirre, Paula Maura</a>
+                    <br />
+                    [Padre] Aguirre, Echezarraga, Bernardino                    <br />
+                    [Madre] Aguirre, Ajuria, Cecilia                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1850-01-15</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=186027"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=186027&sin_cabecera=true', 'pop186027');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >299758</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=299758" class="link" > Aguirre, Aguirre, Jose Aniceto</a>
+                    <br />
+                    [Padre] Aguirre, Echezarraga, Bernardino                    <br />
+                    [Madre] Aguirre, Ajuria, Cecilia                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1855-08-12</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=299758"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=299758&sin_cabecera=true', 'pop299758');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >285921</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=285921" class="link" > Aguirre, Aguirre, Antolina</a>
+                    <br />
+                    [Padre] Aguirre, Echezarraga, Bernardino                    <br />
+                    [Madre] Aguirre, Ajuria, Cecilia                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1859-09-02</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=285921"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=285921&sin_cabecera=true', 'pop285921');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >186034</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=186034" class="link" > Aguirre, Ajuria, Prudencio</a>
+                    <br />
+                    [Padre] Aguirre, Echezarraga, Tomas Joaquin                    <br />
+                    [Madre] Ajuria, Aguirre, Nicolasa                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1850-04-28</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=186034"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=186034&sin_cabecera=true', 'pop186034');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >299770</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=299770" class="link" > Aguirre, Arechaga, Juan</a>
+                    <br />
+                    [Padre] Aguirre, Echezarraga, Leonardo                    <br />
+                    [Madre] Arechaga, Ajuria, Leocadia                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1856-03-08</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=299770"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=299770&sin_cabecera=true', 'pop299770');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >186096</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=186096" class="link" > Aguirre, Arechaga, Maria</a>
+                    <br />
+                    [Padre] Aguirre, Echezarraga, Leonardo                    <br />
+                    [Madre] Arechaga, Ajuria, Leocadia                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1851-09-25</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=186096"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=186096&sin_cabecera=true', 'pop186096');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >186109</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=186109" class="link" > Aguirre, Arechaga, Baldomera</a>
+                    <br />
+                    [Padre] Aguirre, Echezarraga, Francisco                    <br />
+                    [Madre] Arechaga, Ajuria, Angela                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1852-02-27</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=186109"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=186109&sin_cabecera=true', 'pop186109');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >302956</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=302956" class="link" > Aguirre, Arechaga, Felipa</a>
+                    <br />
+                    [Padre] Aguirre, Echezarraga, Leonardo                    <br />
+                    [Madre] Arechaga, Ajuria, Leocadia                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1858-08-23</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=302956"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=302956&sin_cabecera=true', 'pop302956');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >303226</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=303226" class="link" > Aguirre, Arechaga, Mateo</a>
+                    <br />
+                    [Padre] Aguirre, Echezarraga, Francisco                    <br />
+                    [Madre] Arechaga, Ajuria, Angela                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1854-09-22</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=303226"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=303226&sin_cabecera=true', 'pop303226');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >299777</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=299777" class="link" > Aguirre, Arechaga, Canuto</a>
+                    <br />
+                    [Padre] Aguirre, Echezarraga, Francisco                    <br />
+                    [Madre] Arechaga, Ajuria, Angela                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1860-01-19</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=299777"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=299777&sin_cabecera=true', 'pop299777');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >285852</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=285852" class="link" > Aguirre, Arechaga, Juan</a>
+                    <br />
+                    [Padre] Aguirre, Echezarraga, Leonardo                    <br />
+                    [Madre] Arechaga, Ajuria, Leocadia                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1853-12-10</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=285852"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=285852&sin_cabecera=true', 'pop285852');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >299811</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=299811" class="link" > Aguirre, Arechaga, Benito</a>
+                    <br />
+                    [Padre] Aguirre, Echezarraga, Francisco                    <br />
+                    [Madre] Arechaga, Ajuria, Angela                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1858-01-12</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=299811"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=299811&sin_cabecera=true', 'pop299811');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >285897</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=285897" class="link" > Aguirre, Barrutia, Maria Teresa</a>
+                    <br />
+                    [Padre] Aguirre, Bereicua, Marcos                    <br />
+                    [Madre] Barrutia, Pagalday, Teresa                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1856-03-03</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=285897"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=285897&sin_cabecera=true', 'pop285897');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >303191</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=303191" class="link" > Aguirre, Barrutia, Jose Maria</a>
+                    <br />
+                    [Padre] Aguirre, Bereicua, Marcos                    <br />
+                    [Madre] Barrutia, Pagadai, Teresa                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1854-04-16</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=303191"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=303191&sin_cabecera=true', 'pop303191');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >303169</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=303169" class="link" > Aguirre, Barrutia, Romualdo</a>
+                    <br />
+                    [Padre] Aguirre, Bereicua, Marcos                    <br />
+                    [Madre] Barrutia, Pagalday, Teresa                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1859-02-07</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=303169"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=303169&sin_cabecera=true', 'pop303169');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >186299</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=186299" class="link" > Aguirre, Beobide, Antonio</a>
+                    <br />
+                    [Padre] Aguirre, Ureta, Jose Manuel                    <br />
+                    [Madre] Beobide, Adaro, Justa                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1852-10-25</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=186299"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=186299&sin_cabecera=true', 'pop186299');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >299808</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=299808" class="link" > Aguirre, Olivares, Juan Cruz</a>
+                    <br />
+                    [Padre] Aguirre, Echezarraga, Victor                    <br />
+                    [Madre] Olivares, Ajuria, Francisca                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1857-11-24</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=299808"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=299808&sin_cabecera=true', 'pop299808');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >285925</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=285925" class="link" > Aguirre, Olivares, Pablo</a>
+                    <br />
+                    [Padre] Aguirre, Echezarraga, Victor                    <br />
+                    [Madre] Olivares, Ajuria, Francisca                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1855-03-22</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=285925"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=285925&sin_cabecera=true', 'pop285925');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >186301</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=186301" class="link" > Aguirre, Olivares, Francisca</a>
+                    <br />
+                    [Padre] Aguirre, Echezarraga, Victor                    <br />
+                    [Madre] Olivares, Ajuria, Francisca                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1852-12-04</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=186301"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=186301&sin_cabecera=true', 'pop186301');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >285846</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=285846" class="link" > Aguirre, Pujana, Mateo</a>
+                    <br />
+                    [Padre] Aguirre, Bereicua, Manuel                    <br />
+                    [Madre] Pujana, Urquiola, Dominica Silos                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1860-09-21</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=285846"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=285846&sin_cabecera=true', 'pop285846');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >186058</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=186058" class="link" > Aguirre, Saens de Viteri, Anastasia</a>
+                    <br />
+                    [Padre] Aguirre, Ureta, Alejo                    <br />
+                    [Madre] Saens de Viteri, Barrondo, Josefa                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1850-12-25</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=186058"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=186058&sin_cabecera=true', 'pop186058');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >303752</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=303752" class="link" > Aguirre, Urquiola, Vicenta</a>
+                    <br />
+                    [Padre] Aguirre, Abasolo, Valentin                    <br />
+                    [Madre] Urquiola, Ajuria Gordovil, Maria                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1858-01-22</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=303752"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=303752&sin_cabecera=true', 'pop303752');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >303794</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=303794" class="link" > Aguirre, Urquiola, Petronilla</a>
+                    <br />
+                    [Padre] Aguirre, Abasolo, Valentin                    <br />
+                    [Madre] Urquiola, Ajuria Gordovil, Maria                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1860-05-31</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=303794"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=303794&sin_cabecera=true', 'pop303794');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >299797</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=299797" class="link" > Aguirre, Ybarguchi, Tiburcia</a>
+                    <br />
+                    [Padre] Aguirre, Echezarraga, Nicomedes                    <br />
+                    [Madre] Ybarguchi, Malcayde, Catalina                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1857-08-11</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=299797"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=299797&sin_cabecera=true', 'pop299797');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >299719</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=299719" class="link" > Aguirre, Ybarguchi, Victor</a>
+                    <br />
+                    [Padre] Aguirre, Echezarraga, Nicomedes                    <br />
+                    [Madre] Ybarguchi, Malcaide, Catalina                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1860-11-17</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=299719"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=299719&sin_cabecera=true', 'pop299719');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >285812</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=285812" class="link" > Aguirre, Ybarguchi, Angela</a>
+                    <br />
+                    [Padre] Aguirre, Echezarraga, Nicomedes                    <br />
+                    [Madre] Ybarguchi, Malcaide, Catalina                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1859-03-01</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=285812"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=285812&sin_cabecera=true', 'pop285812');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >285884</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=285884" class="link" > Aguirre, Ybarguchi, Juana</a>
+                    <br />
+                    [Padre] Aguirre, Aguirre, Mateo                    <br />
+                    [Madre] Ybarguchi, Ynzunsorbe, Brigida                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1856-07-12</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=285884"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=285884&sin_cabecera=true', 'pop285884');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >186264</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=186264" class="link" > Aguirre, Ybarguchi, Pedro</a>
+                    <br />
+                    [Padre] Aguirre, Aguirre, Mateo                    <br />
+                    [Madre] Ybarguchi, Ynzumsorbe, Brigida                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1852-05-08</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=186264"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=186264&sin_cabecera=true', 'pop186264');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >299703</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=299703" class="link" > Aguirre, Ybarguchi, Venancia</a>
+                    <br />
+                    [Padre] Aguirre, Aguirre, Mateo                    <br />
+                    [Madre] Ybarguchi, Ynzunsorbe, Brigida                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1854-05-18</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=299703"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=299703&sin_cabecera=true', 'pop299703');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >186045</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=186045" class="link" > Aguirre, Yribarren, Maria</a>
+                    <br />
+                    [Padre] Aguirre, Unda, Domingo                    <br />
+                    [Madre] Yribarren, Usaola, Juana Cruz                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1850-09-25</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=186045"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=186045&sin_cabecera=true', 'pop186045');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >299809</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=299809" class="link" > Aguirre, Zurbano, Dominica</a>
+                    <br />
+                    [Padre] Aguirre, Bereicua, Antonio                    <br />
+                    [Madre] Zurbano, Subero, Fernanda                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1858-12-20</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=299809"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=299809&sin_cabecera=true', 'pop299809');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >285894</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=285894" class="link" > Ajuria, Goicoolea, Victor</a>
+                    <br />
+                    [Padre] Ajuria, Aguirre, Pascual                    <br />
+                    [Madre] Goicoolea, Bengoechea, Prudencia                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1856-03-06</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=285894"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=285894&sin_cabecera=true', 'pop285894');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >303045</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=303045" class="link" > Ajuria, Goicoolea, Timoteo</a>
+                    <br />
+                    [Padre] Ajuria, Aguirre, Pascuel                    <br />
+                    [Madre] Goicoolea, Bengoechea, Prudencia                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1853-08-22</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=303045"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=303045&sin_cabecera=true', 'pop303045');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >303040</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=303040" class="link" > Ajuria, Goicoolea, Adelaida</a>
+                    <br />
+                    [Padre] Ajuria, Aguirre, Pascual                    <br />
+                    [Madre] Goicoolea, Bengoechea, Prudencia                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1858-10-16</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=303040"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=303040&sin_cabecera=true', 'pop303040');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >186081</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=186081" class="link" > Ajuria, Goicoolea, Pascuala</a>
+                    <br />
+                    [Padre] Ajuria, Aguirre, Pascual                    <br />
+                    [Madre] Goicoolea, Bengoechea, Prudencia                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1851-05-17</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=186081"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=186081&sin_cabecera=true', 'pop186081');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >299786</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=299786" class="link" > Ajuria Gordovil, Olivares, Pio</a>
+                    <br />
+                    [Padre] Ajuria Gordovil, Ajuria Guerra, Donato                    <br />
+                    [Madre] Olivares, Olavarria, Maria Teresa                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1857-03-04</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=299786"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=299786&sin_cabecera=true', 'pop299786');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >302940</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=302940" class="link" > Ajuria Gordovil, Olivares, Daniel</a>
+                    <br />
+                    [Padre] Ajuria Gordovil, Ajuria-Guerra, Donato                    <br />
+                    [Madre] Olivares, Olavarria, Maria Teresa                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1853-01-03</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=302940"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=302940&sin_cabecera=true', 'pop302940');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >186032</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=186032" class="link" > Ajuria Gordovil, Olivares, Tiburcia</a>
+                    <br />
+                    [Padre] Ajuria Gordovil, Ajuria Guerra, Donato                    <br />
+                    [Madre] Olivares, Olavarria, Maria Teresa                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1850-04-14</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=186032"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=186032&sin_cabecera=true', 'pop186032');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >299731</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=299731" class="link" > Antia, Arana, Francisca</a>
+                    <br />
+                    [Padre] Antia, Maestu, Vicente                    <br />
+                    [Madre] Arana, Foronda, Maria                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1855-01-30</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=299731"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=299731&sin_cabecera=true', 'pop299731');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >303245</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=303245" class="link" > Apoita, Ureta, Ysidora</a>
+                    <br />
+                    [Padre] Apoita, Beobide, Gregorio                    <br />
+                    [Madre] Ureta, Ajuria, Eugenia                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1859-04-04</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=303245"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=303245&sin_cabecera=true', 'pop303245');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >303173</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=303173" class="link" > Apoita, Ureta, Mariano</a>
+                    <br />
+                    [Padre] Apoita, Beobide, Gregorio                    <br />
+                    [Madre] Ureta, Ajuria, Eugenia                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1854-03-11</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=303173"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=303173&sin_cabecera=true', 'pop303173');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >186105</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=186105" class="link" > Apoita, Ureta, Pedro</a>
+                    <br />
+                    [Padre] Apoita, Beobide, Gregorio                    <br />
+                    [Madre] Ureta, Ajuria, Eugenia                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1852-01-31</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=186105"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=186105&sin_cabecera=true', 'pop186105');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >303533</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=303533" class="link" > Apoita, Ureta, Calisto</a>
+                    <br />
+                    [Padre] Apoita, Beobide, Gregorio                    <br />
+                    [Madre] Ureta, Ajuria, Eugenia                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1856-10-14</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=303533"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=303533&sin_cabecera=true', 'pop303533');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >186065</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=186065" class="link" > Arana, Ureta, Hilaria Gumersinda</a>
+                    <br />
+                    [Padre] Arana, Gochicoa, Domingo                    <br />
+                    [Madre] Ureta, Uribarri, Ynes                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1851-01-13</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=186065"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=186065&sin_cabecera=true', 'pop186065');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >186267</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=186267" class="link" > Arana, Ureta, Gregoria</a>
+                    <br />
+                    [Padre] Arana, Gochicoa, Domingo                    <br />
+                    [Madre] Ureta, Uribarri, Ynes                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1852-05-10</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=186267"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=186267&sin_cabecera=true', 'pop186267');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >303214</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=303214" class="link" > Arana, Ureta, Petra</a>
+                    <br />
+                    [Padre] Arana, Gochicoa, Domingo                    <br />
+                    [Madre] Ureta, Uribarri, Ynes                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1854-06-29</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=303214"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=303214&sin_cabecera=true', 'pop303214');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >299785</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=299785" class="link" > Arechaga, Aguirre, [Venancio]</a>
+                    <br />
+                    [Padre] Arechaga, Ajuria, Feliz                    <br />
+                    [Madre] Aguirre, Echezarraga, Ramona                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1857-04-01</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=299785"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=299785&sin_cabecera=true', 'pop299785');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >299772</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=299772" class="link" > Arechaga, Aguirre, Teresa</a>
+                    <br />
+                    [Padre] Arechaga, Ajuria, Feliz                    <br />
+                    [Madre] Aguirre, Echezarraga, Ramona                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1858-08-27</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=299772"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=299772&sin_cabecera=true', 'pop299772');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >299697</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=299697" class="link" > Arechaga, Aguirre, Marcelino</a>
+                    <br />
+                    [Padre] Arechaga, Ajuria, Feliz                    <br />
+                    [Madre] Aguirre, Echezarraga, Ramona                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1854-04-26</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=299697"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=299697&sin_cabecera=true', 'pop299697');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >299764</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=299764" class="link" > Arechaga, Aguirre, Basilisa</a>
+                    <br />
+                    [Padre] Arechaga, Ajuria, Feliz                    <br />
+                    [Madre] Aguirre, Echezarraga, Ramona                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1856-01-08</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=299764"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=299764&sin_cabecera=true', 'pop299764');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >186033</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=186033" class="link" > Arechaga, Aguirre, Felipe</a>
+                    <br />
+                    [Padre] Arechaga, Ajuria, Feliz                    <br />
+                    [Madre] Aguirre, Echezarraga, Ramona                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1850-04-26</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=186033"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=186033&sin_cabecera=true', 'pop186033');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >186296</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=186296" class="link" > Arechaga, Aguirre, Bonifacio</a>
+                    <br />
+                    [Padre] Arechaga, Ajuria, Felix                    <br />
+                    [Madre] Aguirre, Echezarraga, Ramona                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1852-08-18</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=186296"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=186296&sin_cabecera=true', 'pop186296');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >186037</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=186037" class="link" > Arrese, Aguirre, Margarita</a>
+                    <br />
+                    [Padre] Arrese, Angoitia, Jose                    <br />
+                    [Madre] Aguirre, Ureta, Maria Josefa                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1850-06-09</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=186037"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=186037&sin_cabecera=true', 'pop186037');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >186290</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=186290" class="link" > Arrese, Aguirre, Romulo</a>
+                    <br />
+                    [Padre] Arrese, Angoitia, Jose                    <br />
+                    [Madre] Aguirre, Ureta, Josefa                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1852-07-06</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=186290"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=186290&sin_cabecera=true', 'pop186290');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >303088</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=303088" class="link" > Arteaga, Ajuria, Angel</a>
+                    <br />
+                    [Padre] Arteaga, Cortazar, Pedro                    <br />
+                    [Madre] Ajuria, Bengoechea, Nicolasa                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1853-10-02</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=303088"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=303088&sin_cabecera=true', 'pop303088');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >299773</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=299773" class="link" > Arteaga, Ajuria, Epifania</a>
+                    <br />
+                    [Padre] Arteaga, Cortazar, Pedro                    <br />
+                    [Madre] Ajuria, Bengoechea, Nicolasa                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1856-04-07</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=299773"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=299773&sin_cabecera=true', 'pop299773');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >186080</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=186080" class="link" > Arteaga, Ajuria, Ysidro</a>
+                    <br />
+                    [Padre] Arteaga, Cortazar, Pedro                    <br />
+                    [Madre] Ajuria, Bengoechea, Nicolasa                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1851-05-15</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=186080"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=186080&sin_cabecera=true', 'pop186080');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >285855</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=285855" class="link" > Artola, Egaña, Marcelina</a>
+                    <br />
+                    [Padre] Artola, Arizmendi, Jose Ygnacio                    <br />
+                    [Madre] Egaña, Uriarte, Hilaria                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1860-06-02</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=285855"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=285855&sin_cabecera=true', 'pop285855');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >303874</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=303874" class="link" > Artola, Usaola, Vicenta</a>
+                    <br />
+                    [Padre] Artola, Arizmendi, Francisco                    <br />
+                    [Madre] Usaola, Garay Gordovil, Luisa                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1858-07-19</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=303874"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=303874&sin_cabecera=true', 'pop303874');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >285775</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=285775" class="link" > Artola, Usaola, Luis</a>
+                    <br />
+                    [Padre] Artola, Arizmendi, Francisco                    <br />
+                    [Madre] Usaola, Garay Gordovil, Luisa                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1860-08-19</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=285775"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=285775&sin_cabecera=true', 'pop285775');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >285862</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=285862" class="link" > Aspiazu, Ynchaurraga, Higinio</a>
+                    <br />
+                    [Padre] Aspiazu, Gorrino, Jose Ramon                    <br />
+                    [Madre] Ynchaurraga, Arteaga, Aniceta                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1858-01-11</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=285862"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=285862&sin_cabecera=true', 'pop285862');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >186103</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=186103" class="link" > Aspiazu, Ynchaurraga, Silvestra</a>
+                    <br />
+                    [Padre] Aspiazu, Goitana, Jose Ramon                    <br />
+                    [Madre] Ynchaurraga, Arteaga, Aniceta                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1851-12-31</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=186103"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=186103&sin_cabecera=true', 'pop186103');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >303770</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=303770" class="link" > Barrondo, Aguirre, Escolastica</a>
+                    <br />
+                    [Padre] Barrondo, Cortazar, Gregorio                    <br />
+                    [Madre] Aguirre, Bereycua, Yldefonsa                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1858-02-10</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=303770"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=303770&sin_cabecera=true', 'pop303770');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >285901</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=285901" class="link" > Barrondo, Aguirre, Gertrudis</a>
+                    <br />
+                    [Padre] Barrondo, Cortazar, Gregorio                    <br />
+                    [Madre] Aguirre, Bereicua, Yldefonso                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1855-11-16</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=285901"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=285901&sin_cabecera=true', 'pop285901');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >186291</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=186291" class="link" > Barrondo, Aguirre, Apolinar</a>
+                    <br />
+                    [Padre] Barrondo, Cortazar, Gregorio                    <br />
+                    [Madre] Aguirre, Bereicua, Yldefonsa                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1852-07-23</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=186291"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=186291&sin_cabecera=true', 'pop186291');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >299831</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=299831" class="link" > Barrondo, Aguirre, Victor</a>
+                    <br />
+                    [Padre] Barrondo, Cortazar, Gregorio                    <br />
+                    [Madre] Aguirre, Bereicua, Yldefonsa                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1860-07-22</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=299831"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=299831&sin_cabecera=true', 'pop299831');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >299755</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=299755" class="link" > Barrondo, Campo, Cipriana</a>
+                    <br />
+                    [Padre] Barrondo, Aguirre, Yldefonso                    <br />
+                    [Madre] Campo, Bengoechea, Mauricia                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1855-09-26</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=299755"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=299755&sin_cabecera=true', 'pop299755');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >299819</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=299819" class="link" > Barrondo, Lasagabaster, Higinio</a>
+                    <br />
+                    [Padre] Barrondo, Aguirre, Yldefonso                    <br />
+                    [Madre] Lasagabaster, Uriarte, Concepcion                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1859-01-11</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=299819"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=299819&sin_cabecera=true', 'pop299819');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >303194</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=303194" class="link" > Barrondo, Ypiñazar, Florencio</a>
+                    <br />
+                    [Padre] Barrondo, Aguirre, Jose                    <br />
+                    [Madre] Ypiñazar, Aguirre, Marcelina                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1859-02-23</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=303194"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=303194&sin_cabecera=true', 'pop303194');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >299814</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=299814" class="link" > Basterra, Abasolo, Teodora</a>
+                    <br />
+                    [Padre] Basterra, Ureta, Julian                    <br />
+                    [Madre] Abasolo, Aguirre, Rafaela                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1853-11-09</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=299814"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=299814&sin_cabecera=true', 'pop299814');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >285899</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=285899" class="link" > Basterra, Abasolo, Ambrosio</a>
+                    <br />
+                    [Padre] Basterra, Ureta, Julian                    <br />
+                    [Madre] Abasolo, Aguirre, Rafaela                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1859-12-07</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=285899"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=285899&sin_cabecera=true', 'pop285899');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >299800</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=299800" class="link" > Berrospe, Zabala, Lorenza</a>
+                    <br />
+                    [Padre] Berrospe, Gimenez, Jose                    <br />
+                    [Madre] Zabala, Alcatena, Manuela                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1857-08-10</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=299800"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=299800&sin_cabecera=true', 'pop299800');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >186088</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=186088" class="link" > Bilbao, Aguirre, Romulo</a>
+                    <br />
+                    [Padre] Bilbao, -----, Jose                    <br />
+                    [Madre] Aguirre, Sagarraga, Fabiana                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1851-07-06</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=186088"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=186088&sin_cabecera=true', 'pop186088');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >285791</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=285791" class="link" > Cortazar, Arza, Paulo</a>
+                    <br />
+                    [Padre] Cortazar, Aguirre, Domingo                    <br />
+                    [Madre] Arza, Azcunaga, Josefa                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1855-01-25</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=285791"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=285791&sin_cabecera=true', 'pop285791');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >299787</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=299787" class="link" > Cortazar, Arza, Juana</a>
+                    <br />
+                    [Padre] Cortazar, Aguirre, Domingo                    <br />
+                    [Madre] Arza, Azcuenaga, Josefa                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1857-03-08</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=299787"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=299787&sin_cabecera=true', 'pop299787');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >299748</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=299748" class="link" > Cortazar, Arza, Maria</a>
+                    <br />
+                    [Padre] Cortazar, Aguirre, Domingo                    <br />
+                    [Madre] Arza, Azcunaga, Josefa                </td>
+                <td class="subtabla" >
+                    M                </td>
+
+                <td class="subtabla"  >1859-11-08</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=299748"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=299748&sin_cabecera=true', 'pop299748');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >186281</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=186281" class="link" > Cortazar, Arza, Bernabe</a>
+                    <br />
+                    [Padre] Cortazar, Aguirre, Domingo                    <br />
+                    [Madre] Arza, Azcuenaga, Josefa                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1852-06-11</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=186281"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=186281&sin_cabecera=true', 'pop186281');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >303480</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=303480" class="link" > Cortazar, Bilbao, Simeon</a>
+                    <br />
+                    [Padre] Cortazar, Aguirre, Cirilo                    <br />
+                    [Madre] Bilbao, Aguirre, Ynes                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1856-03-18</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=303480"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=303480&sin_cabecera=true', 'pop303480');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+                    <tr>
+                <td class="subtabla" >302764</td>
+                <td valign="top" class="subtabla">
+                    <a href="n_ficha_bautismos.php?id_bautismo=302764" class="link" > Cortazar, Bilbao, Basilio</a>
+                    <br />
+                    [Padre] Cortazar, Aguirre, Cirilo                    <br />
+                    [Madre] Bilbao, Aguirre, Martina                </td>
+                <td class="subtabla" >
+                    H                </td>
+
+                <td class="subtabla"  >1858-04-15</td>
+                <td class="subtabla"  >
+                    Ubidea-Ubidea                </td>
+                <td class="subtabla"  >
+                    San Juan Bautista                </td>
+                <td width="40" class="subtabla"  >
+                    <a href="n_ficha_bautismos.php?id_bautismo=302764"><img alt=""  src="../../imagenes/iconos/ficha_fondo.gif" border="0"></a>                    <a href="#" onclick="abrir_pop_up2('n_ficha_bautismos.php?id_bautismo=302764&sin_cabecera=true', 'pop302764');return false;"><img src="../../imagenes/iconos/windows.gif" alt="" /></a>
+                        </td>
+            </tr>
+            </table>
+    <p align="center">
+    Si no ha encontrado los datos que desea, por favor, realice una<a href="n_indexacion.php">nueva busqueda</a> o p&oacute;ngase en contacto con el AHEB-BEHA</p>
+
+
+
+</div>
+</div>
+<script language="javascript" type="text/javascript">
+//document.getElementById("cargar").style.visibility="hidden";
+</script>
+
+
+</body>
+</html>
