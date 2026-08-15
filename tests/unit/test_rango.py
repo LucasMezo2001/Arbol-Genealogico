@@ -10,12 +10,18 @@ import pytest
 import respx
 
 from arbol_genealogico.config.settings import AppSettings
-from arbol_genealogico.features.scraping.rango import descubrir_max_id
+from arbol_genealogico.features.scraping.rango import descubrir_max_id, descubrir_max_id_ahdss
 from arbol_genealogico.infrastructure.db.models import Sacramento
 from arbol_genealogico.infrastructure.scraper.client import ScraperClient
 
 BASE_URL = "https://internet.ahdv-geah.org"
 FICHA_OK = "<html><body><table><tr><td><span class='negritaform'>ID:</span></td><td>1</td></tr></table></body></html>"
+
+AHDSS_BASE_URL = "https://artxiboa.mendezmende.org"
+AHDSS_FICHA_OK = (
+    '<html><body><table class="detail-view"><tr><th>Nombre</th><td>Ana</td></tr>'
+    "<tr><th>Fecha</th><td>1700-01-01</td></tr></table></body></html>"
+)
 
 
 def _settings(tmp_path: Path) -> AppSettings:
@@ -72,3 +78,53 @@ async def test_descubrir_max_id_con_un_solo_registro(tmp_path: Path) -> None:
         maximo = await descubrir_max_id(client, Sacramento.BAUTISMO)
 
     assert maximo == 1
+
+
+def _settings_ahdss(tmp_path: Path) -> AppSettings:
+    return AppSettings(
+        scraper_base_url=AHDSS_BASE_URL,
+        scraper_min_delay_s=0.0,
+        scraper_max_delay_s=0.0,
+        scraper_max_retries=3,
+        scraper_raw_dir=tmp_path,
+    )
+
+
+def _mock_max_id_ahdss(maximo: int) -> None:
+    """A diferencia de ``_mock_max_id`` (un sólo sacramento, monótono), aquí
+    cualquiera de los 3 intentos (b/m/d) de un ID dentro de rango tiene
+    éxito -basta simular que el primero (bautismo) ya lo resuelve- y todos
+    fallan (404) fuera de rango, que es la propiedad que explota
+    ``descubrir_max_id_ahdss`` (ver ``rango.py``)."""
+
+    def responder(request: httpx.Request) -> httpx.Response:
+        id_ = int(request.url.params["id"])
+        if id_ <= maximo:
+            return httpx.Response(200, content=AHDSS_FICHA_OK.encode("utf-8"))
+        return httpx.Response(404, content=b"Not Found")
+
+    respx.get(f"{AHDSS_BASE_URL}/es/busque-partidas-sacramentales/ver.html").mock(side_effect=responder)
+
+
+@pytest.mark.asyncio
+@respx.mock
+async def test_descubrir_max_id_ahdss_encuentra_el_limite_global(tmp_path: Path) -> None:
+    respx.get(f"{AHDSS_BASE_URL}/robots.txt").mock(return_value=httpx.Response(404))
+    _mock_max_id_ahdss(37)
+
+    async with ScraperClient(_settings_ahdss(tmp_path), response_encoding="utf-8") as client:
+        maximo = await descubrir_max_id_ahdss(client)
+
+    assert maximo == 37
+
+
+@pytest.mark.asyncio
+@respx.mock
+async def test_descubrir_max_id_ahdss_sin_registros_devuelve_cero(tmp_path: Path) -> None:
+    respx.get(f"{AHDSS_BASE_URL}/robots.txt").mock(return_value=httpx.Response(404))
+    _mock_max_id_ahdss(0)
+
+    async with ScraperClient(_settings_ahdss(tmp_path), response_encoding="utf-8") as client:
+        maximo = await descubrir_max_id_ahdss(client)
+
+    assert maximo == 0

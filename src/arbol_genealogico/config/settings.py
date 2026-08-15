@@ -23,6 +23,12 @@ class AppSettings(BaseSettings):
     pero sin motor de búsqueda por localidad válido para barrido exhaustivo:
     se recorre por rango de ID de registro (ver ``features/scraping/rango``).
     """
+    scraper_base_url_ahdss: str = "https://artxiboa.mendezmende.org"
+    """Base URL del archivo AHDSS (Gipuzkoa, portal de Méndez Mende).
+    Plataforma distinta de SIGA-AKIS (Yii/Arinka): el ID de registro es
+    global (compartido entre bautismo/matrimonio/difunto) y se recorre por
+    rango igual que AHDV-GEAH, pero probando los 3 sacramentos por ID (ver
+    ``features/scraping/rango``)."""
     scraper_user_agent: str = "arbol-genealogico/0.1 (uso genealogico personal)"
     scraper_min_delay_s: float = 0.8
     scraper_max_delay_s: float = 1.6
@@ -33,6 +39,7 @@ class AppSettings(BaseSettings):
         return {
             Archivo.AHEB_BEHA: self.scraper_base_url,
             Archivo.AHDV_GEAH: self.scraper_base_url_ahdv_geah,
+            Archivo.AHDSS: self.scraper_base_url_ahdss,
         }[archivo]
 
     def raw_dir_for(self, archivo: Archivo) -> Path:

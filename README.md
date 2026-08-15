@@ -2,10 +2,11 @@
 
 Aplicación para gestionar y visualizar un árbol genealógico, con un scraper propio
 que descarga los registros sacramentales (bautismos, matrimonios y defunciones)
-publicados por archivos diocesanos históricos que usan la plataforma SIGA-AKIS:
+publicados por archivos diocesanos históricos:
 
-- [AHEB-BEHA](https://internet.aheb-beha.org/) (Bizkaia)
-- [AHDV-GEAH](https://internet.ahdv-geah.org/) (Álava)
+- [AHEB-BEHA](https://internet.aheb-beha.org/) (Bizkaia) y [AHDV-GEAH](https://internet.ahdv-geah.org/) (Álava),
+  misma plataforma SIGA-AKIS.
+- [AHDSS](https://artxiboa.mendezmende.org/) (Gipuzkoa, portal de Méndez Mende), plataforma distinta (Yii/Arinka).
 
 y los persiste en un Postgres local dockerizado para poder consultarlos offline.
 
@@ -44,7 +45,7 @@ src/arbol_genealogico/
   config/                        # settings (pydantic-settings), paths
   entrypoints/                   # CLI (Typer)
   features/
-    scraping/                    # enumerar_jobs, procesar_listado, procesar_ficha, rango (AHDV-GEAH)
+    scraping/                    # enumerar_jobs, procesar_listado, procesar_ficha, rango (AHDV-GEAH/AHDSS)
   infrastructure/
     db/                          # modelos SQLAlchemy, migraciones Alembic, seeds
     scraper/                     # client.py (HTTP), endpoints.py, parser.py
@@ -73,6 +74,7 @@ logs/                            # logs locales (ignorados por git)
 | `PGADMIN_PORT` / `PGADMIN_EMAIL` / `PGADMIN_PASSWORD` | Acceso a pgAdmin | `8081` |
 | `SCRAPER_BASE_URL` | Dominio del portal SIGA-AKIS de AHEB-BEHA (Bizkaia) | `https://internet.aheb-beha.org` |
 | `SCRAPER_BASE_URL_AHDV_GEAH` | Dominio del portal SIGA-AKIS de AHDV-GEAH (Álava) | `https://internet.ahdv-geah.org` |
+| `SCRAPER_BASE_URL_AHDSS` | Dominio del portal de AHDSS (Gipuzkoa) | `https://artxiboa.mendezmende.org` |
 | `SCRAPER_USER_AGENT` | User-Agent identificable (recomendado incluir un email de contacto) | `arbol-genealogico/0.1 (contacto: tu-email@example.com)` |
 | `SCRAPER_MIN_DELAY_S` / `SCRAPER_MAX_DELAY_S` | Rango de espera aleatoria entre peticiones (segundos) | `0.8` / `1.6` |
 | `SCRAPER_MAX_RETRIES` | Reintentos máximos ante 429/5xx/errores de red | `5` |
@@ -104,12 +106,12 @@ poetry run arbol db seed
 
 ## Ejecución del scraper
 
-Es respetuoso por diseño en ambos archivos: 1 sola petición en vuelo, espera
+Es respetuoso por diseño en los tres archivos: 1 sola petición en vuelo, espera
 aleatoria entre peticiones, backoff exponencial ante errores, respeta
-`robots.txt` y usa un User-Agent identificable. La cola de trabajo
-(`scrape_fichas`) es compartida entre archivos: cada fila sabe a qué archivo
-pertenece (columna `archivo`) y con qué cliente HTTP (dominio/codificación)
-hay que descargarla.
+`robots.txt` (si el portal lo publica) y usa un User-Agent identificable. La
+cola de trabajo (`scrape_fichas`) es compartida entre archivos: cada fila
+sabe a qué archivo pertenece (columna `archivo`) y con qué cliente HTTP
+(dominio/codificación) hay que descargarla.
 
 ### AHEB-BEHA (Bizkaia): por localidad + año
 
@@ -154,10 +156,40 @@ poetry run arbol scrape fichas
 poetry run arbol scrape status
 ```
 
+### AHDSS (Gipuzkoa): por rango de ID, pero global entre sacramentos
+
+Portal ajeno a SIGA-AKIS (Yii/Arinka: `.../busque-partidas-sacramentales/ver.html?id=N&sacramento=b|m|d`).
+Se recorre por rango de ID como AHDV-GEAH, pero con una diferencia
+importante: el ID de registro es **global**, compartido entre los 3
+sacramentos (no hay un espacio de IDs por sacramento). El portal señaliza
+"este ID no es de ese sacramento" con un **404 real** (a diferencia de
+AHDV-GEAH, que devuelve 200 con una página de error sin datos), así que se
+descubre el máximo ID comprobando existencia en cualquiera de los 3
+sacramentos y se encola ese mismo rango `[1, max]` **tres veces** -una por
+sacramento-: 2 de cada 3 filas encoladas acabarán como `vacio` al procesar
+(el ID pertenece a otro sacramento), lo cual es el coste esperado, no un
+error.
+
+AHDSS tampoco expone un código de fondo/parroquia estable en la ficha (a
+diferencia de SIGA-AKIS): se sintetiza uno determinista a partir de
+nombre+municipio para poder deduplicar parroquias (ver
+`infrastructure/scraper/parser.py`).
+
+```bash
+# 1. Descubre el máximo ID global y encola scrape_fichas [1, max] x3 (b/m/d)
+poetry run arbol scrape rango --archivo ahdss
+
+# 2. Descarga y parsea cada ficha (cola compartida con los demás archivos)
+poetry run arbol scrape fichas --archivo ahdss
+
+# 3. Progreso, desglosado por archivo
+poetry run arbol scrape status
+```
+
 Por defecto, `scrape listados` y `scrape fichas` procesan en lotes de forma
 continua hasta agotar el trabajo pendiente. Para procesar sólo un lote (por
 ejemplo, para hacer una prueba corta) usa `--no-continuo`; `scrape fichas`
-también acepta `--archivo` para limitarse a uno de los dos:
+también acepta `--archivo` para limitarse a uno de los tres:
 
 ```bash
 poetry run arbol scrape listados --lote 5 --no-continuo
@@ -182,7 +214,7 @@ Todo el proceso es reanudable sin pérdida de trabajo:
 ### Multi-archivo: `archivo` como parte de la clave
 
 Cada portal numera sus propios registros de forma independiente (p.ej.
-`id_bautismo=1` existe tanto en AHEB-BEHA como en AHDV-GEAH, y son personas
+`id_bautismo=1` existe en AHEB-BEHA, en AHDV-GEAH y en AHDSS, y son personas
 distintas). Por eso `archivo` forma parte de la clave primaria de
 `bautismos`/`matrimonios`/`defunciones` y de la restricción única de
 `scrape_fichas`. Si vienes de una versión anterior a este soporte
@@ -204,7 +236,7 @@ poetry run arbol query "SELECT archivo, count(*) FROM siga.bautismos GROUP BY ar
 ```
 
 Búsqueda por apellido (opcionalmente acotada a un archivo, ya que `personas`
-es común a ambos):
+es común a los tres):
 
 ```sql
 SELECT b.archivo, b.id_bautismo, b.fecha, p.nombre, p.apellido1, p.apellido2, pq.nombre AS parroquia

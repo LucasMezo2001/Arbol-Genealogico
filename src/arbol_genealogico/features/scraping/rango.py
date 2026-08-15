@@ -7,8 +7,12 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from arbol_genealogico.infrastructure.db.models import Archivo, FichaStatus, Sacramento, ScrapeFicha
 from arbol_genealogico.infrastructure.scraper.client import ScraperClient
-from arbol_genealogico.infrastructure.scraper.endpoints import ficha_param_name, ficha_path
-from arbol_genealogico.infrastructure.scraper.parser import parse_ficha
+from arbol_genealogico.infrastructure.scraper.endpoints import (
+    fetch_ficha_html_ahdss,
+    ficha_param_name,
+    ficha_path,
+)
+from arbol_genealogico.infrastructure.scraper.parser import parse_ficha, parse_ficha_ahdss
 
 logger = logging.getLogger(__name__)
 
@@ -115,5 +119,68 @@ async def descubrir_y_encolar(
             resultado[sacramento] = (0, 0)
             continue
         insertadas = await encolar_rango(session, archivo, sacramento, 1, max_id)
+        resultado[sacramento] = (max_id, insertadas)
+    return resultado
+
+
+# --- AHDSS (Gipuzkoa): el ID de registro es GLOBAL, no por sacramento -----
+#
+# A diferencia de AHDV-GEAH (donde cada sacramento tiene su propio espacio
+# de IDs y la existencia es monótona: existe 1..N y luego nada), en AHDSS
+# el ID lo comparten los 3 sacramentos: un "hueco" en bautismo suele ser un
+# ID que pertenece a matrimonio o difunto, no necesariamente el final de la
+# numeración. La búsqueda binaria de ``descubrir_max_id`` requiere
+# monotonía, así que aquí se sondea la existencia GLOBAL (¿existe en b, m
+# o d?), que sí es densa/monótona de 1 hasta un máximo (comprobado
+# empíricamente sobre el portal real).
+
+
+async def _existe_ficha_ahdss(client: ScraperClient, id_registro: int) -> bool:
+    for sacramento in (Sacramento.BAUTISMO, Sacramento.MATRIMONIO, Sacramento.DIFUNTO):
+        html = await fetch_ficha_html_ahdss(client, sacramento, id_registro)
+        if parse_ficha_ahdss(html, id_registro, sacramento) is not None:
+            return True
+    return False
+
+
+async def descubrir_max_id_ahdss(client: ScraperClient, desde: int = 1) -> int:
+    """Como ``descubrir_max_id``, pero sobre la existencia GLOBAL de un ID
+    (ver nota más arriba), única forma fiable de acotar el rango en AHDSS."""
+    if not await _existe_ficha_ahdss(client, desde):
+        return 0
+
+    lo, hi = desde, desde
+    while hi < LIMITE_BUSQUEDA and await _existe_ficha_ahdss(client, hi):
+        lo = hi
+        hi = hi * 2 if hi > 0 else 1
+
+    while lo < hi:
+        mid = (lo + hi + 1) // 2
+        if await _existe_ficha_ahdss(client, mid):
+            lo = mid
+        else:
+            hi = mid - 1
+    return lo
+
+
+async def descubrir_y_encolar_ahdss(
+    session: AsyncSession,
+    client: ScraperClient,
+    sacramentos: tuple[Sacramento, ...] = (Sacramento.BAUTISMO, Sacramento.MATRIMONIO, Sacramento.DIFUNTO),
+) -> dict[Sacramento, tuple[int, int]]:
+    """Descubre el máximo ID global y encola el mismo rango ``[1, max]``
+    para cada sacramento por separado (ver ``encolar_rango``): cada ID sólo
+    pertenece a uno de los tres, así que 2 de cada 3 filas encoladas
+    terminarán en ``FichaStatus.VACIO`` al procesarlas (coste esperado y
+    documentado en el README, no un error)."""
+    max_id = await descubrir_max_id_ahdss(client)
+    resultado: dict[Sacramento, tuple[int, int]] = {}
+    if max_id == 0:
+        logger.warning("descubrir_y_encolar_ahdss: no se encontró ningún registro en ID=1")
+        for sacramento in sacramentos:
+            resultado[sacramento] = (0, 0)
+        return resultado
+    for sacramento in sacramentos:
+        insertadas = await encolar_rango(session, Archivo.AHDSS, sacramento, 1, max_id)
         resultado[sacramento] = (max_id, insertadas)
     return resultado

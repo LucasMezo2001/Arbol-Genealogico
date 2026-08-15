@@ -25,7 +25,7 @@ from arbol_genealogico.infrastructure.scraper.client import ScraperClient, build
 
 app = typer.Typer(help="CLI del Árbol Genealógico")
 db_app = typer.Typer(help="Gestión de la base de datos (Docker + Alembic + seeds)")
-scrape_app = typer.Typer(help="Orquestación del scraper (AHEB-BEHA y AHDV-GEAH)")
+scrape_app = typer.Typer(help="Orquestación del scraper (AHEB-BEHA, AHDV-GEAH y AHDSS)")
 
 _ARCHIVOS_POR_NOMBRE = {a.value: a for a in Archivo}
 
@@ -149,19 +149,20 @@ def scrape_listados(
 
 @scrape_app.command("rango")
 def scrape_rango(
-    archivo: str = typer.Option("ahdv_geah", help="Archivo a recorrer por rango de ID (aheb_beha|ahdv_geah)"),
+    archivo: str = typer.Option("ahdv_geah", help="Archivo a recorrer por rango de ID (ahdv_geah|ahdss|aheb_beha)"),
     sacramento: str | None = typer.Option(None, help="bautismo|matrimonio|difunto (por defecto, los 3)"),
 ) -> None:
-    """Descubre el máximo ID existente por sacramento y encola scrape_fichas con todo el rango [1, max].
+    """Descubre el máximo ID existente y encola scrape_fichas con todo el rango [1, max].
 
     Pensado para archivos sin motor de búsqueda por localidad válido para
-    barrido exhaustivo (AHDV-GEAH): cada ficha se descarga directamente por
-    ID (como ``n_ficha_bautismos.php?id_bautismo=N``), sin pasar por
-    listados. Los huecos de numeración se descartan al procesar
-    (``FichaStatus.VACIO``), así que es normal que no todos los IDs del
-    rango correspondan a un registro real.
+    barrido exhaustivo (AHDV-GEAH, AHDSS): cada ficha se descarga
+    directamente por ID, sin pasar por listados. Los huecos de numeración
+    se descartan al procesar (``FichaStatus.VACIO``), así que es normal que
+    no todos los IDs del rango correspondan a un registro real -en AHDSS,
+    donde el ID es global entre los 3 sacramentos, es incluso lo esperado
+    para 2 de cada 3 filas encoladas (ver ``features/scraping/rango.py``).
     """
-    from arbol_genealogico.features.scraping.rango import descubrir_y_encolar
+    from arbol_genealogico.features.scraping.rango import descubrir_y_encolar, descubrir_y_encolar_ahdss
 
     archivo_enum = _parse_archivo(archivo)
     sacramentos = (Sacramento(sacramento),) if sacramento else tuple(Sacramento)
@@ -169,6 +170,8 @@ def scrape_rango(
     async def _rango() -> dict[Sacramento, tuple[int, int]]:
         settings = AppSettings()
         async with build_client(settings, archivo_enum) as client, get_session() as session:
+            if archivo_enum == Archivo.AHDSS:
+                return await descubrir_y_encolar_ahdss(session, client, sacramentos)
             return await descubrir_y_encolar(session, client, archivo_enum, sacramentos)
 
     resultado = asyncio.run(_rango())
@@ -180,7 +183,9 @@ def scrape_rango(
 def scrape_fichas(
     lote: int = typer.Option(200, help="Fichas a procesar por lote"),
     continuo: bool = typer.Option(True, help="Repetir hasta agotar las fichas pendientes"),
-    archivo: str | None = typer.Option(None, help="Limitar a un archivo (aheb_beha|ahdv_geah); por defecto, todos"),
+    archivo: str | None = typer.Option(
+        None, help="Limitar a un archivo (aheb_beha|ahdv_geah|ahdss); por defecto, todos"
+    ),
 ) -> None:
     """Descarga y parsea las fichas pendientes, upsertando personas/parroquias/fondos/registros."""
     from arbol_genealogico.features.scraping.procesar_ficha import procesar_fichas

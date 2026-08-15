@@ -87,3 +87,33 @@ async def fetch_ficha_html(client: ScraperClient, sacramento: Sacramento, id_reg
     param = ficha_param_name(sacramento)
     cache_file = ficha_cache_path(client.raw_dir, sacramento, id_registro)
     return await client.get_cached(path, cache_file, params={param: str(id_registro)})
+
+
+# --- AHDSS (Gipuzkoa, portal de Méndez Mende): plataforma Yii/Arinka, ajena
+# a SIGA-AKIS. El ID de registro es GLOBAL (compartido entre los 3
+# sacramentos) y la ficha se pide con "id" + "sacramento" (b/m/d) en vez de
+# un parámetro "id_<sacramento>" propio por tipo. Cuando el ID no
+# corresponde al sacramento pedido, el portal devuelve un 404 real (no una
+# página de error con contenido, como AHDV-GEAH): ver ``allow_statuses`` en
+# ``ScraperClient``.
+AHDSS_FICHA_PATH = "/es/busque-partidas-sacramentales/ver.html"
+
+_AHDSS_SACRAMENTO_PARAM = {
+    Sacramento.BAUTISMO: "b",
+    Sacramento.MATRIMONIO: "m",
+    Sacramento.DIFUNTO: "d",
+}
+
+
+def ahdss_sacramento_param(sacramento: Sacramento) -> str:
+    return _AHDSS_SACRAMENTO_PARAM[sacramento]
+
+
+def ficha_cache_path_ahdss(raw_dir: Path, sacramento: Sacramento, id_registro: int) -> Path:
+    return raw_dir / "ficha" / sacramento.value / f"{id_registro}.html"
+
+
+async def fetch_ficha_html_ahdss(client: ScraperClient, sacramento: Sacramento, id_registro: int) -> str:
+    params = {"id": str(id_registro), "sacramento": _AHDSS_SACRAMENTO_PARAM[sacramento]}
+    cache_file = ficha_cache_path_ahdss(client.raw_dir, sacramento, id_registro)
+    return await client.get_cached(AHDSS_FICHA_PATH, cache_file, params=params, allow_statuses=frozenset({404}))

@@ -209,3 +209,138 @@ def parse_ficha(html: str, id_registro: int) -> FichaCompleta | None:
         # "Fechas del libro" en AHEB-BEHA, "Fechas" en AHDV-GEAH.
         fechas_libro=_clean(datos.get("Fechas del libro") or datos.get("Fechas")),
     )
+
+
+# --- AHDSS (Gipuzkoa, portal de Méndez Mende) ---------------------------
+#
+# Plataforma Yii/Arinka, ajena a SIGA-AKIS: HTML completamente distinto
+# (tablas Bootstrap ``<table class="detail-view"><tr><th>Label</th>
+# <td>Valor</td></tr>``, en vez de ``<span class="negritaform">``) y con
+# convenciones de campo propias (ver ``parse_ficha_ahdss``).
+
+_AHDSS_CODIGO_REFERENCIA_PREFIJO = "Código de Referencia"
+
+
+def _extract_detail_rows_ahdss(soup: BeautifulSoup) -> dict[str, str]:
+    """Sólo las tablas ``detail-view`` (Identificación/Localización/
+    Control); la ficha también trae tablas de tarifas con ``<th
+    scope="row">`` que no queremos mezclar aquí."""
+    datos: dict[str, str] = {}
+    for table in soup.select("table.detail-view"):
+        for tr in table.find_all("tr"):
+            th = tr.find("th")
+            td = tr.find("td")
+            if th is None or td is None:
+                continue
+            label = _clean(th.get_text(" ", strip=True))
+            if label is None:
+                continue
+            label = label.rstrip(":").strip()
+            # "Código de Referencia (Para citaciones)" -> normalizar.
+            if label.startswith(_AHDSS_CODIGO_REFERENCIA_PREFIJO):
+                label = _AHDSS_CODIGO_REFERENCIA_PREFIJO
+            datos[label] = td.get_text(" ", strip=True)
+    return datos
+
+
+def _parse_persona_separada(nombre_raw: str | None, apellidos_raw: str | None) -> PersonaDatos | None:
+    """AHDSS separa "Nombre" y "Apellidos" en dos campos para el titular de
+    bautismos/defunciones (a diferencia de "Nombre y Apellidos" combinado de
+    SIGA-AKIS, o de los campos "Esposo"/"Esposa" del propio AHDSS, que sí
+    vienen combinados en un único campo: ver ``_parse_persona``)."""
+    nombre = _clean(nombre_raw)
+    apellidos = _clean(apellidos_raw)
+    if nombre is None and apellidos is None:
+        return None
+    apellido1 = apellido2 = None
+    if apellidos is not None:
+        partes = [p.strip() for p in apellidos.split(",")]
+        partes = partes + [None] * (2 - len(partes))
+        apellido1, apellido2 = (p if p else None for p in partes[:2])
+    persona = PersonaDatos(nombre=nombre, apellido1=_clean(apellido1), apellido2=_clean(apellido2))
+    return None if persona.is_empty else persona
+
+
+def _split_fondo_ahdss(raw: str | None) -> tuple[str | None, str | None]:
+    """ "Fondo" en AHDSS es texto libre "Parroquia <nombre>, <municipio>" (no
+    trae un código estable como SIGA-AKIS): se separa el municipio -tras la
+    última coma- para poder resolver la localidad igual que en AHDV-GEAH."""
+    value = _clean(raw)
+    if value is None:
+        return None, None
+    if "," in value:
+        parroquia, municipio = value.rsplit(",", 1)
+        return _clean(parroquia), _clean(municipio)
+    return value, None
+
+
+def _synthetic_parroquia_codigo(parroquia_nombre: str | None, municipio_texto: str | None) -> str | None:
+    """AHDSS no expone un código de parroquia/fondo estable en la ficha: se
+    sintetiza uno determinista a partir de nombre+municipio para que el
+    ``ON CONFLICT`` de ``_upsert_parroquia``/``_upsert_fondo`` deduplique
+    correctamente en vez de crear una fila nueva en cada ficha procesada."""
+    if not parroquia_nombre:
+        return None
+    base = f"{parroquia_nombre}|{municipio_texto or ''}".lower()
+    slug = re.sub(r"[^a-z0-9]+", "-", base).strip("-")
+    return f"ahdss:{slug}"[:100]
+
+
+def parse_ficha_ahdss(html: str, id_registro: int, sacramento: Sacramento) -> FichaCompleta | None:
+    """Parsea una ficha del portal AHDSS (Gipuzkoa).
+
+    Devuelve ``None`` cuando no hay tabla de datos que extraer: pasa tanto
+    con el 404 real que devuelve el portal cuando el ID no corresponde a
+    ``sacramento`` (ver ``ScraperClient.get`` / ``fetch_ficha_html_ahdss``,
+    que sirve esa página igualmente para poder distinguir "no existe" de un
+    error de red) como con un hueco genuino de numeración.
+    """
+    soup = BeautifulSoup(html, "lxml")
+    datos = _extract_detail_rows_ahdss(soup)
+    if not datos:
+        return None
+
+    parroquia_nombre, municipio_texto = _split_fondo_ahdss(datos.get("Fondo"))
+    parroquia_codigo = _synthetic_parroquia_codigo(parroquia_nombre, municipio_texto)
+
+    if sacramento == Sacramento.MATRIMONIO:
+        persona = None
+        esposo = _parse_persona(datos.get("Esposo"))
+        esposa = _parse_persona(datos.get("Esposa"))
+    else:
+        # Bautismo/difunto: el titular viene en "Nombre"+"Apellidos" por
+        # separado; "Padre"/"Madre"/"Cónyuge" (si existen) sí vienen
+        # combinados como en SIGA-AKIS.
+        persona = _parse_persona_separada(datos.get("Nombre"), datos.get("Apellidos"))
+        esposo = None
+        esposa = None
+
+    return FichaCompleta(
+        id_registro=id_registro,
+        fecha=_clean(datos.get("Fecha")),
+        persona=persona,
+        padre=_parse_persona(datos.get("Padre")),
+        madre=_parse_persona(datos.get("Madre")),
+        esposo=esposo,
+        esposa=esposa,
+        conyuge=_parse_persona(datos.get("Cónyuge")),
+        edad=_clean(datos.get("Edad")),
+        comentarios=_clean(datos.get("Observaciones")),
+        diocesis=_clean(datos.get("Perteneciente a Diócesis")),
+        territorio_historico=_clean(datos.get("Territorio Histórico")),
+        localidad_texto=None,
+        municipio_texto=municipio_texto,
+        parroquia_codigo=parroquia_codigo,
+        parroquia_nombre=parroquia_nombre,
+        fondo_codigo=parroquia_codigo,
+        fondo_descripcion=_clean(datos.get("Fondo")),
+        codigo_referencia=_clean(datos.get(_AHDSS_CODIGO_REFERENCIA_PREFIJO)),
+        signatura=_clean(datos.get("Signatura")),
+        sig_microfilm=_clean(datos.get("Microfilm")),
+        sig_digital=_clean(datos.get("Identificador Digital")),
+        # "Sig. Digital Libro" no tiene equivalente exacto en AHDSS; se
+        # reutiliza para el título/volumen del libro (p.ej. "13º Bautismos"),
+        # el dato más parecido que expone la ficha.
+        sig_digital_libro=_clean(datos.get("Título")),
+        pagina=_clean(datos.get("Folio/Página")),
+    )

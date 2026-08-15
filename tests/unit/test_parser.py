@@ -7,7 +7,7 @@ from pathlib import Path
 import pytest
 
 from arbol_genealogico.infrastructure.db.models import Sacramento
-from arbol_genealogico.infrastructure.scraper.parser import parse_ficha, parse_listado
+from arbol_genealogico.infrastructure.scraper.parser import parse_ficha, parse_ficha_ahdss, parse_listado
 
 FIXTURES_DIR = Path(__file__).resolve().parents[1] / "fixtures"
 
@@ -204,6 +204,86 @@ class TestParseFichaAhdvGeah:
         assert parse_ficha(html, 846336) is None
 
 
+class TestParseFichaAhdss:
+    """AHDSS (Gipuzkoa, portal de Méndez Mende) usa una plataforma distinta
+    de SIGA-AKIS (Yii/Arinka): tablas ``detail-view`` con ``<th>/<td>`` y
+    convenciones de campo propias (ver notas en ``parser.py``)."""
+
+    def test_ficha_bautismo(self) -> None:
+        html = _load("ficha_bautismo_gipuzkoa_1.html")
+        ficha = parse_ficha_ahdss(html, 308840, Sacramento.BAUTISMO)
+
+        assert ficha is not None
+        assert ficha.fecha == "1835-05-02"
+        assert ficha.persona is not None
+        assert ficha.persona.nombre == "Maria Felipa"
+        assert ficha.persona.apellido1 == "Mendizabal"
+        assert ficha.persona.apellido2 == "Arin"
+        assert ficha.padre is not None
+        assert ficha.padre.nombre == "Pedro"
+        assert ficha.padre.apellido1 == "Mendizabal"
+        assert ficha.padre.apellido2 == "Zubisarreta"
+        assert ficha.madre is not None
+        assert ficha.madre.nombre == "Micaela"
+        assert ficha.madre.apellido1 == "Arin"
+        assert ficha.esposo is None
+        assert ficha.esposa is None
+        assert ficha.diocesis == "Pamplona"
+        assert ficha.territorio_historico == "Gipuzkoa"
+        assert ficha.municipio_texto == "Azkoitia"
+        assert ficha.parroquia_nombre == "Parroquia Nuestra Señora de la Asunción"
+        assert ficha.parroquia_codigo == "ahdss:parroquia-nuestra-se-ora-de-la-asunci-n-azkoitia"
+        assert ficha.fondo_codigo == ficha.parroquia_codigo
+        assert ficha.signatura == "1479/001-01"
+        assert ficha.sig_microfilm == "M274-03"
+        assert ficha.sig_digital == "16-00138-0143"
+        assert ficha.sig_digital_libro == "13º Bautismos"
+        assert ficha.pagina == "292"
+
+    def test_ficha_matrimonio(self) -> None:
+        html = _load("ficha_matrimonio_gipuzkoa_1.html")
+        ficha = parse_ficha_ahdss(html, 1964680, Sacramento.MATRIMONIO)
+
+        assert ficha is not None
+        assert ficha.persona is None
+        assert ficha.esposo is not None
+        assert ficha.esposo.nombre == "Juan"
+        assert ficha.esposo.apellido1 == "Ynsausti"
+        assert ficha.esposo.apellido2 is None
+        assert ficha.esposa is not None
+        assert ficha.esposa.nombre == "Maria"
+        assert ficha.esposa.apellido1 == "Salsamendi"
+        assert ficha.fecha == "1645-04-30"
+        assert ficha.municipio_texto == "Arriaran - Beasain"
+        assert ficha.parroquia_nombre == "Parroquia San Pedro Apóstol"
+        assert ficha.signatura == "1349/005-01"
+        # "Identificador Digital" viene vacío ("----------") en esta ficha.
+        assert ficha.sig_digital is None
+
+    def test_ficha_difunto(self) -> None:
+        html = _load("ficha_difunto_gipuzkoa_1.html")
+        ficha = parse_ficha_ahdss(html, 1000000, Sacramento.DIFUNTO)
+
+        assert ficha is not None
+        assert ficha.persona is not None
+        assert ficha.persona.nombre == "Antonio"
+        assert ficha.persona.apellido1 == "Olazaran"
+        assert ficha.persona.apellido2 is None
+        assert ficha.esposo is None
+        assert ficha.esposa is None
+        assert ficha.comentarios == "Murió en el barrio de Garibai. No testó y fue enterrado en Bidaurreta."
+        assert ficha.diocesis == "Calahorra y La Calzada"
+        assert ficha.municipio_texto == "Oñati"
+        assert ficha.parroquia_nombre == "Parroquia San Miguel Arcángel"
+        assert ficha.signatura == "2688/001-01"
+
+    def test_ficha_inexistente_devuelve_none(self) -> None:
+        """AHDSS devuelve un 404 real (sin tabla ``detail-view``) cuando el
+        ID no corresponde al sacramento pedido, o no existe en absoluto."""
+        html = _load("ficha_gipuzkoa_vacio.html")
+        assert parse_ficha_ahdss(html, 50000, Sacramento.BAUTISMO) is None
+
+
 @pytest.mark.parametrize(
     "fixture",
     [
@@ -218,5 +298,20 @@ class TestParseFichaAhdvGeah:
 def test_ficha_nunca_lanza_para_htmls_reales(fixture: str) -> None:
     html = _load(fixture)
     ficha = parse_ficha(html, 1)
+    assert ficha is not None
+    assert ficha.id_registro == 1
+
+
+@pytest.mark.parametrize(
+    ("fixture", "sacramento"),
+    [
+        ("ficha_bautismo_gipuzkoa_1.html", Sacramento.BAUTISMO),
+        ("ficha_matrimonio_gipuzkoa_1.html", Sacramento.MATRIMONIO),
+        ("ficha_difunto_gipuzkoa_1.html", Sacramento.DIFUNTO),
+    ],
+)
+def test_ficha_ahdss_nunca_lanza_para_htmls_reales(fixture: str, sacramento: Sacramento) -> None:
+    html = _load(fixture)
+    ficha = parse_ficha_ahdss(html, 1, sacramento)
     assert ficha is not None
     assert ficha.id_registro == 1

@@ -27,10 +27,12 @@ logger = logging.getLogger(__name__)
 # pierden si se decodifica como UTF-8 (verificado en tests/fixtures/*.html).
 # AHDV-GEAH, aunque usa la misma plataforma SIGA-AKIS, sirve UTF-8 de verdad
 # (cabecera "Content-Type: text/html; charset=UTF-8", comprobado a mano).
+# AHDSS (Gipuzkoa) también declara y sirve UTF-8 de verdad.
 RESPONSE_ENCODING = "iso-8859-1"
 _RESPONSE_ENCODING_POR_ARCHIVO = {
     Archivo.AHEB_BEHA: "iso-8859-1",
     Archivo.AHDV_GEAH: "utf-8",
+    Archivo.AHDSS: "utf-8",
 }
 
 
@@ -119,7 +121,14 @@ class ScraperClient:
         delay = random.uniform(self.settings.scraper_min_delay_s, self.settings.scraper_max_delay_s)
         await asyncio.sleep(delay)
 
-    async def _request(self, method: str, path: str, **kwargs: object) -> httpx.Response:
+    async def _request(
+        self, method: str, path: str, *, allow_statuses: frozenset[int] = frozenset(), **kwargs: object
+    ) -> httpx.Response:
+        """``allow_statuses`` permite tratar ciertos códigos como respuestas
+        válidas (no reintentables ni excepción), sin encender ``raise_for_status``:
+        AHDSS señaliza "no existe este ID para este sacramento" con un 404 real
+        (a diferencia de AHDV-GEAH, que devuelve 200 con una página de error PHP
+        sin datos: ver ``parser.parse_ficha``/``parse_ficha_ahdss``)."""
         assert self._client is not None, "usar dentro de 'async with ScraperClient() as client'"
         if not self.allowed(path):
             raise PermissionError(f"robots.txt prohíbe acceder a {path}")
@@ -134,7 +143,8 @@ class ScraperClient:
             )
             async def _do() -> httpx.Response:
                 response = await self._client.request(method, path, **kwargs)  # type: ignore[union-attr]
-                response.raise_for_status()
+                if response.status_code not in allow_statuses:
+                    response.raise_for_status()
                 response.encoding = self.response_encoding
                 return response
 
@@ -143,8 +153,14 @@ class ScraperClient:
             finally:
                 await self._throttle()
 
-    async def get(self, path: str, params: dict[str, object] | None = None) -> httpx.Response:
-        return await self._request("GET", path, params=params)
+    async def get(
+        self,
+        path: str,
+        params: dict[str, object] | None = None,
+        *,
+        allow_statuses: frozenset[int] = frozenset(),
+    ) -> httpx.Response:
+        return await self._request("GET", path, params=params, allow_statuses=allow_statuses)
 
     async def post(
         self, path: str, data: dict[str, object] | None = None, params: dict[str, object] | None = None
@@ -158,11 +174,18 @@ class ScraperClient:
     def sha256(text: str) -> str:
         return hashlib.sha256(text.encode("utf-8")).hexdigest()
 
-    async def get_cached(self, path: str, cache_file: Path, params: dict[str, object] | None = None) -> str:
+    async def get_cached(
+        self,
+        path: str,
+        cache_file: Path,
+        params: dict[str, object] | None = None,
+        *,
+        allow_statuses: frozenset[int] = frozenset(),
+    ) -> str:
         """GET con cache en disco: si ``cache_file`` existe, no se hace la petición."""
         if cache_file.exists():
             return _read_cache(cache_file)
-        response = await self.get(path, params=params)
+        response = await self.get(path, params=params, allow_statuses=allow_statuses)
         html = response.text
         cache_file.parent.mkdir(parents=True, exist_ok=True)
         _write_cache(cache_file, html)

@@ -103,6 +103,38 @@ async def test_build_client_usa_dominio_y_encoding_de_ahdv_geah(tmp_path: Path) 
 
 @pytest.mark.asyncio
 @respx.mock
+async def test_build_client_usa_dominio_y_encoding_de_ahdss(tmp_path: Path) -> None:
+    """AHDSS (Gipuzkoa) es una plataforma distinta de SIGA-AKIS, con su
+    propio dominio y cache propia (no debe pisar AHEB-BEHA/AHDV-GEAH)."""
+    otro_dominio = "https://artxiboa.mendezmende.org"
+    respx.get(f"{otro_dominio}/robots.txt").mock(return_value=httpx.Response(404))
+    respx.get(f"{otro_dominio}/pagina.php").mock(return_value=httpx.Response(200, content="Oñati".encode("utf-8")))
+
+    settings = _settings(tmp_path, scraper_base_url_ahdss=otro_dominio)
+    async with build_client(settings, Archivo.AHDSS) as client:
+        assert client.raw_dir == tmp_path / "ahdss"
+        response = await client.get("/pagina.php")
+        assert response.text == "Oñati"
+
+
+@pytest.mark.asyncio
+@respx.mock
+async def test_get_con_allow_statuses_no_lanza_para_404(tmp_path: Path) -> None:
+    """AHDSS señaliza "ID no existe para este sacramento" con un 404 real
+    (a diferencia de AHDV-GEAH, que devuelve 200 con una página de error):
+    ``allow_statuses`` permite tratarlo como respuesta válida en vez de
+    lanzar ``httpx.HTTPStatusError``."""
+    respx.get(f"{BASE_URL}/robots.txt").mock(return_value=httpx.Response(404))
+    respx.get(f"{BASE_URL}/no-existe.php").mock(return_value=httpx.Response(404, content=b"Not Found"))
+
+    async with ScraperClient(_settings(tmp_path)) as client:
+        response = await client.get("/no-existe.php", allow_statuses=frozenset({404}))
+
+    assert response.status_code == 404
+
+
+@pytest.mark.asyncio
+@respx.mock
 async def test_reintenta_ante_500_y_luego_tiene_exito(tmp_path: Path) -> None:
     respx.get(f"{BASE_URL}/robots.txt").mock(return_value=httpx.Response(404))
     ruta = respx.get(f"{BASE_URL}/inestable.php")

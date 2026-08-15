@@ -21,8 +21,13 @@ from arbol_genealogico.infrastructure.db.models import (
     ScrapeFicha,
 )
 from arbol_genealogico.infrastructure.scraper.client import ScraperClient
-from arbol_genealogico.infrastructure.scraper.endpoints import fetch_ficha_html
-from arbol_genealogico.infrastructure.scraper.parser import FichaCompleta, PersonaDatos, parse_ficha
+from arbol_genealogico.infrastructure.scraper.endpoints import fetch_ficha_html, fetch_ficha_html_ahdss
+from arbol_genealogico.infrastructure.scraper.parser import (
+    FichaCompleta,
+    PersonaDatos,
+    parse_ficha,
+    parse_ficha_ahdss,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -122,12 +127,18 @@ def _parse_fecha(raw: str | None) -> dt.date | None:
 
 async def procesar_item(session: AsyncSession, client: ScraperClient, item: ScrapeFicha) -> None:
     try:
-        html = await fetch_ficha_html(client, item.sacramento, item.id_registro)
-        ficha = parse_ficha(html, item.id_registro)
+        if item.archivo == Archivo.AHDSS:
+            # Portal ajeno a SIGA-AKIS: fetch/parse propios (ver rango.py).
+            html = await fetch_ficha_html_ahdss(client, item.sacramento, item.id_registro)
+            ficha = parse_ficha_ahdss(html, item.id_registro, item.sacramento)
+        else:
+            html = await fetch_ficha_html(client, item.sacramento, item.id_registro)
+            ficha = parse_ficha(html, item.id_registro)
 
         if ficha is None:
             # Hueco en la numeración del portal (normal en archivos que se
-            # recorren por rango de ID, p.ej. AHDV-GEAH): no es un error.
+            # recorren por rango de ID, p.ej. AHDV-GEAH/AHDSS) o, en AHDSS,
+            # un ID que pertenece a otro sacramento: no es un error.
             item.status = FichaStatus.VACIO
             item.scraped_at = dt.datetime.now(dt.UTC)
             item.error = None

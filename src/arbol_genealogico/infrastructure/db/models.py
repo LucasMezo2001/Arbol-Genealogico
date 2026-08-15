@@ -35,10 +35,17 @@ class Archivo(str, enum.Enum):
     """Archivo diocesano de origen. Los IDs de registro (``id_bautismo``,
     etc.) los asigna cada portal de forma independiente, así que colisionan
     entre archivos: por eso ``archivo`` forma parte de la clave de los
-    registros sacramentales y de la cola de scraping."""
+    registros sacramentales y de la cola de scraping.
+
+    AHEB_BEHA (Bizkaia) y AHDV_GEAH (Álava) comparten la plataforma
+    SIGA-AKIS. AHDSS (Gipuzkoa, portal de Méndez Mende) es una plataforma
+    distinta (Yii/Arinka): mismo modelo de datos, pero cliente HTTP, parser
+    y descubrimiento de rango propios (ver ``infrastructure/scraper`` y
+    ``features/scraping/rango.py``)."""
 
     AHEB_BEHA = "aheb_beha"
     AHDV_GEAH = "ahdv_geah"
+    AHDSS = "ahdss"
 
 
 class JobStatus(str, enum.Enum):
