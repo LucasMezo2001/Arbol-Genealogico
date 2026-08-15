@@ -9,7 +9,8 @@ import pytest
 import respx
 
 from arbol_genealogico.config.settings import AppSettings
-from arbol_genealogico.infrastructure.scraper.client import ScraperClient
+from arbol_genealogico.infrastructure.db.models import Archivo
+from arbol_genealogico.infrastructure.scraper.client import ScraperClient, build_client
 
 BASE_URL = "https://internet.aheb-beha.org"
 
@@ -81,6 +82,23 @@ async def test_respeta_robots_txt(tmp_path: Path) -> None:
     async with ScraperClient(_settings(tmp_path)) as client:
         with pytest.raises(PermissionError):
             await client.get("/privado/secreto.php")
+
+
+@pytest.mark.asyncio
+@respx.mock
+async def test_build_client_usa_dominio_y_encoding_de_ahdv_geah(tmp_path: Path) -> None:
+    """AHDV-GEAH usa otro dominio y, a diferencia de AHEB-BEHA, sirve UTF-8
+    de verdad (no iso-8859-1): el cliente construido para ese archivo debe
+    reflejarlo, y cachear en una subcarpeta propia para no pisar AHEB-BEHA."""
+    otro_dominio = "https://internet.ahdv-geah.org"
+    respx.get(f"{otro_dominio}/robots.txt").mock(return_value=httpx.Response(404))
+    respx.get(f"{otro_dominio}/pagina.php").mock(return_value=httpx.Response(200, content="Muñoz".encode("utf-8")))
+
+    settings = _settings(tmp_path, scraper_base_url_ahdv_geah=otro_dominio)
+    async with build_client(settings, Archivo.AHDV_GEAH) as client:
+        assert client.raw_dir == tmp_path / "ahdv_geah"
+        response = await client.get("/pagina.php")
+        assert response.text == "Muñoz"
 
 
 @pytest.mark.asyncio

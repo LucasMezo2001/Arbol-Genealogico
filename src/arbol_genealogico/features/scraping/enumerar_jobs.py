@@ -6,7 +6,7 @@ from sqlalchemy import select
 from sqlalchemy.dialects.postgresql import insert as pg_insert
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from arbol_genealogico.infrastructure.db.models import JobStatus, Localidad, Sacramento, ScrapeJob
+from arbol_genealogico.infrastructure.db.models import Archivo, JobStatus, Localidad, Sacramento, ScrapeJob
 
 logger = logging.getLogger(__name__)
 
@@ -22,17 +22,25 @@ async def enumerar_jobs(
 ) -> int:
     """Rellena ``scrape_jobs`` con un job por (sacramento, localidad, año).
 
+    Sólo aplica a AHEB-BEHA: es el único archivo con un motor de búsqueda por
+    localidad+fecha que devuelve el 100% de los registros (ver
+    ``features/scraping/rango.py`` para AHDV-GEAH, que se recorre por rango
+    de ID en vez de por listado).
+
     Granularidad de 1 año: incluso Bilbao (la localidad más grande) tiene del
     orden de mil registros/año por sacramento, muy por debajo del límite
     práctico de páginas por job. Idempotente (ON CONFLICT DO NOTHING).
     """
-    stmt_localidades = select(Localidad.id_localidad).order_by(Localidad.id_localidad)
+    stmt_localidades = (
+        select(Localidad.id_localidad).where(Localidad.archivo == Archivo.AHEB_BEHA).order_by(Localidad.id_localidad)
+    )
     localidad_ids = (await session.execute(stmt_localidades)).scalars().all()
     if not localidad_ids:
         raise RuntimeError("No hay localidades cargadas: ejecuta primero el seed (arbol db seed)")
 
     filas = [
         {
+            "archivo": Archivo.AHEB_BEHA,
             "sacramento": sacramento,
             "id_localidad": id_localidad,
             "anio_ini": anio,

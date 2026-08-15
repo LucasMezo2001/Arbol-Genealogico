@@ -2,8 +2,12 @@
 
 Aplicación para gestionar y visualizar un árbol genealógico, con un scraper propio
 que descarga los registros sacramentales (bautismos, matrimonios y defunciones)
-publicados por el archivo histórico [AHEB-BEHA](https://internet.aheb-beha.org/) y
-los persiste en un Postgres local dockerizado para poder consultarlos offline.
+publicados por archivos diocesanos históricos que usan la plataforma SIGA-AKIS:
+
+- [AHEB-BEHA](https://internet.aheb-beha.org/) (Bizkaia)
+- [AHDV-GEAH](https://internet.ahdv-geah.org/) (Álava)
+
+y los persiste en un Postgres local dockerizado para poder consultarlos offline.
 
 ---
 
@@ -40,7 +44,7 @@ src/arbol_genealogico/
   config/                        # settings (pydantic-settings), paths
   entrypoints/                   # CLI (Typer)
   features/
-    scraping/                    # enumerar_jobs, procesar_listado, procesar_ficha
+    scraping/                    # enumerar_jobs, procesar_listado, procesar_ficha, rango (AHDV-GEAH)
   infrastructure/
     db/                          # modelos SQLAlchemy, migraciones Alembic, seeds
     scraper/                     # client.py (HTTP), endpoints.py, parser.py
@@ -67,7 +71,8 @@ logs/                            # logs locales (ignorados por git)
 | `POSTGRES_PORT` | Puerto expuesto en el host | `5433` |
 | `DATABASE_URL` | URL de conexión (SQLAlchemy async) usada por la app | `postgresql+asyncpg://arbol:arbol@localhost:5433/arbol` |
 | `PGADMIN_PORT` / `PGADMIN_EMAIL` / `PGADMIN_PASSWORD` | Acceso a pgAdmin | `8081` |
-| `SCRAPER_BASE_URL` | Dominio del portal SIGA-AKIS | `https://internet.aheb-beha.org` |
+| `SCRAPER_BASE_URL` | Dominio del portal SIGA-AKIS de AHEB-BEHA (Bizkaia) | `https://internet.aheb-beha.org` |
+| `SCRAPER_BASE_URL_AHDV_GEAH` | Dominio del portal SIGA-AKIS de AHDV-GEAH (Álava) | `https://internet.ahdv-geah.org` |
 | `SCRAPER_USER_AGENT` | User-Agent identificable (recomendado incluir un email de contacto) | `arbol-genealogico/0.1 (contacto: tu-email@example.com)` |
 | `SCRAPER_MIN_DELAY_S` / `SCRAPER_MAX_DELAY_S` | Rango de espera aleatoria entre peticiones (segundos) | `0.8` / `1.6` |
 | `SCRAPER_MAX_RETRIES` | Reintentos máximos ante 429/5xx/errores de red | `5` |
@@ -99,12 +104,19 @@ poetry run arbol db seed
 
 ## Ejecución del scraper
 
-El scraper recorre `sacramento × localidad × año` (1501-1900) usando la
-"búsqueda especial" del portal (sólo localidad + rango de fechas, sin depender
-de apellidos), pagina los listados y descarga la ficha completa de cada
-registro. Es respetuoso por diseño: 1 sola petición en vuelo, espera aleatoria
-entre peticiones, backoff exponencial ante errores, respeta `robots.txt` y usa
-un User-Agent identificable.
+Es respetuoso por diseño en ambos archivos: 1 sola petición en vuelo, espera
+aleatoria entre peticiones, backoff exponencial ante errores, respeta
+`robots.txt` y usa un User-Agent identificable. La cola de trabajo
+(`scrape_fichas`) es compartida entre archivos: cada fila sabe a qué archivo
+pertenece (columna `archivo`) y con qué cliente HTTP (dominio/codificación)
+hay que descargarla.
+
+### AHEB-BEHA (Bizkaia): por localidad + año
+
+Recorre `sacramento × localidad × año` (1501-1900) usando la "búsqueda
+especial" del portal (sólo localidad + rango de fechas, sin depender de
+apellidos), pagina los listados y descarga la ficha completa de cada
+registro.
 
 ```bash
 # 1. Rellena scrape_jobs con todas las combinaciones pendientes
@@ -120,13 +132,37 @@ poetry run arbol scrape fichas
 poetry run arbol scrape status
 ```
 
+### AHDV-GEAH (Álava): por rango de ID
+
+Este portal usa la misma plataforma SIGA-AKIS pero **no tiene** un motor de
+búsqueda que devuelva el 100% de los registros sólo con localidad + fecha (la
+búsqueda simple y la avanzada exigen un apellido real de al menos 3
+caracteres). En cambio, sí permite pedir cada ficha directamente por su ID
+(`n_ficha_bautismos.php?id_bautismo=N`), igual que AHEB-BEHA. Por eso el
+barrido es distinto: se descubre el mayor ID existente por sacramento
+(búsqueda binaria) y se encola el rango `[1, max]` completo; los huecos de
+numeración se descartan al procesar (quedan como `vacio`, no como error).
+
+```bash
+# 1. Descubre el máximo ID por sacramento y encola scrape_fichas [1, max]
+poetry run arbol scrape rango --archivo ahdv_geah
+
+# 2. Descarga y parsea cada ficha (cola compartida con AHEB-BEHA)
+poetry run arbol scrape fichas
+
+# 3. Progreso, desglosado por archivo
+poetry run arbol scrape status
+```
+
 Por defecto, `scrape listados` y `scrape fichas` procesan en lotes de forma
 continua hasta agotar el trabajo pendiente. Para procesar sólo un lote (por
-ejemplo, para hacer una prueba corta) usa `--no-continuo`:
+ejemplo, para hacer una prueba corta) usa `--no-continuo`; `scrape fichas`
+también acepta `--archivo` para limitarse a uno de los dos:
 
 ```bash
 poetry run arbol scrape listados --lote 5 --no-continuo
 poetry run arbol scrape fichas --lote 50 --no-continuo
+poetry run arbol scrape fichas --archivo ahdv_geah
 ```
 
 ### Reanudación
@@ -143,6 +179,20 @@ Todo el proceso es reanudable sin pérdida de trabajo:
 - Los listados guardan además `ultima_pagina`, así que la paginación continúa
   donde se quedó en vez de reempezar desde la página 1.
 
+### Multi-archivo: `archivo` como parte de la clave
+
+Cada portal numera sus propios registros de forma independiente (p.ej.
+`id_bautismo=1` existe tanto en AHEB-BEHA como en AHDV-GEAH, y son personas
+distintas). Por eso `archivo` forma parte de la clave primaria de
+`bautismos`/`matrimonios`/`defunciones` y de la restricción única de
+`scrape_fichas`. Si vienes de una versión anterior a este soporte
+multi-archivo, aplica la migración correspondiente con
+`poetry run alembic upgrade head` **con el scraper parado**: cambia claves de
+tablas que un proceso en marcha podría estar escribiendo con la definición
+antigua en memoria. Tras aplicarla, vuelve a lanzar `scrape fichas`/`scrape
+listados` con normalidad: son reanudables, no se pierde nada de lo ya
+descargado.
+
 ---
 
 ## Consultas SQL de ejemplo
@@ -150,13 +200,14 @@ Todo el proceso es reanudable sin pérdida de trabajo:
 Puedes usar pgAdmin, cualquier cliente Postgres, o el atajo de la CLI:
 
 ```bash
-poetry run arbol query "SELECT count(*) FROM siga.bautismos"
+poetry run arbol query "SELECT archivo, count(*) FROM siga.bautismos GROUP BY archivo"
 ```
 
-Búsqueda por apellido:
+Búsqueda por apellido (opcionalmente acotada a un archivo, ya que `personas`
+es común a ambos):
 
 ```sql
-SELECT b.id_bautismo, b.fecha, p.nombre, p.apellido1, p.apellido2, pq.nombre AS parroquia
+SELECT b.archivo, b.id_bautismo, b.fecha, p.nombre, p.apellido1, p.apellido2, pq.nombre AS parroquia
 FROM siga.bautismos b
 JOIN siga.personas p ON p.id = b.id_persona
 LEFT JOIN siga.parroquias pq ON pq.id = b.id_parroquia
@@ -173,16 +224,16 @@ SELECT hijo.id_bautismo AS bautismo_hijo, hijo.fecha AS fecha_hijo,
 FROM siga.bautismos hijo
 JOIN siga.personas padre ON padre.id = hijo.id_padre
 JOIN siga.bautismos padre_bautismo ON padre_bautismo.id_persona = padre.id
-WHERE hijo.id_bautismo = 198970;
+WHERE hijo.archivo = 'AHEB_BEHA' AND hijo.id_bautismo = 198970;
 ```
 
-Progreso de la descarga por sacramento:
+Progreso de la descarga por archivo y sacramento:
 
 ```sql
-SELECT sacramento, status, count(*)
-FROM siga.scrape_jobs
-GROUP BY sacramento, status
-ORDER BY sacramento, status;
+SELECT archivo, sacramento, status, count(*)
+FROM siga.scrape_fichas
+GROUP BY archivo, sacramento, status
+ORDER BY archivo, sacramento, status;
 ```
 
 ---

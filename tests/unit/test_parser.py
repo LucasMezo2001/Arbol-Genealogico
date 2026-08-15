@@ -136,15 +136,87 @@ class TestParseFicha:
         assert ficha.fondo_codigo == "01.02.01.079"
 
 
+class TestParseFichaAhdvGeah:
+    """AHDV-GEAH (Álava) usa la misma plataforma SIGA-AKIS que AHEB-BEHA pero
+    con etiquetas ligeramente distintas (ver notas en ``parser.py``) y un
+    campo "Municipio" adicional que Bizkaia no tiene."""
+
+    def test_ficha_bautismo(self) -> None:
+        html = _load("ficha_bautismo_araba_1.html")
+        ficha = parse_ficha(html, 1)
+
+        assert ficha is not None
+        assert ficha.sacramento_texto == "BAUTISMOS - Registros originales"
+        assert ficha.fecha == "1616-08-31"
+        assert ficha.persona is not None
+        assert ficha.persona.nombre == "Juan"
+        assert ficha.persona.apellido1 == "Hortiz"
+        assert ficha.persona.apellido2 == "Ybañez"
+        assert ficha.padre is not None
+        assert ficha.padre.nombre == "Jeronimo"
+        assert ficha.madre is not None
+        assert ficha.madre.apellido1 == "Ybañez"
+        assert ficha.diocesis == "Calahorra y la Calzada"
+        assert ficha.territorio_historico == "ÁLAVA"
+        assert ficha.localidad_texto == "Abezia"
+        assert ficha.municipio_texto == "URKABUSTAIZ"
+        assert ficha.parroquia_codigo is None
+        assert ficha.parroquia_nombre == "San Martín"
+        assert ficha.fondo_codigo == "F006.004"
+        assert ficha.fondo_descripcion == (
+            "Fondos Parroquiales / Archivos Parroquiales Abezia - URKABUSTAIZ / San Martín"
+        )
+        assert ficha.sig_digital is None
+        assert ficha.sig_digital_libro == "0022900102"
+        assert ficha.fechas_libro == "1569 - 1726"
+
+    def test_ficha_matrimonio(self) -> None:
+        html = _load("ficha_matrimonio_araba_1.html")
+        ficha = parse_ficha(html, 1)
+
+        assert ficha is not None
+        assert ficha.esposo is not None
+        assert ficha.esposo.nombre == "Domingo"
+        assert ficha.esposo.apellido1 == "Layseca"
+        assert ficha.esposa is not None
+        assert ficha.esposa.nombre == "Casida"
+        assert ficha.municipio_texto == "AYALA"
+        assert ficha.localidad_texto == "Llanteno"
+        assert ficha.parroquia_nombre == "Santiago Apóstol"
+        assert ficha.fondo_codigo == "F006.271"
+
+    def test_ficha_difunto(self) -> None:
+        html = _load("ficha_difunto_araba_1.html")
+        ficha = parse_ficha(html, 1)
+
+        assert ficha is not None
+        assert ficha.persona is not None
+        assert ficha.persona.nombre == "Ysavel"
+        assert ficha.persona.apellido1 == "Alday"
+        assert ficha.municipio_texto == "AYALA"
+        assert ficha.localidad_texto == "Agiñaga"
+        assert ficha.fondo_codigo == "F006.010"
+
+    def test_ficha_inexistente_devuelve_none(self) -> None:
+        """AHDV-GEAH devuelve un error PHP crudo (sin tabla de datos) para IDs
+        que no corresponden a ningún registro real."""
+        html = _load("ficha_bautismo_araba_vacio.html")
+        assert parse_ficha(html, 846336) is None
+
+
 @pytest.mark.parametrize(
     "fixture",
     [
         "ficha_bautismo_198970.html",
         "ficha_matrimonio_39957.html",
         "ficha_difunto_73525.html",
+        "ficha_bautismo_araba_1.html",
+        "ficha_matrimonio_araba_1.html",
+        "ficha_difunto_araba_1.html",
     ],
 )
 def test_ficha_nunca_lanza_para_htmls_reales(fixture: str) -> None:
     html = _load(fixture)
     ficha = parse_ficha(html, 1)
+    assert ficha is not None
     assert ficha.id_registro == 1

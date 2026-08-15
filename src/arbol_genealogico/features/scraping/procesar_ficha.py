@@ -8,10 +8,12 @@ from sqlalchemy.dialects.postgresql import insert as pg_insert
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from arbol_genealogico.infrastructure.db.models import (
+    Archivo,
     Bautismo,
     Defuncion,
     FichaStatus,
     Fondo,
+    Localidad,
     Matrimonio,
     Parroquia,
     Persona,
@@ -43,12 +45,35 @@ async def _upsert_persona(session: AsyncSession, persona: PersonaDatos | None) -
     return result.scalar_one()
 
 
-async def _upsert_parroquia(session: AsyncSession, ficha: FichaCompleta, id_localidad: int) -> int | None:
+async def _upsert_localidad_por_nombre(session: AsyncSession, archivo: Archivo, nombre: str | None) -> int | None:
+    """Resuelve/crea una localidad por nombre para archivos sin ID conocido de antemano.
+
+    AHEB-BEHA siempre trae el ``id_localidad`` desde el job/listado que
+    generó la ficha (ver ``item.id_localidad``); AHDV-GEAH se recorre por
+    rango de ID sin búsqueda previa, así que la localidad sólo se conoce al
+    leer la ficha y hay que resolverla por nombre.
+    """
+    if not nombre:
+        return None
+    stmt = (
+        pg_insert(Localidad)
+        .values(archivo=archivo, nombre=nombre)
+        .on_conflict_do_update(index_elements=[Localidad.archivo, Localidad.nombre], set_={"nombre": nombre})
+        .returning(Localidad.id_localidad)
+    )
+    result = await session.execute(stmt)
+    return result.scalar_one()
+
+
+async def _upsert_parroquia(
+    session: AsyncSession, archivo: Archivo, ficha: FichaCompleta, id_localidad: int | None
+) -> int | None:
     if ficha.parroquia_nombre is None and ficha.parroquia_codigo is None:
         return None
     stmt = (
         pg_insert(Parroquia)
         .values(
+            archivo=archivo,
             codigo=ficha.parroquia_codigo,
             nombre=ficha.parroquia_nombre,
             id_localidad=id_localidad,
@@ -70,12 +95,12 @@ async def _upsert_parroquia(session: AsyncSession, ficha: FichaCompleta, id_loca
     return result.scalar_one()
 
 
-async def _upsert_fondo(session: AsyncSession, ficha: FichaCompleta) -> int | None:
+async def _upsert_fondo(session: AsyncSession, archivo: Archivo, ficha: FichaCompleta) -> int | None:
     if ficha.fondo_codigo is None:
         return None
     stmt = (
         pg_insert(Fondo)
-        .values(codigo=ficha.fondo_codigo, descripcion=ficha.fondo_descripcion)
+        .values(archivo=archivo, codigo=ficha.fondo_codigo, descripcion=ficha.fondo_descripcion)
         .on_conflict_do_update(
             index_elements=[Fondo.codigo],
             set_={"descripcion": ficha.fondo_descripcion},
@@ -100,8 +125,22 @@ async def procesar_item(session: AsyncSession, client: ScraperClient, item: Scra
         html = await fetch_ficha_html(client, item.sacramento, item.id_registro)
         ficha = parse_ficha(html, item.id_registro)
 
-        id_fondo = await _upsert_fondo(session, ficha)
-        id_parroquia = await _upsert_parroquia(session, ficha, item.id_localidad)
+        if ficha is None:
+            # Hueco en la numeración del portal (normal en archivos que se
+            # recorren por rango de ID, p.ej. AHDV-GEAH): no es un error.
+            item.status = FichaStatus.VACIO
+            item.scraped_at = dt.datetime.now(dt.UTC)
+            item.error = None
+            await session.commit()
+            return
+
+        id_localidad = item.id_localidad
+        if id_localidad is None:
+            nombre_localidad = ficha.municipio_texto or ficha.localidad_texto
+            id_localidad = await _upsert_localidad_por_nombre(session, item.archivo, nombre_localidad)
+
+        id_fondo = await _upsert_fondo(session, item.archivo, ficha)
+        id_parroquia = await _upsert_parroquia(session, item.archivo, ficha, id_localidad)
         fecha = _parse_fecha(ficha.fecha)
         campos_comunes = {
             "fecha": fecha,
@@ -116,7 +155,7 @@ async def procesar_item(session: AsyncSession, client: ScraperClient, item: Scra
             "fechas_libro": ficha.fechas_libro,
             "id_fondo": id_fondo,
             "id_parroquia": id_parroquia,
-            "id_localidad": item.id_localidad,
+            "id_localidad": id_localidad,
             "html_sha256": client.sha256(html),
         }
 
@@ -127,13 +166,14 @@ async def procesar_item(session: AsyncSession, client: ScraperClient, item: Scra
             stmt = (
                 pg_insert(Bautismo)
                 .values(
+                    archivo=item.archivo,
                     id_bautismo=item.id_registro,
                     id_persona=id_persona,
                     id_padre=id_padre,
                     id_madre=id_madre,
                     **campos_comunes,
                 )
-                .on_conflict_do_update(index_elements=[Bautismo.id_bautismo], set_=campos_comunes)
+                .on_conflict_do_update(index_elements=[Bautismo.archivo, Bautismo.id_bautismo], set_=campos_comunes)
             )
         elif item.sacramento == Sacramento.MATRIMONIO:
             id_esposo = await _upsert_persona(session, ficha.esposo)
@@ -141,12 +181,15 @@ async def procesar_item(session: AsyncSession, client: ScraperClient, item: Scra
             stmt = (
                 pg_insert(Matrimonio)
                 .values(
+                    archivo=item.archivo,
                     id_matrimonio=item.id_registro,
                     id_esposo=id_esposo,
                     id_esposa=id_esposa,
                     **campos_comunes,
                 )
-                .on_conflict_do_update(index_elements=[Matrimonio.id_matrimonio], set_=campos_comunes)
+                .on_conflict_do_update(
+                    index_elements=[Matrimonio.archivo, Matrimonio.id_matrimonio], set_=campos_comunes
+                )
             )
         else:
             id_persona = await _upsert_persona(session, ficha.persona)
@@ -156,6 +199,7 @@ async def procesar_item(session: AsyncSession, client: ScraperClient, item: Scra
             stmt = (
                 pg_insert(Defuncion)
                 .values(
+                    archivo=item.archivo,
                     id_difunto=item.id_registro,
                     id_persona=id_persona,
                     id_conyuge=id_conyuge,
@@ -165,7 +209,8 @@ async def procesar_item(session: AsyncSession, client: ScraperClient, item: Scra
                     **campos_comunes,
                 )
                 .on_conflict_do_update(
-                    index_elements=[Defuncion.id_difunto], set_={**campos_comunes, "edad": ficha.edad}
+                    index_elements=[Defuncion.archivo, Defuncion.id_difunto],
+                    set_={**campos_comunes, "edad": ficha.edad},
                 )
             )
 
@@ -182,20 +227,39 @@ async def procesar_item(session: AsyncSession, client: ScraperClient, item: Scra
     await session.commit()
 
 
-async def procesar_fichas(session: AsyncSession, client: ScraperClient, limite: int | None = None) -> int:
-    """Procesa fichas `pending` (o `error` con pocos reintentos) una a una."""
+async def procesar_fichas(
+    session: AsyncSession,
+    clients: ScraperClient | dict[Archivo, ScraperClient],
+    limite: int | None = None,
+    archivo: Archivo | None = None,
+) -> int:
+    """Procesa fichas `pending` (o `error` con pocos reintentos) una a una.
+
+    ``clients`` puede ser un único :class:`ScraperClient` (comportamiento
+    histórico, asume AHEB-BEHA) o un diccionario ``{archivo: cliente}`` para
+    procesar la cola compartida con varios archivos a la vez, cada ficha con
+    el cliente (dominio/codificación) que le corresponde.
+    """
+    clientes_por_archivo = clients if isinstance(clients, dict) else {Archivo.AHEB_BEHA: clients}
+
     stmt = (
         select(ScrapeFicha)
         .where(ScrapeFicha.status.in_([FichaStatus.PENDING, FichaStatus.ERROR]))
         .where(ScrapeFicha.retries < 5)
         .order_by(ScrapeFicha.id)
     )
+    if archivo is not None:
+        stmt = stmt.where(ScrapeFicha.archivo == archivo)
     if limite is not None:
         stmt = stmt.limit(limite)
 
     items = (await session.execute(stmt)).scalars().all()
     procesados = 0
     for item in items:
-        await procesar_item(session, client, item)
+        cliente = clientes_por_archivo.get(item.archivo)
+        if cliente is None:
+            logger.warning("Sin cliente configurado para archivo %s; se omite ficha %s", item.archivo, item.id)
+            continue
+        await procesar_item(session, cliente, item)
         procesados += 1
     return procesados

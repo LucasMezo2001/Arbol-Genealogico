@@ -8,7 +8,7 @@ from sqlalchemy import select
 from sqlalchemy.dialects.postgresql import insert as pg_insert
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from arbol_genealogico.infrastructure.db.models import FichaStatus, JobStatus, ScrapeFicha, ScrapeJob
+from arbol_genealogico.infrastructure.db.models import Archivo, FichaStatus, JobStatus, ScrapeFicha, ScrapeJob
 from arbol_genealogico.infrastructure.scraper.client import ScraperClient
 from arbol_genealogico.infrastructure.scraper.endpoints import fetch_listado_html
 from arbol_genealogico.infrastructure.scraper.parser import parse_listado
@@ -24,6 +24,7 @@ async def _encolar_fichas(session: AsyncSession, sacramento: str, id_localidad: 
         return
     filas = [
         {
+            "archivo": Archivo.AHEB_BEHA,
             "id_registro": id_registro,
             "sacramento": sacramento,
             "id_localidad": id_localidad,
@@ -32,7 +33,7 @@ async def _encolar_fichas(session: AsyncSession, sacramento: str, id_localidad: 
         for id_registro in ids
     ]
     stmt = pg_insert(ScrapeFicha).values(filas)
-    stmt = stmt.on_conflict_do_nothing(index_elements=["id_registro", "sacramento"])
+    stmt = stmt.on_conflict_do_nothing(index_elements=["archivo", "id_registro", "sacramento"])
     await session.execute(stmt)
 
 

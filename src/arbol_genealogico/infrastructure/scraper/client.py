@@ -19,12 +19,19 @@ from tenacity import (
 
 from arbol_genealogico.config.paths import resolve_path
 from arbol_genealogico.config.settings import AppSettings
+from arbol_genealogico.infrastructure.db.models import Archivo
 
 logger = logging.getLogger(__name__)
 
-# El portal sirve el HTML declarando iso-8859-1; los acentos se pierden si se
-# decodifica como UTF-8 (verificado en tests/fixtures/*.html).
+# El portal AHEB-BEHA sirve el HTML declarando iso-8859-1; los acentos se
+# pierden si se decodifica como UTF-8 (verificado en tests/fixtures/*.html).
+# AHDV-GEAH, aunque usa la misma plataforma SIGA-AKIS, sirve UTF-8 de verdad
+# (cabecera "Content-Type: text/html; charset=UTF-8", comprobado a mano).
 RESPONSE_ENCODING = "iso-8859-1"
+_RESPONSE_ENCODING_POR_ARCHIVO = {
+    Archivo.AHEB_BEHA: "iso-8859-1",
+    Archivo.AHDV_GEAH: "utf-8",
+}
 
 
 def _is_retryable(exc: BaseException) -> bool:
@@ -45,16 +52,29 @@ class ScraperClient:
     - Cookies de sesión persistentes durante toda la vida del cliente.
     """
 
-    def __init__(self, settings: AppSettings | None = None) -> None:
+    def __init__(
+        self,
+        settings: AppSettings | None = None,
+        *,
+        base_url: str | None = None,
+        raw_dir: Path | None = None,
+        response_encoding: str | None = None,
+    ) -> None:
+        """``base_url``/``raw_dir``/``response_encoding`` permiten reutilizar
+        este cliente con otro archivo diocesano (misma plataforma SIGA-AKIS,
+        distinto dominio y, en el caso de AHDV-GEAH, distinta codificación
+        de respuesta: sirve UTF-8 en vez de iso-8859-1)."""
         self.settings = settings or AppSettings()
-        self.raw_dir: Path = resolve_path(self.settings.scraper_raw_dir)
+        self.base_url = base_url or self.settings.scraper_base_url
+        self.raw_dir: Path = resolve_path(raw_dir or self.settings.scraper_raw_dir)
+        self.response_encoding = response_encoding or RESPONSE_ENCODING
         self._client: httpx.AsyncClient | None = None
         self._lock = asyncio.Lock()
         self._robots: urllib.robotparser.RobotFileParser | None = None
 
     async def __aenter__(self) -> Self:
         self._client = httpx.AsyncClient(
-            base_url=self.settings.scraper_base_url,
+            base_url=self.base_url,
             headers={
                 "User-Agent": self.settings.scraper_user_agent,
                 "Accept-Language": "es-ES,es;q=0.9,eu;q=0.8",
@@ -115,7 +135,7 @@ class ScraperClient:
             async def _do() -> httpx.Response:
                 response = await self._client.request(method, path, **kwargs)  # type: ignore[union-attr]
                 response.raise_for_status()
-                response.encoding = RESPONSE_ENCODING
+                response.encoding = self.response_encoding
                 return response
 
             try:
@@ -163,6 +183,16 @@ class ScraperClient:
         cache_file.parent.mkdir(parents=True, exist_ok=True)
         _write_cache(cache_file, html)
         return html
+
+
+def build_client(settings: AppSettings, archivo: Archivo) -> ScraperClient:
+    """Construye el cliente HTTP apuntando al dominio/codificación del archivo dado."""
+    return ScraperClient(
+        settings,
+        base_url=settings.base_url_for(archivo),
+        raw_dir=settings.raw_dir_for(archivo),
+        response_encoding=_RESPONSE_ENCODING_POR_ARCHIVO[archivo],
+    )
 
 
 def _write_cache(path: Path, text: str) -> None:

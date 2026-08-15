@@ -94,6 +94,7 @@ class FichaCompleta:
     diocesis: str | None = None
     territorio_historico: str | None = None
     localidad_texto: str | None = None
+    municipio_texto: str | None = None
     parroquia_codigo: str | None = None
     parroquia_nombre: str | None = None
     fondo_codigo: str | None = None
@@ -119,12 +120,22 @@ def _split_parroquia(raw: str | None) -> tuple[str | None, str | None]:
 
 
 def _split_fondo(raw: str | None) -> tuple[str | None, str | None]:
+    """Separa código y descripción del campo "Fondo".
+
+    AHEB-BEHA usa un código numérico con puntos seguido de "/" (p.ej.
+    ``01.02.01.067 / Fondos Parroquiales / ...``). AHDV-GEAH usa un código
+    con prefijo de letra seguido de " - " (p.ej. ``F006.004 - Fondos
+    Parroquiales / ...``).
+    """
     value = _clean(raw)
     if value is None:
         return None, None
     partes = [p.strip() for p in value.split("/", 1)]
     if len(partes) == 2 and re.match(r"^[\d.]+$", partes[0]):
         return partes[0], _clean(partes[1])
+    m = re.match(r"^([A-Za-z]?\d[\d.]*)\s*-\s*(.*)$", value)
+    if m:
+        return m.group(1), _clean(m.group(2))
     return None, value
 
 
@@ -147,16 +158,26 @@ def _extract_labelled_rows(soup: BeautifulSoup) -> dict[str, str]:
     return datos
 
 
-def parse_ficha(html: str, id_registro: int) -> FichaCompleta:
+def parse_ficha(html: str, id_registro: int) -> FichaCompleta | None:
+    """Parsea la ficha de detalle de un registro.
+
+    Devuelve ``None`` cuando el ID no corresponde a ningún registro real
+    (hueco en la numeración del portal): no hay filas etiquetadas que
+    extraer, ya sea porque el portal devuelve una página de error (AHDV-GEAH
+    lanza un error PHP crudo) o una página sin la tabla de datos esperada.
+    """
     soup = BeautifulSoup(html, "lxml")
     datos = _extract_labelled_rows(soup)
+    if not datos:
+        return None
 
     parroquia_codigo, parroquia_nombre = _split_parroquia(datos.get("Parroquia"))
     fondo_codigo, fondo_descripcion = _split_fondo(datos.get("Fondo"))
 
     return FichaCompleta(
         id_registro=id_registro,
-        sacramento_texto=_clean(datos.get("Sacramento")),
+        # "Sacramento" en AHEB-BEHA, "Sacramental" en AHDV-GEAH.
+        sacramento_texto=_clean(datos.get("Sacramento") or datos.get("Sacramental")),
         fecha=_clean(datos.get("Fecha")),
         persona=_parse_persona(datos.get("Nombre y Apellidos")),
         padre=_parse_persona(datos.get("Padre") or datos.get("[Padre]")),
@@ -169,6 +190,9 @@ def parse_ficha(html: str, id_registro: int) -> FichaCompleta:
         diocesis=_clean(datos.get("Diócesis")),
         territorio_historico=_clean(datos.get("Territorio histórico")),
         localidad_texto=_clean(datos.get("Localidad")),
+        # Sólo existe en AHDV-GEAH: nivel de concejo/municipio, más amplio
+        # que "Localidad" (que ahí es la aldea/entidad concreta).
+        municipio_texto=_clean(datos.get("Municipio")),
         parroquia_codigo=parroquia_codigo,
         parroquia_nombre=parroquia_nombre,
         fondo_codigo=fondo_codigo,
@@ -177,8 +201,11 @@ def parse_ficha(html: str, id_registro: int) -> FichaCompleta:
         signatura=_clean(datos.get("Signatura")),
         sig_antigua=_clean(datos.get("Sig.Antigua")),
         sig_microfilm=_clean(datos.get("Sig.Microfilm")),
-        sig_digital=_clean(datos.get("Sig.Digital")),
-        sig_digital_libro=_clean(datos.get("Sig. Digital Libro")),
+        # "Sig.Digital" en AHEB-BEHA, "Sig. Imagen Digital" en AHDV-GEAH.
+        sig_digital=_clean(datos.get("Sig.Digital") or datos.get("Sig. Imagen Digital")),
+        # "Sig. Digital Libro" en AHEB-BEHA, "Sig. Libro Digital" en AHDV-GEAH.
+        sig_digital_libro=_clean(datos.get("Sig. Digital Libro") or datos.get("Sig. Libro Digital")),
         pagina=_clean(datos.get("Página/folio")),
-        fechas_libro=_clean(datos.get("Fechas del libro")),
+        # "Fechas del libro" en AHEB-BEHA, "Fechas" en AHDV-GEAH.
+        fechas_libro=_clean(datos.get("Fechas del libro") or datos.get("Fechas")),
     )
