@@ -169,10 +169,21 @@ async def descubrir_y_encolar_ahdss(
     sacramentos: tuple[Sacramento, ...] = (Sacramento.BAUTISMO, Sacramento.MATRIMONIO, Sacramento.DIFUNTO),
 ) -> dict[Sacramento, tuple[int, int]]:
     """Descubre el máximo ID global y encola el mismo rango ``[1, max]``
-    para cada sacramento por separado (ver ``encolar_rango``): cada ID sólo
-    pertenece a uno de los tres, así que 2 de cada 3 filas encoladas
-    terminarán en ``FichaStatus.VACIO`` al procesarlas (coste esperado y
-    documentado en el README, no un error)."""
+    para cada sacramento por separado (ver ``encolar_rango``).
+
+    El ID es global: cada valor pertenece a UN sacramento. Se siguen
+    insertando 3 filas por ID (compatible con ``uq_scrape_ficha`` y con la
+    cola ya existente). Eso es auditoría, no coste HTTP:
+
+    - ×3 de **filas**: 1 DONE + 2 VACIO por ID resuelto (o 3 VACIO si es un
+      hueco real). El worker no borra ni re-siembra las filas ya encoladas.
+    - ×3 de **HTTP**: ya no. ``procesar_item_ahdss`` corta al primer hit
+      (~1-2 GET de media por ID). ``_existe_ficha_ahdss`` (esta búsqueda
+      binaria) ya hacía early-stop; no es el cuello de botella.
+
+    Un seeder futuro podría encolar 1 fila por ID; no hace falta para
+    "arreglar" la cola actual: el worker es la fuente de verdad.
+    """
     max_id = await descubrir_max_id_ahdss(client)
     resultado: dict[Sacramento, tuple[int, int]] = {}
     if max_id == 0:

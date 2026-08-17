@@ -184,10 +184,16 @@ sacramentos (no hay un espacio de IDs por sacramento). El portal señaliza
 "este ID no es de ese sacramento" con un **404 real** (a diferencia de
 AHDV-GEAH, que devuelve 200 con una página de error sin datos), así que se
 descubre el máximo ID comprobando existencia en cualquiera de los 3
-sacramentos y se encola ese mismo rango `[1, max]` **tres veces** -una por
-sacramento-: 2 de cada 3 filas encoladas acabarán como `vacio` al procesar
-(el ID pertenece a otro sacramento), lo cual es el coste esperado, no un
-error.
+sacramentos (early-stop al primer hit) y se encola ese mismo rango
+`[1, max]` **tres veces** —una por sacramento—.
+
+Eso deja **3 filas por ID** en `scrape_fichas` (compatible con la unicidad
+`(archivo, id_registro, sacramento)` y con la cola ya existente). El ×3 de
+**filas** es auditoría: al resolver un ID queda `1 done + 2 vacio` (o
+`3 vacio` si es un hueco real). El ×3 de **HTTP ya no**: el worker agrupa
+por `(archivo, id_registro)`, prueba sacramentos con early-stop y corta
+en cuanto sabe cuál es (~1-2 GET de media, a veces 1). No hace falta
+borrar ni re-sembrar las filas PENDING ya encoladas.
 
 AHDSS tampoco expone un código de fondo/parroquia estable en la ficha (a
 diferencia de SIGA-AKIS): se sintetiza uno determinista a partir de
@@ -195,14 +201,32 @@ nombre+municipio para poder deduplicar parroquias (ver
 `infrastructure/scraper/parser.py`).
 
 ```bash
-# 1. Descubre el máximo ID global y encola scrape_fichas [1, max] x3 (b/m/d)
+# 1. Descubre el máximo ID global y encola scrape_fichas [1, max] x3 filas (b/m/d)
 poetry run arbol scrape rango --archivo ahdss
 
-# 2. Descarga y parsea cada ficha (cola compartida con los demás archivos)
+# 2. Descarga y parsea por ID (no 3 GET por fila); cola compartida con los demás
 poetry run arbol scrape fichas --archivo ahdss
 
 # 3. Progreso, desglosado por archivo
 poetry run arbol scrape status
+```
+
+Verificación de IDs ya cerrados (sólo conteos, **nunca DELETE**):
+
+```sql
+SELECT id_registro,
+       count(*) FILTER (WHERE status = 'DONE')  AS n_done,
+       count(*) FILTER (WHERE status = 'VACIO') AS n_vacio
+FROM siga.scrape_fichas
+WHERE archivo = 'AHDSS'
+GROUP BY id_registro
+HAVING count(*) FILTER (WHERE status IN ('PENDING', 'ERROR')) = 0
+   AND NOT (
+       (count(*) FILTER (WHERE status = 'DONE') = 1
+        AND count(*) FILTER (WHERE status = 'VACIO') = 2)
+       OR count(*) FILTER (WHERE status = 'VACIO') = 3
+   )
+LIMIT 50;
 ```
 
 Por defecto, `scrape listados` y `scrape fichas` procesan en lotes de forma

@@ -158,9 +158,9 @@ def scrape_rango(
     barrido exhaustivo (AHDV-GEAH, AHDSS): cada ficha se descarga
     directamente por ID, sin pasar por listados. Los huecos de numeración
     se descartan al procesar (``FichaStatus.VACIO``), así que es normal que
-    no todos los IDs del rango correspondan a un registro real -en AHDSS,
-    donde el ID es global entre los 3 sacramentos, es incluso lo esperado
-    para 2 de cada 3 filas encoladas (ver ``features/scraping/rango.py``).
+    no todos los IDs del rango correspondan a un registro real. En AHDSS el
+    ID es global: se encolan 3 filas por ID (auditoría: 1 DONE + 2 VACIO),
+    pero el worker no hace 3 GET (early-stop; ver ``procesar_ficha.py``).
     """
     from arbol_genealogico.features.scraping.rango import descubrir_y_encolar, descubrir_y_encolar_ahdss
 
@@ -181,7 +181,10 @@ def scrape_rango(
 
 @scrape_app.command("fichas")
 def scrape_fichas(
-    lote: int = typer.Option(200, help="Fichas a procesar por lote"),
+    lote: int = typer.Option(
+        200,
+        help="Unidades de trabajo por lote (1 fila; en AHDSS, 1 id_registro distinto)",
+    ),
     continuo: bool = typer.Option(True, help="Repetir hasta agotar las fichas pendientes"),
     archivo: str | None = typer.Option(
         None, help="Limitar a un archivo (aheb_beha|ahdv_geah|ahdss); por defecto, todos"
@@ -217,7 +220,7 @@ def scrape_all(
     anio_min: int = typer.Option(1501, help="[AHEB-BEHA] Año inicial del plan (inclusive)"),
     anio_max: int = typer.Option(1900, help="[AHEB-BEHA] Año final del plan (inclusive)"),
     lote_listados: int = typer.Option(50, help="Jobs de listado por lote"),
-    lote_fichas: int = typer.Option(200, help="Fichas por lote"),
+    lote_fichas: int = typer.Option(200, help="Unidades de trabajo de fichas por lote (en AHDSS, IDs distintos)"),
     con_rango: bool = typer.Option(
         False,
         help=(
