@@ -212,6 +212,105 @@ def scrape_fichas(
     typer.echo(f"Fichas procesadas: {total}")
 
 
+@scrape_app.command("all")
+def scrape_all(
+    anio_min: int = typer.Option(1501, help="[AHEB-BEHA] Año inicial del plan (inclusive)"),
+    anio_max: int = typer.Option(1900, help="[AHEB-BEHA] Año final del plan (inclusive)"),
+    lote_listados: int = typer.Option(50, help="Jobs de listado por lote"),
+    lote_fichas: int = typer.Option(200, help="Fichas por lote"),
+    con_rango: bool = typer.Option(
+        False,
+        help=(
+            "También descubrir y encolar el rango completo de AHDV-GEAH y AHDSS "
+            "(millones de IDs; por defecto no, para no encolar Álava/Gipuzkoa por accidente)"
+        ),
+    ),
+    sin_plan: bool = typer.Option(False, help="Saltar la fase de plan (AHEB-BEHA)"),
+    sin_listados: bool = typer.Option(False, help="Saltar la fase de listados (AHEB-BEHA)"),
+    sin_fichas: bool = typer.Option(False, help="Saltar la fase de fichas"),
+    continuo: bool = typer.Option(
+        True,
+        help="Tras encolar, repetir listados+fichas hasta agotar colas (con --no-continuo: un lote de cada)",
+    ),
+) -> None:
+    """Orquesta plan + listados + fichas (y opcionalmente rango) en un solo comando.
+
+    Flujo por defecto:
+
+    1. ``plan`` (AHEB-BEHA): rellena ``scrape_jobs`` si faltan combinaciones.
+    2. Si ``--con-rango``: descubre y encola ``[1, max]`` de AHDV-GEAH y AHDSS.
+    3. Bucle que alterna un lote de ``listados`` (Bizkaia) y un lote de
+       ``fichas`` (cola compartida de los tres archivos) hasta agotar ambas
+       colas, o un solo ciclo de cada uno con ``--no-continuo``.
+
+    Sin ``--con-rango`` no encola Álava/Gipuzkoa nuevos, pero sí procesa las
+    fichas de esos archivos que ya estuvieran pendientes en la cola.
+    """
+    from arbol_genealogico.features.scraping.enumerar_jobs import enumerar_jobs
+    from arbol_genealogico.features.scraping.procesar_ficha import procesar_fichas
+    from arbol_genealogico.features.scraping.procesar_listado import procesar_listados
+    from arbol_genealogico.features.scraping.rango import descubrir_y_encolar, descubrir_y_encolar_ahdss
+
+    settings = AppSettings()
+
+    async def _run() -> None:
+        async with AsyncExitStack() as stack:
+            clientes = {a: await stack.enter_async_context(build_client(settings, a)) for a in Archivo}
+            async with get_session() as session:
+                if not sin_plan:
+                    typer.echo("=== Fase plan (AHEB-BEHA) ===")
+                    jobs_nuevos = await enumerar_jobs(session, anio_min=anio_min, anio_max=anio_max)
+                    typer.echo(f"Jobs nuevos insertados: {jobs_nuevos}")
+
+                if con_rango:
+                    typer.echo("=== Fase rango (AHDV-GEAH) ===")
+                    for sac, (max_id, insertadas) in (
+                        await descubrir_y_encolar(session, clientes[Archivo.AHDV_GEAH], Archivo.AHDV_GEAH)
+                    ).items():
+                        typer.echo(f"ahdv_geah/{sac.value}: max_id={max_id}, nuevas={insertadas}")
+
+                    typer.echo("=== Fase rango (AHDSS) ===")
+                    for sac, (max_id, insertadas) in (
+                        await descubrir_y_encolar_ahdss(session, clientes[Archivo.AHDSS])
+                    ).items():
+                        typer.echo(f"ahdss/{sac.value}: max_id={max_id}, nuevas={insertadas}")
+                else:
+                    typer.echo(
+                        "Omitiendo rango de AHDV-GEAH/AHDSS (pasa --con-rango para encolar su barrido completo)."
+                    )
+
+                if sin_listados and sin_fichas:
+                    typer.echo("Nada más que hacer (--sin-listados y --sin-fichas).")
+                    return
+
+                typer.echo("=== Fase trabajo (listados + fichas) ===")
+                total_listados = 0
+                total_fichas = 0
+                while True:
+                    listados_lote = 0
+                    fichas_lote = 0
+                    if not sin_listados:
+                        listados_lote = await procesar_listados(
+                            session, clientes[Archivo.AHEB_BEHA], limite=lote_listados
+                        )
+                        total_listados += listados_lote
+                        typer.echo(f"Listados en este ciclo: {listados_lote} (acumulado: {total_listados})")
+                    if not sin_fichas:
+                        fichas_lote = await procesar_fichas(session, clientes, limite=lote_fichas)
+                        total_fichas += fichas_lote
+                        typer.echo(f"Fichas en este ciclo: {fichas_lote} (acumulado: {total_fichas})")
+
+                    if not continuo:
+                        break
+                    if listados_lote == 0 and fichas_lote == 0:
+                        break
+
+                typer.echo(f"Listados procesados: {total_listados}")
+                typer.echo(f"Fichas procesadas: {total_fichas}")
+
+    asyncio.run(_run())
+
+
 @scrape_app.command("status")
 def scrape_status() -> None:
     """Muestra el progreso: jobs y fichas por estado, desglosado por archivo."""

@@ -129,3 +129,4 @@ extra/
 data/
 shared_data/
 examples/
+*.dump

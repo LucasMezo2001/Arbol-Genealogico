@@ -113,6 +113,25 @@ cola de trabajo (`scrape_fichas`) es compartida entre archivos: cada fila
 sabe a qué archivo pertenece (columna `archivo`) y con qué cliente HTTP
 (dominio/codificación) hay que descargarla.
 
+### Un solo comando: `scrape all`
+
+Orquesta plan + listados + fichas en un proceso (alterna lotes de listados
+y fichas hasta agotar ambas colas). Por defecto **no** encola el barrido
+completo de Álava/Gipuzkoa (millones de IDs); usa `--con-rango` si lo quieres.
+
+```bash
+# Bizkaia: plan + listados + fichas (y fichas pendientes de otros archivos)
+poetry run arbol scrape all
+
+# Igual + encolar rangos completos de AHDV-GEAH y AHDSS antes de trabajar
+poetry run arbol scrape all --con-rango
+
+# Prueba corta: un ciclo de listados y otro de fichas
+poetry run arbol scrape all --no-continuo --lote-listados 5 --lote-fichas 20
+```
+
+Flags útiles: `--sin-plan`, `--sin-listados`, `--sin-fichas`.
+
 ### AHEB-BEHA (Bizkaia): por localidad + año
 
 Recorre `sacramento × localidad × año` (1501-1900) usando la "búsqueda
