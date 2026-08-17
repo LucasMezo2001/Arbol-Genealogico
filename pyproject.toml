@@ -3,7 +3,6 @@ name = "arbol-genealogico"
 version = "0.1.0"
 description = "Aplicación de árbol genealógico"
 authors = ["Lucas Mezo <lucasmezo2001@gmail.com>"]
-readme = "README.md"
 packages = [
   { include = "arbol_genealogico", from = "src" }
 ]
